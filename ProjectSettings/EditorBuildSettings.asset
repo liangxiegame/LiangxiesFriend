@@ -7,10 +7,10 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Level1.unity
-    guid: ee4b3b17a0e82410a81a54b665577ff0
+    guid: 7a060316a665444b18f4c466a4e2c09c
   - enabled: 1
     path: Assets/Level2.unity
-    guid: 317434efd675f441bb770189259bb10d
+    guid: aa2e1fea5dab040f8ad51cc88562fbb4
   - enabled: 1
     path: Assets/Level3.unity
     guid: caa8c84bd8bbc4645aab46af757a0c25
@@ -24,8 +24,11 @@ EditorBuildSettings:
     path: Assets/Level6.unity
     guid: 76036092e092a4bc59b0fca99711db7e
   - enabled: 1
+    path: Assets/Level7.unity
+    guid: ee4b3b17a0e82410a81a54b665577ff0
+  - enabled: 1
+    path: Assets/Level8.unity
+    guid: 317434efd675f441bb770189259bb10d
+  - enabled: 1
     path: Assets/GameWin.unity
     guid: 55b91c22ba8e149b2a7b6b56fb62a34e
-  - enabled: 1
-    path: Assets/CorgiEngine/ThirdParty/MMTools/SceneLoading/LoadingScreen.unity
-    guid: 888394d52616e5e42b3b54c3f2bbd3eb
