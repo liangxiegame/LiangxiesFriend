@@ -28,7 +28,7 @@ namespace IndieGame
 			if (eventType.EventType == CorgiEngineEventTypes.PlayerDeath)
 			{
 				mData.DeathCount++;
-				DeathCount.text = string.Format ("死亡次数:{0}", mData.DeathCount);
+				DeathCount.text = string.Format ("Death Count : {0}", mData.DeathCount);
 			}
 		}
 			
@@ -47,13 +47,16 @@ namespace IndieGame
 		{
 			if (scene.name == "GameWin")
 			{
-				Debug.LogFormat ("DeathCount:{0}", mData.DeathCount);
+				Debug.LogFormat ("Death Count : {0}", mData.DeathCount);
 
 				CloseSelf ();
-				UIMgr.OpenPanel<UIGameOverPanel> (new UIGameOverPanelData () 
-				{
+				UIMgr.OpenPanel<UIGameOverPanel> (new UIGameOverPanelData () {
 					DeathCountCurrent = mData.DeathCount
 				});
+			}
+			else
+			{
+				LevelName.text = scene.name;
 			}
 		}
 

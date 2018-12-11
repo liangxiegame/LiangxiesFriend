@@ -12,10 +12,12 @@ namespace IndieGame
 		public const string NAME = "UIGamePanel";
 
 		[SerializeField] public Text DeathCount;
+		[SerializeField] public Text LevelName;
 
 		protected override void ClearUIComponents()
 		{
 			DeathCount = null;
+			LevelName = null;
 		}
 
 		private UIGamePanelData mPrivateData = null;
