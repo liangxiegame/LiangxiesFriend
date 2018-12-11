@@ -6,31 +6,34 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Level1.unity
+    path: Assets/Scenes/App.unity
+    guid: 5fee94fa0c4ee44e4b9379227a9b8458
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
     guid: 7a060316a665444b18f4c466a4e2c09c
   - enabled: 1
-    path: Assets/Level2.unity
+    path: Assets/Scenes/Level2.unity
     guid: aa2e1fea5dab040f8ad51cc88562fbb4
   - enabled: 1
-    path: Assets/Level3.unity
+    path: Assets/Scenes/Level3.unity
     guid: caa8c84bd8bbc4645aab46af757a0c25
   - enabled: 1
-    path: Assets/Level4.unity
+    path: Assets/Scenes/Level4.unity
     guid: 71330d41d9065435b9c3a8eca5858b79
   - enabled: 1
-    path: Assets/Level5.unity
+    path: Assets/Scenes/Level5.unity
     guid: 05196c0929cb04c17b3ef307bb32122b
   - enabled: 1
-    path: Assets/Level6.unity
+    path: Assets/Scenes/Level6.unity
     guid: 76036092e092a4bc59b0fca99711db7e
   - enabled: 1
-    path: Assets/Level7.unity
+    path: Assets/Scenes/Level7.unity
     guid: ee4b3b17a0e82410a81a54b665577ff0
   - enabled: 1
-    path: Assets/Level8.unity
+    path: Assets/Scenes/Level8.unity
     guid: 317434efd675f441bb770189259bb10d
   - enabled: 1
-    path: Assets/GameWin.unity
+    path: Assets/Scenes/GameWin.unity
     guid: 55b91c22ba8e149b2a7b6b56fb62a34e
   - enabled: 1
     path: Assets/CorgiEngine/ThirdParty/MMTools/SceneLoading/LoadingScreen.unity
