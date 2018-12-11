@@ -16,21 +16,27 @@ EditorBuildSettings:
     guid: aa2e1fea5dab040f8ad51cc88562fbb4
   - enabled: 1
     path: Assets/Scenes/Level3.unity
-    guid: caa8c84bd8bbc4645aab46af757a0c25
+    guid: c0586ec9d1ed84fa1b407ce74e8536bd
   - enabled: 1
     path: Assets/Scenes/Level4.unity
-    guid: 71330d41d9065435b9c3a8eca5858b79
+    guid: 06f5949a46a3a421cb9b4d76e077d462
   - enabled: 1
     path: Assets/Scenes/Level5.unity
-    guid: 05196c0929cb04c17b3ef307bb32122b
+    guid: caa8c84bd8bbc4645aab46af757a0c25
   - enabled: 1
     path: Assets/Scenes/Level6.unity
-    guid: 76036092e092a4bc59b0fca99711db7e
+    guid: 71330d41d9065435b9c3a8eca5858b79
   - enabled: 1
     path: Assets/Scenes/Level7.unity
-    guid: ee4b3b17a0e82410a81a54b665577ff0
+    guid: 05196c0929cb04c17b3ef307bb32122b
   - enabled: 1
     path: Assets/Scenes/Level8.unity
+    guid: 76036092e092a4bc59b0fca99711db7e
+  - enabled: 1
+    path: Assets/Scenes/Level9.unity
+    guid: ee4b3b17a0e82410a81a54b665577ff0
+  - enabled: 1
+    path: Assets/Scenes/Level10.unity
     guid: 317434efd675f441bb770189259bb10d
   - enabled: 1
     path: Assets/Scenes/GameWin.unity
