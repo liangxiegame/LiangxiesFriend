@@ -54,6 +54,8 @@ namespace IndieGame
 			"Level9",
 			"Level10",
 			"Level11",
+			"Level12",
+			"Level13",
 			"GameWin",
 		};
 

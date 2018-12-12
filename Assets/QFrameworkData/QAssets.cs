@@ -21,6 +21,11 @@ namespace QAssetBundle
         public const string BundleName = "SOUNDS";
         public const string HIT = "HIT";
     }
+    public class Spriteatlas_spriteatlas
+    {
+        public const string BundleName = "SPRITEATLAS_SPRITEATLAS";
+        public const string SPRITEATLAS = "SPRITEATLAS";
+    }
     public class Uiconnect_prefab
     {
         public const string BundleName = "UICONNECT_PREFAB";
