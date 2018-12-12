@@ -25,7 +25,7 @@ namespace IndieGame
 			GameData.DeathCountMin = GameData.DeathCountMin >= mData.DeathCountCurrent ? mData.DeathCountCurrent : GameData.DeathCountMin;
 
 			DeathCountCurrent.text = string.Format ("Death Count : {0}", mData.DeathCountCurrent);
-			DeathCountMin.text = string.Format ("Death Count Reacord : {0}", GameData.DeathCountMin);
+			DeathCountMin.text = string.Format ("Death Count Record : {0}", GameData.DeathCountMin);
 		}
 
 		protected override void ProcessMsg (int eventId,QMsg msg)

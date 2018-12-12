@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using QFramework;
+using UnityEngine.SceneManagement;
 
 namespace IndieGame
 {
@@ -35,6 +36,35 @@ namespace IndieGame
 			{
 				PlayerPrefs.SetInt ("DEATH_COUNT_MIN", value);
 			}
+		}
+	}
+
+
+	public class LevelConfig
+	{
+		static List<string> mLevelNamesOrder = new List<string> () {
+			"Level1",
+			"Level2",
+			"Level3",
+			"Level4",
+			"Level5",
+			"Level6",
+			"Level7",
+			"Level8",
+			"Level9",
+			"Level10",
+			"GameWin",
+		};
+
+		public static string GetNextLevelName()
+		{
+			var curLevelName = SceneManager.GetActiveScene ().name;
+
+			var curLevelIndex = mLevelNamesOrder.IndexOf (curLevelName);
+			curLevelIndex++;
+			var nextLevelName = mLevelNamesOrder [curLevelIndex];
+
+			return nextLevelName;
 		}
 	}
 }

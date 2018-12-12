@@ -253,6 +253,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114982677167877854, guid: fa73941ad112f43ec9e0bc9075218f61,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Death Count Record : None'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa73941ad112f43ec9e0bc9075218f61, type: 2}
   m_IsPrefabParent: 0
