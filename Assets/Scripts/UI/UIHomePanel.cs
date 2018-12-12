@@ -22,7 +22,7 @@ namespace IndieGame
 		{
 			mData = uiData as UIHomePanelData ?? new UIHomePanelData();
 			//please add init code here
-			DeathCountMin.text = string.Format ("最小通关死亡次数:{0}", GameData.DeathCountMin == int.MaxValue ? "无":GameData.DeathCountMin.ToString());
+			DeathCountMin.text = string.Format ("Death Count Min : {0}", GameData.DeathCountMin == int.MaxValue ? "None":GameData.DeathCountMin.ToString());
 		}
 
 		protected override void ProcessMsg (int eventId,QMsg msg)

@@ -16,6 +16,11 @@ namespace QAssetBundle
         public const string BundleName = "ASSETOBJ_PREFAB";
         public const string ASSETOBJ = "ASSETOBJ";
     }
+    public class Sounds
+    {
+        public const string BundleName = "SOUNDS";
+        public const string HIT = "HIT";
+    }
     public class Uiconnect_prefab
     {
         public const string BundleName = "UICONNECT_PREFAB";

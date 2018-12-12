@@ -18,7 +18,7 @@ namespace IndieGame
 		// TODO: Query Mgr's Data
 		public int DeathCount;
 
-		public string InitLevelName = "Level8";
+		public string InitLevelName = "Level10";
 	}
 
 	public partial class UIGamePanel : UIPanel,MMEventListener<CorgiEngineEvent>
@@ -29,6 +29,7 @@ namespace IndieGame
 			{
 				mData.DeathCount++;
 				DeathCount.text = string.Format ("Death Count : {0}", mData.DeathCount);
+				this.SendMsg (new AudioSoundMsg (QAssetBundle.Sounds.HIT));
 			}
 		}
 			
@@ -54,9 +55,13 @@ namespace IndieGame
 					DeathCountCurrent = mData.DeathCount
 				});
 			}
-			else
+			else if (scene.name.StartsWith ("Level"))
 			{
 				LevelName.text = scene.name;
+			}
+			else
+			{
+				LevelName.text = string.Empty;
 			}
 		}
 
