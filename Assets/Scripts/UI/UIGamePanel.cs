@@ -18,7 +18,7 @@ namespace IndieGame
 		// TODO: Query Mgr's Data
 		public int DeathCount;
 
-		public string InitLevelName = "Level10";
+		public string InitLevelName = "Level15";
 	}
 
 	public partial class UIGamePanel : UIPanel,MMEventListener<CorgiEngineEvent>
@@ -30,6 +30,23 @@ namespace IndieGame
 				mData.DeathCount++;
 				DeathCount.text = string.Format ("Death Count : {0}", mData.DeathCount);
 				this.SendMsg (new AudioSoundMsg (QAssetBundle.Sounds.HIT));
+			}
+			else if (eventType.EventType == CorgiEngineEventTypes.Pause)
+			{
+				var pausePanel = UIMgr.GetPanel<UIGamePausePanel> ();
+
+				if (pausePanel)
+				{
+					UIMgr.ClosePanel<UIGamePausePanel> ();
+				}
+				else
+				{
+					UIMgr.OpenPanel<UIGamePausePanel> (UILevel.PopUI);
+				}
+			}
+			else if (eventType.EventType == CorgiEngineEventTypes.UnPause)
+			{
+				UIMgr.ClosePanel<UIGamePausePanel> ();
 			}
 		}
 			

@@ -57,5 +57,5 @@ EditorBuildSettings:
     path: Assets/Scenes/GameWin.unity
     guid: 55b91c22ba8e149b2a7b6b56fb62a34e
   - enabled: 1
-    path: Assets/CorgiEngine/ThirdParty/MMTools/SceneLoading/LoadingScreen.unity
-    guid: 888394d52616e5e42b3b54c3f2bbd3eb
+    path: Assets/Scenes/LoadingScreen.unity
+    guid: 7e6330acfcbae4d399126e30a660d914
