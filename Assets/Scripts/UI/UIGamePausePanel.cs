@@ -9,6 +9,8 @@ using UnityEngine.UI;
 using QFramework;
 using MoreMountains.Tools;
 using MoreMountains.CorgiEngine;
+using UniRx.Triggers;
+using UniRx;
 
 namespace IndieGame
 {
@@ -32,6 +34,16 @@ namespace IndieGame
 
 		protected override void RegisterUIEvent()
 		{
+			BtnHome
+				.transform
+				.Find ("Container/Background")
+				.GetComponent<MMTouchButton> ()
+				.ButtonPressedFirstTime.AddListener (() =>
+			{
+				Log.I ("@@@@");
+				UIMgr.ClosePanel<UIGamePanel> ();
+				CloseSelf ();
+			});
 		}
 
 		protected override void OnShow()

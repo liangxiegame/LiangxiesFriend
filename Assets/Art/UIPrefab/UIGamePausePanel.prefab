@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 95096351005640202}
   - component: {fileID: 114712439814977616}
   m_Layer: 5
-  m_Name: ButtonResume
+  m_Name: BtnResume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,8 +184,9 @@ GameObject:
   - component: {fileID: 224260782735478040}
   - component: {fileID: 95073186854787052}
   - component: {fileID: 114564397161606600}
+  - component: {fileID: 114253077707636334}
   m_Layer: 5
-  m_Name: ButtonLevelSelection
+  m_Name: BtnHome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,7 +254,7 @@ GameObject:
   - component: {fileID: 95221805802554874}
   - component: {fileID: 114519433357357722}
   m_Layer: 5
-  m_Name: ButtonRestart
+  m_Name: BtnRestart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -576,6 +577,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114253077707636334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1714039832271426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4211833ca4e7a4984b2d973425a62933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: 
 --- !u!114 &114261694447985998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -596,8 +610,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8261aa344a446cc4d8fed11f893904eb, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: e56658299b05445ee972f01ae8556cad, type: 3}
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -608,7 +622,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BACK TO LEVEL SELECTION
+  m_Text: Back To Home
 --- !u!114 &114307551723940990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -632,7 +646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d042072253d11428147ba0d074fa39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelName: LevelSelection
+  LevelName: App
 --- !u!114 &114325200663816600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -653,8 +667,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8261aa344a446cc4d8fed11f893904eb, type: 3}
-    m_FontSize: 100
+    m_Font: {fileID: 12800000, guid: e56658299b05445ee972f01ae8556cad, type: 3}
+    m_FontSize: 120
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -798,8 +812,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8261aa344a446cc4d8fed11f893904eb, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: e56658299b05445ee972f01ae8556cad, type: 3}
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -831,8 +845,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8261aa344a446cc4d8fed11f893904eb, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: e56658299b05445ee972f01ae8556cad, type: 3}
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -1106,6 +1120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mSubPanelInfos: []
   PauseSplash: {fileID: 114222654127151458}
+  BtnHome: {fileID: 95073186854787052}
 --- !u!114 &114898608118047396
 MonoBehaviour:
   m_ObjectHideFlags: 1

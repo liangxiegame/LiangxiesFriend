@@ -12,10 +12,12 @@ namespace IndieGame
 		public const string NAME = "UIGamePausePanel";
 
 		[SerializeField] public Image PauseSplash;
+		[SerializeField] public Animator BtnHome;
 
 		protected override void ClearUIComponents()
 		{
 			PauseSplash = null;
+			BtnHome = null;
 		}
 
 		private UIGamePausePanelData mPrivateData = null;
