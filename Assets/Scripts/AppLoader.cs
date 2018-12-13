@@ -37,6 +37,19 @@ namespace IndieGame
 				PlayerPrefs.SetInt ("DEATH_COUNT_MIN", value);
 			}
 		}
+
+
+		public static bool FirstTimeEnterLevel1 {
+
+			get
+			{
+				return PlayerPrefs.GetInt ("FIRST_TIME_ENTER_LEVEL_1", 1) == 1 ? true : false;
+			}
+			set
+			{
+				PlayerPrefs.SetInt ("FIRST_TIME_ENTER_LEVEL_1", value ? 1 : 0);
+			}
+		}
 	}
 
 

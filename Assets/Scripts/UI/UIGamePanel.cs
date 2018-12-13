@@ -10,6 +10,7 @@ using QFramework;
 using UnityEngine.SceneManagement;
 using MoreMountains.CorgiEngine;
 using MoreMountains.Tools;
+using DG.Tweening;
 
 namespace IndieGame
 {
@@ -52,13 +53,16 @@ namespace IndieGame
 			
 		protected override void InitUI(IUIData uiData = null)
 		{
-			mData = uiData as UIGamePanelData ?? new UIGamePanelData();
+			mData = uiData as UIGamePanelData ?? new UIGamePanelData ();
+
+			SceneManager.sceneLoaded += OnSceneLoaded;
 
 			SceneManager.LoadScene (mData.InitLevelName);
 
 			this.MMEventStartListening<CorgiEngineEvent> ();
 
-			SceneManager.sceneLoaded += OnSceneLoaded;
+
+			KeyBoardHelp.Hide ();
 		}
 
 		void OnSceneLoaded(Scene scene,LoadSceneMode mode)
@@ -75,6 +79,15 @@ namespace IndieGame
 			else if (scene.name.StartsWith ("Level"))
 			{
 				LevelName.text = scene.name;
+
+				if (scene.name == "Level1")
+				{
+					if (GameData.FirstTimeEnterLevel1)
+					{
+						ShowKeyBoardHelp ();
+						GameData.FirstTimeEnterLevel1 = false;
+					}
+				}
 			}
 			else
 			{
@@ -87,8 +100,38 @@ namespace IndieGame
 			throw new System.NotImplementedException ();
 		}
 
+
+		Sequence mSequence;
+
+		private void ShowKeyBoardHelp()
+		{
+			if (mSequence != null)
+			{
+				mSequence.Kill ();
+				mSequence = null;
+			}
+
+			KeyBoardHelp.DOKill ();
+
+			KeyBoardHelp.Show ();
+			KeyBoardHelp.ColorAlpha (1.0f);
+
+			mSequence = DOTween.Sequence ()
+				.Append (KeyBoardHelp.DOFade (1.0f, 3.0f))
+				.Append (KeyBoardHelp.DOFade (0.0f, 1.0f))
+				.OnComplete (() =>
+			{
+				KeyBoardHelp.Hide ();
+				mSequence = null;
+			});
+		}
+
 		protected override void RegisterUIEvent()
 		{
+			BtnKeyBoardHelp.onClick.AddListener (() =>
+			{
+				ShowKeyBoardHelp();
+			});
 		}
 
 		protected override void OnShow()

@@ -13,11 +13,15 @@ namespace IndieGame
 
 		[SerializeField] public Text DeathCount;
 		[SerializeField] public Text LevelName;
+		[SerializeField] public Button BtnKeyBoardHelp;
+		[SerializeField] public Text KeyBoardHelp;
 
 		protected override void ClearUIComponents()
 		{
 			DeathCount = null;
 			LevelName = null;
+			BtnKeyBoardHelp = null;
+			KeyBoardHelp = null;
 		}
 
 		private UIGamePanelData mPrivateData = null;
