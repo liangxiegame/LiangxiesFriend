@@ -75,17 +75,13 @@ http://www.sikiedu.com/course/327
 ## 第四章(20 课时) v0.0.4
 
 - [x] [按键提示](https://www.processon.com/view/link/5c1275bce4b00a4d62364074)。
-
 - [x] [关于界面](https://www.processon.com/view/link/5c132ed2e4b0e651c724972c)。
-
 - [x] 叙事界面。
-
-- [ ] 传达的情感、给玩家的感觉。
-
+- [x] 传达的情感、给玩家什么的体验。
+  - [x] 难，耐玩。
+  - [x] 像素风，有色彩。
 - [ ] 学习设计工具 Pixel Kit。
-
 - [ ] 平台的块，自己进行设计。
-
 - [ ] 背景音乐，自己设计也可以。
 
 
@@ -168,6 +164,7 @@ http://www.sikiedu.com/course/327
 - [ ] 角色的名字要想一下。
 - [ ] UI 按钮点击的音效。
 - [ ] 叙事界面有待改进。
+- [ ] 播放完剧情后，会先显示 GamePanel，FadeIn，FadeOut。
 
 ## 游戏制作流程
 
