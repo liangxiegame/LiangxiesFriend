@@ -1,0 +1,502 @@
+﻿
+-MyMML manual-
+
+# File format
+  utf8 text
+
+# Notation
+  nx
+    Number.
+      Ignore leading and traling spaces.
+      Leading zeros are valid.
+
+  sss
+    Identification string.
+      a~z,A~Z,0~9,!#$%&'*+-/=?^_`{|}~.@
+      Case-insensitive.
+      Ignore spaces.
+
+  ddd
+    Data string.
+      Exclude %
+
+  xxx
+    Any string.
+      Remove leading spaces.
+
+  ttt
+    Playing instructions.
+
+  []
+    Optional elements.
+
+  {}
+    Selection elements.
+
+# Term
+  Synchronization
+    Wait for all tracks.
+  Synchronization occurs repeat and expression (ex. |d.c. :| !tempo..).
+  Synchronize upon encountering the same track.
+  ex. t0 t1 t2 t3 t4 <sync> t0 t1 <sync> t1 t0 t4 <sync> t0
+
+# Comments
+  ;
+    Line comment
+
+  //
+    Line comment
+
+  /*
+    Enter block comments.
+
+  */
+    Leave block comments.
+
+  ""
+    ignore comments section ("" will be removed. If you do not want, please add \
+    ex. xx"//\";"yy   -> xx/*"//*;yy
+    **Caution! It can not exceed line breaks
+
+# Definition
+  $t n0=[np:]nc
+    Track assign.
+    n0=0~99
+      trackNo.
+    np=0~15<0>
+      portNo.
+    nc=0~15<0>
+      channelNo.
+    Can not be re-definition.
+
+  $@(sss)=xxx
+    sss
+      tone id
+    xxx
+      tone data
+    ex. $@(piano)=@pm8[...]
+
+  $@<[n0,[n1,]n2]>
+    Specify the preset number.
+    n0
+      bankMSB
+    n1
+      bankLSB
+    n2
+      programNo.
+
+    default
+      <0,127,0>
+    ex.
+      $@<123,3>
+      $@(piano)=xxx
+      $@(piano)=yyy
+      $@(organ)=zzz
+         piano tones are stored to preset#123,0,3
+         organ tone is stored to preset#123,0,4
+
+  $(sss)=ttt
+    Macro definition.
+    sss
+      macro id
+    ttt
+      macro data
+
+  $<sss>=xxx
+    Property setting.
+    sss
+      property id
+    xxx
+      property data
+    ex.
+      $<title>=xxx
+      $<composer>=xxx
+      $<copyright>=xxx
+      $<history>=xxx
+      $<note>=xxx
+      $<contact>=xxx
+      $<SoundFont2>=xxx **load soundfont2**
+
+# Track
+  t nt=ttt
+    nt=0-99
+      trackNo.
+    ttt
+      track data
+    ex. t0=[a+b+]q7 a4b4c4.
+
+# Repeat (with Synchronization)
+  |:
+    Repeating section start.
+
+  :|[nt]
+    Repeat
+    nt=1~8<2>
+      Play count.
+    Go back to the previous |:
+
+  |nr[,nr[,...]] [/nd]
+    Play conditions.
+    nr=1~8
+    nd=1~8<8>
+    Play the remainder of dividing play count by nd is when nr.
+
+  |
+    Only Synchronization.
+
+  ||
+    Remove the conditions.
+
+  |fine
+    Fine
+
+  |${[straight] [with repeats]}[nj]
+    Segno.
+    nj=1~8<1>
+
+  |@coda[nj]
+    Coda.
+    nj=1~8<1>
+
+  |d.c.[nj]
+    Da capo.
+    nj=1~8<1>
+    Jump to top and enable "|to@[nj]
+
+  |d.s.[nj]
+    Dal segno.
+    nj=1~8<1>
+    Jump to |$[nj] and enable "|to@[nj]"
+
+  |to@[nj]
+    to Coda.
+    nj=1~8<1>
+    Jump to |@coda<nj> if this was enabled by { d.s.<nj> d.c.<nj> }
+
+
+# Expression
+  *Effect continued until th next specified.
+  Return to the specified value when the came back in the loop.
+    ex. !tempo120 | aaa |: bbb |!tempo180 ccc :|
+      In this case bbb is always played in tempo120.
+
+  !tempo n0[,n1[.[.[.]]]]
+    n0=1~255:
+      tempo
+    n1=0~63:
+      duration beat *0=immediate
+
+  !velocity n0[,n1[.[.[.]]]]
+    n0=-128~+127
+      The rate of change from current velocity. 1 + (n0 / 128)
+    n1=0~63:
+      duration beat *0=immediate
+
+  !volume n0[,n1[.[.[.]]]]
+    n0=-128~+127
+      The rate of change from current volume. 1 + (n0 / 128)
+    n1=0~63
+      duration beat 0=immediate
+
+  !measure n0/n1
+    n0=1~16<4>
+    n1=1~16<4>
+
+# Section tag
+  *No effect!
+  *User-defined additional data
+  #xxx
+    xxx
+      tag
+
+# Playing instruction
+  *Instruction has to completed in row.
+  *The effect of all setting row only.
+
+  [{~ _}] {a b c d e f g} [=] [{# + - ## ++ --}] [nl[.[.[.]]]] [,[nq] [,[nv]]] [{^ & &&}] [:]
+    Note
+
+  n [n0][,[nl[.[.[.]]]][,[nq][,[nv]]]] [{^ & &&}] [:]
+    Absolute note
+
+  r [nl[.[.[.]]]] [:]
+    Rest
+
+    ~ _
+      1 Octave Up/Down
+
+    # + -
+      Sharp/Sharp/Flat.
+
+    =
+      Natural
+
+    nl=0~128
+      length 1/nl
+        *0=do not key on.
+
+    nq=0~128
+      Quantized gate time.
+        0~8:nq/8 or 9~128:nq/128
+        *0=do not key on.
+
+    nv=[+-]0~127
+      Velocity.
+      0~127:absolute
+      +-0~127:relative
+
+    n0=0~127
+      Absolute note.
+        *0=rest
+
+    ^
+      tie.
+        It joins if the following is the same note.
+
+    &
+      slur.
+        It stretch until the next note.
+
+    &&
+      portament
+        Please set portament time previously.
+
+    :
+      Chord
+        ex. a1:b2:c4 abc will key-on at the same time.
+
+  <
+    1 Octave up
+
+  >
+    1 Octave down
+
+  o[n]
+    n=0~7<3>
+      Octave o3c=NoteNo.60
+
+  l[n[.[.[.]]]]
+    n=0~128<4>
+      Length
+
+  q[n]
+    n=0~128<7>
+      Quantized gate
+
+  v[[{+ -}]n]
+    n=0~127<64>
+      Velocity.
+
+  []
+    default setting.
+    ex. [a+4.b,5][v+1]aa+2vbb4,,2 -> a+4.a++2v+1b,5b4,5,2
+    prior:
+      lqv value < default setting < direct value
+        ex. [a1] l2 a b a3 [a] a -> a1 b2 a3 a2
+
+  {}n
+    n=0~8<0>
+      Be duplicated n times.
+      Can not be nested.
+
+  |
+    Bar. No effficacy in the track.
+
+  @ channel command
+    * It will affect all tracks of the same channel.
+    The effect will continue until it encounters the next setting.
+
+    @(sss)
+      Program change
+      sss
+        tone id
+
+    @<[nbm,[nbl,]]np>
+      Program change (preset tone)
+      nbm=0~127<previous value or 0>
+        BankSelect MSB
+      nbl=0~127<previous value or 0>
+        BankSelect LSB
+      np=0~127<0>
+        program Number
+
+    @v n
+      Channel volume
+      n=0~127<100>
+
+    @e n
+      Expression
+      n=0~127<127>
+
+    @p n
+      Pitch bend
+      n=-8192~+8191<0>
+
+    @m n
+      Modulation
+      n=-127~+127<0>
+
+    @d n
+      Damper
+      n=-127~+127<0>
+        +:open -:close 0:home position
+
+    @br n
+      Pitch bend range
+      n=0~127<2>
+
+    @tn n
+      Tuning
+      n=-8192~8191<0>
+        -100~+100 cent
+
+    @pt n
+      Portament time
+      n=0~127<0>
+
+    @pp n
+      Panpot
+      n=0~127<64>
+        64:center
+
+    @cp n
+      Channel priority
+      n=0~15<8>
+        Smaller is priority
+
+    @pl n
+      Polyphonic
+      n=1~16<16>
+
+    @vm p, n
+      VoiceMask n bits from bit p. ((1 << n) - 1) << p
+      p=0~31
+      n=1~32
+
+  ! sequencer command
+    !t n0[,n1[.[.[.]]]]
+      n0=1~255:
+        tempo
+      n1=0~63:
+        duration beat *0=immediate
+
+    !ve n0[,n1[.[.[.]]]]
+      n0=-128~+127
+        The rate of change from current velocity. 1 + (n0 / 128)
+      n1=0~63:
+        duration beat *0=immediate
+
+    !vl n0[,n1[.[.[.]]]]
+      n0=-128~+127
+        The rate of change from current volume. 1 + (n0 / 128)
+      n1=0~63
+        duration beat 0=immediate
+
+
+  %ddd%
+    User defined event.
+
+  $(sss)
+    Expand the macro.
+    sss
+      Macro id
+
+# Tone param for PM8
+  @pm8[Al Fb op1[WS AE Ml MF Dt Fx KS VS TL AR DR SL SR RR] op2[WS AE Ml MF Dt Fx KS VS TL AR DR SL SR RR] op3[WS AE Ml MF Dt Fx KS VS TL AR DR SL SR RR] op4[WS AE Ml MF Dt Fx KS VS TL AR DR SL SR RR] lfo[WS FQ PM AM AR DR SL SR RR]]
+  Al: algorithm
+    0: fb - 0 - 1 - 2 - 3
+    1: [[fb - 0] + 1] - 2 - 3
+    2: [[fb - 0] + [1 - 2]] - 3
+    3: [[fb - 0 - 1] + 2] - 3
+    4: [fb - 0 - 1] + [2 - 3]
+    5: [fb - 0] - [1 + 2 + 3]
+    6: [fb - 0 - 1] + 2 + 3
+    7: [fb - 0] + 1 + 2 + 3
+  Fb: feedback 0~7
+
+  op1~op4
+  WS: wave style
+    0:sine
+    1:triangle
+    2:sawtooth
+    3:square
+    4:half sine
+    5:reserved
+    6:reserved
+    7:noise
+  AE: amplitude modulation enable 0 or 1
+  Ml: multiple 0~15
+  MF: fraction of multipe Ml.MF (0.0=0.5)
+  Dt: detune 0~7
+  Fx: fixed note number 0=disabled, 1~127=note number
+  KS: key scale 0~3
+  VS: velocity sense
+    0: 1.0 constant
+    1: vel
+    2: vel^2
+    3: vel^4
+    4: vel^2 * 0.3 + 0.82858
+    5: vel^2 * 0.6 + 0.65716
+    7: 0.0 reserved
+  TL: total level 0~127
+  AR: attack rate 0~31
+  DR: decay rate 0~31
+  SL: sustain level 0~15
+  DR: sustain rate 0~31
+  RR: release rate 0~31
+
+  lfo
+  WS:wave style
+    0:sine
+    1:triangle
+    2:sawtooth
+    3:square
+    4~7:reserved
+  FQ: LFO frequency 0~127
+  PM: pitch modulation power
+  AM: amptilude modulation power
+  AR~RR: same as OP1~4
+
+  * The differnce with OPM
+     Base clock.
+     Envelope ratio.
+     LFO(replaced)
+     DT2(removed)
+     WS(added)
+     Fx(added)
+     VS(added)
+     Ml.Mf(extended)
+
+# Tone param for SS8
+  @ss8[ [Resource name] frequency cent P0 P1 P2 P3 P4 Fx env[KS VS TL AR DR SL SR RR] lfo[WS FQ PM AM AR DR SL SR RR]]
+
+  Resource name: wave resource name
+
+  frequency: sampling frequency
+
+  cent: original pitch
+
+  P0: start point
+  P1: loop point
+  P2: release point
+  P3: end point
+
+  Fx: fixed note number 0=disabled, 1~127=note number
+
+  env ..see PM8.opx
+  lfo ..see PM8.lfo
+
+# Tone param for CT8
+  @ct8[ WS Fx Qt [wave table v*32] env[KS VS TL AR DR SL SR RR] lfo[WS FQ PM AM AR DR SL SR RR]]
+
+  WS: wave style
+    0: normal
+    1: short noise
+    2: long noise
+    3: reserved
+
+  Fx: fixed note number 0=disabled, 1~127=note number
+
+  Qt: quantize 0~8:n bits 15:full range
+
+  wave table: 5bit value(0~31) * 32

@@ -26,6 +26,11 @@ namespace QAssetBundle
         public const string BundleName = "SPRITEATLAS_SPRITEATLAS";
         public const string SPRITEATLAS = "SPRITEATLAS";
     }
+    public class Uiaboutpanel_prefab
+    {
+        public const string BundleName = "UIABOUTPANEL_PREFAB";
+        public const string UIABOUTPANEL = "UIABOUTPANEL";
+    }
     public class Uiconnect_prefab
     {
         public const string BundleName = "UICONNECT_PREFAB";
@@ -55,6 +60,11 @@ namespace QAssetBundle
     {
         public const string BundleName = "UIMSG_PREFAB";
         public const string UIMSG = "UIMSG";
+    }
+    public class Uistorypanel_prefab
+    {
+        public const string BundleName = "UISTORYPANEL_PREFAB";
+        public const string UISTORYPANEL = "UISTORYPANEL";
     }
     public class Uitestunirx_prefab
     {

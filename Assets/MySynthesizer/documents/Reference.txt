@@ -1,0 +1,559 @@
+﻿- Class reference -
+
+namespace MySpace
+{
+    // scripts
+    // synthesizer holder
+    class MySyntheStation
+    {
+        // for internal use
+        public void AddSequencer(MyMMLSequencer sequencer)
+        public void RemoveSequencer(MyMMLSequencer sequencer)
+        public uint TickFrequency;
+
+        // my synthesizers
+        public List<MySynthesizer> Synthesizers;
+
+        // mixer volume
+        public float MixerVolume;
+
+        // prepare MyMMLClip
+        public void PrepareClip(MyMMLClip clip);
+    }
+
+    // sequence & tone data holder
+    // for internal use
+    class MyMMLSequenceUnit
+    {
+        public MyMMLSequenceUnit(ToneMap toneMap, MyMMLSequence Sequence);
+        public ToneMap ToneMap;
+        public MyMMLSequence Sequence;
+        public string Error;
+    }
+
+    // sequencer
+    class MyMMLPlayer
+    {
+        // play -> volume 0.0 -> 1.0
+        public float FadeInTime;
+
+        // play -> volume 1.0 -> 0.0
+        public float PlayOutTime;
+
+        // stop -> volume 1.0 -> 0.0
+        public float FadeOutTime;
+
+        // volume scale 0.0 ~ 2.0
+        // seq.VolumeScale = clip.Volume * this.Volume
+        public float Volume;
+
+        // key shift -12 ~ +12
+        // seq.KeyShift = clip.KeyShift + this.KeyShift
+        public int KeyShift;
+
+        // tempo scale 0.0 ~ 2.0
+        // seq.TempoScale = clip.Tempo * this.Tempo
+        public float Tempo
+
+        // playing status
+        public bool Playing;
+
+        // playing clip
+        public MyMMLClip Clip;
+ 
+        // sequencer events. set on play.
+        public event AppDataEventFunc AppDataEvent;
+        public event PlayingEventFunc PlayingEvent;
+
+        // play mmlclip
+        public void Play(MyMMLClip Clip);
+
+        // play mml
+        public MyMMLClip Play(int port, int channel, params string[] mml);
+
+        // stop
+        public void Stop();
+
+        // pause
+        public void Pause();
+
+        // continue
+        public void Continue();
+    }
+
+    // clip selector
+    class MyMMLBox
+    {
+        // connected mmlplayer
+        public MyMMLPlayer Player;
+
+        // connected AudioSource
+        public AudioSource Source;
+
+        // clip count
+        public int Count;
+
+        // clip array
+        public MyMMLClip this[int index];
+
+        // add clip
+        public void Add(MyMMLClip clip);
+
+        // remove clip
+        public void RemoveAt(int index);
+
+        // play clip by index
+        // if clip has audioClip then AudioSource.Play
+        // else MyMMLPlayer.Play
+        public void Play(int index);
+
+        // play clip by name
+        // When there is clips whitch have the same name, it is randomly selected.
+        public void Play(string Name);
+    }
+
+    // mml clip data holder
+    class MyMMLClip
+    {
+        // clip name
+        public string Name;
+
+        // The first part of mml text.
+        public TextAsset TextA;
+
+        // The second part of mml text.
+        public string TextB;
+
+        // The third part of mml text or mid binary
+        public TextAsset TextC;
+
+        // connected text, TextA + TextB + TextC
+        public string Text;
+
+        // generate AudioClip
+        public bool GenerateAudioClip;
+
+        // loop
+        public bool Loop;
+
+        // volume scale
+        public float Volume;
+
+        // tempo scale
+        public float Tempo;
+
+        // key scale
+        public int Key;
+
+        // VoiceMask
+        public uint VoiceMask;
+
+        // AudioClip
+        // When AudioClip is set, mml is not used.
+        public AudioClip AudioClip;
+
+        // prepared data. tones, sequence
+        public MyMMLSequenceUnit Unit;
+
+        // clear prepared data.
+        public void Flush();
+
+        // dirty flag. text was modfied.
+        public bool Dirty;
+
+        // mml parsing error
+        public string Error;
+
+        // prepared flag
+        public bool Prepared;
+
+        // ready flag
+        public bool Ready;
+
+        // valid prepared data
+        public bool Valid;
+
+        // synthe binding
+        public SyntheTypes[] Ports;
+    }
+
+
+    // plugins
+    namespace Synthesizer
+    {
+        class MyMixer
+        {
+            // outputSampleRate: Number of samples per second
+            // offline: false=The output is complemented, true:Only the thing that input is output
+            // bufferSize: msec default:200
+            public MyMixer(uint outputSampleRate, bool offline, uint bufferSize, uint inputFrequency, uint tickFrequency);
+
+            // linear multiplyer default:1.0f
+            public float MasterVolume;
+
+            public uint TickFrequency;
+
+            public uint InputSampleRate;
+
+            public uint OutputSampleRate;
+
+            // TickCallbak is called every ticks.
+            // In onlinemode, this is called from another thread.
+            public event Action TickCallback;
+
+            // Update with connected synthesizers. fill internal buffer.
+            public void Update();
+
+            public void Reset();
+
+            // Merge output to data.
+            // returns outputs length.
+            // It is filled up with the online mode.
+            // Only an existing sapmles are output with offline.
+            public int Output(float[] data, int channels, int length);
+        }
+
+        // midi like channel interface
+        // [] default value [-] not defined
+        // {} Original expansion
+        // () offset value
+        interface IChannel
+        {
+            void NoteOn(byte nn, byte vel);         // [-,-] 0~127, 0~127
+            void NoteOff(byte nn);                  // [-] 0~127
+            void FineTuning(ushort val);            // [0x4000] 0~16383(-8192)
+            void PitchBend(ushort val);             // [0x4000] 0~16383(-8192)
+            void BendRange(byte val);               // [0x02] 1~12
+            void Pressure(byte val);                // [-] 0~127
+            void Damper(byte val);                  // [0] 0~127 open {, 128~255(-256) close }
+            void Modulation(byte val);              // [0] 0~127 {, 128~255(-256) }
+            void Portament(byte val);               // [0] 0~63:off 64~127:on
+            void PortamentTime(byte val);           // [0] 0~127
+            void PortamentCtrl(byte val);           // [-] 0~127
+            void AllNoteOff();
+            void AllSoundOff();
+            void AllReset();
+            void ProgramChange(ToneSet val);
+            void ProgramChange(uint val);
+            void Volume(byte val);                  // [100] 0~127
+            void Expression(byte val);              // [127] 0~127
+            void Panpot(byte val);                  // [64] 0~127
+            void Polyphonic(byte val);              // { [15][0~15](+1) }
+            void Priority(byte val);                // { [8] 0~15 }
+            void VoiceMask(uint val);               // { [0xffffffff] 0~0xffffffff }
+        }
+
+        // my synthesizer base class.
+        abstract class MySynthesizer
+        {
+            // The base frequency is 31250
+            public const uint BaseFrequency;
+
+            // The number of the channels is 16
+            public const int NumChannels;
+
+            // The number of the voices is returned by inherit this.
+            public abstract int MaxNumVoices
+
+            // midi like channel interfaces
+            public Collection<IChannel> Channel
+
+            // voice state. each bit 0=idle 1=playing
+            public uint VoiceState;
+
+            // 127=-0db default:100
+            public void MasterVolume(byte);
+
+            public void Reset();
+
+            // create tone object from string
+            public static ToneSet CreateToneSet(List<string> toneData);
+
+            public bool IsAcceptable(ToneSet tone);
+            public ToneSet GetDefaultTone();
+            public byte GetExclusiveClass(ToneSet toneSet, byte noteNumber, byte velocity);
+        }
+
+        class EnvelopeParam
+        {
+            public byte KS;                 // 2bit key scale
+            public byte VS;                 // 3bit velocity sense
+                                            //  vs0: 1.0 constant
+                                            //  vs1: vel
+                                            //  vs2: vel^2
+                                            //  vs3: vel^4
+                                            //  vs4: vel^2 * 0.3 + 0.82858
+                                            //  vs5: vel^2 * 0.6 + 0.65716
+                                            //  vs7: 0.0 reserved
+            public byte TL;                 // 7bit total level
+            public byte AR;                 // 5bit attack rate
+            public byte DR;                 // 5bit decay rate
+            public byte SL;                 // 4bit sustain level
+            public byte SR;                 // 5bit sustain rate
+            public byte RR;                 // 4bit release rate
+        }
+
+        class LFOParam
+        {
+            public byte WS;                 // 3bit wave style 0:sine,1:triangle,2:sawtooth,3:square,4~7:reserved
+            public byte LF;                 // 7bit LFO frequency
+            public byte LP;                 // 7bit pitch modulation power
+            public byte LA;                 // 7bit amplitude modulation power
+            public EnvelopeParam Env;       // envelope
+        }
+
+        abstract class Tone
+        {
+            public static bool IsValidAsName(string str)
+
+            public abstract string Name
+            public abstract bool Validate();
+            public abstract bool LoadFromString(string text);
+            public abstract Tone Clone()
+        }
+
+        class MySynthesizerPM8.ToneParam.OperatorParam
+        {
+            public byte WS;                 // 3bit wave style 0:sine,1:triangle,2:sawtooth,3:square,4:half sine, 5~6:reserved, 7:noise
+            public byte AE;                 // 1bit amplitude modulation
+            public byte Ml;                 // 4bit multiple
+            public byte MF;                 // 7bit fraction of multiple  Ml.MF (0.0=0.5)
+            public byte Dt;                 // 3bit detune
+            public byte Fx;                 // 7bit fixed note number. 0==disable
+            public EnvelopeParam Env;       // envelope param
+        }
+
+        class MySynthesizerPM8.ToneParam : Tone
+        {
+            public byte ExclusiveClass;
+            public bool Extended;
+            public byte Al;                 // 3bit algorithm
+                                            //  al0 fb-0-1-2-3
+                                            //  al1 [[fb-0]+1]-2-3
+                                            //  al2 [[fb-0]+[1-2]]-3
+                                            //  al3 [[fb-0-1]+2]-3
+                                            //  al4 [fb-0-1]+[2-3]
+                                            //  al5 [fb-0]-[1+2+3]
+                                            //  al6 [fb-0-1]+2+3
+                                            //  al7 [fb-0]+1+2+3
+            public byte Fb;                 // 3bit feedback
+            public OperatorParam Op[4];     // operator params
+            public LFOParam Lfo;            // lfo param
+
+            // formatted text
+            // @pm8[Al Fb
+            // op1[WS AE Ml MF Dt Fx KS VS TL AR DR SL SR RR]
+            // op2[WS AE Ml MF Dt Fx KS VS TL AR DR SL SR RR]
+            // op3[WS AE Ml MF Dt Fx KS VS TL AR DR SL SR RR]
+            // op4[WS AE Ml MF Dt Fx KS VS TL AR DR SL SR RR]
+            // lfo[WS FQ PM AM AR DR SL SR RR]]
+            // true:success
+            public bool LoadFromString(string text);
+
+            public static ToneParam CreateFromString(string str);
+
+            public string ToString();
+
+            public Tone Clone()
+        }
+        class MySynthesizerPM8 : MySynthesizer
+        {
+            // construct and connect to mixer.
+            public MySynthesizerPM8(MyMixer mix);
+        }
+
+        class MySynthesizerSS8.ToneParam : Tone
+        {
+            public byte ExclusiveClass;
+            public bool Extended;               //
+            public string ResourceName;         // resource name. This is filename in the usual.
+            public int Frequency;               // original sampling rate
+            public int Pitch;                   // original pitch[cent]
+            public int P0;                      // start position in samples.
+            public int P1;                      // begining point at loop.
+            public int P2;                      // overlap area.
+            public int P3;                      // loop end.
+            public int P4;                      // the end of tone.
+                                                // P0 <= P1 <= P2 <= P3 <= P4
+                                                // P2,P3,P4 can less than 0, -> sapmle.Length
+                                                // P1 == P2: don't loop
+                                                // P3 < P4: part of release.
+            public byte Fx;                     // Fixed note 1~127:note number, 0:disable
+            public PM8.EnvelopeParam Env;       // envelope param
+            public PM8.LFOParam Lfo;            // lfo param
+
+            // formatted text
+            // @ss8[ [ResourceName] Frequency Pitch P0 P1 P2 P3 P4
+            // env[KS VS TL AR DR SL SR RR]
+            // lfo[WS FQ PM AM AR DR SL SR RR]]
+            // true:success
+            public bool LoadFromString(string text);
+
+            public static ToneParam CreateFromString(string str);
+
+            // monaural
+            // Need to set sampling data.
+            // AudioClip ac = Resource.Load(ResourceName); ...; ac.GetData(); ...
+            // false: out of range P0~P3
+            public bool SetSamples(float [] Samples);
+        }
+        class MySynthesizerSS8
+        {
+            // construct and connect to mixer.
+            public MySynthesizerSS8(MyMixer mix);
+        }
+
+        class MySynthesizerCT8.ToneParam : Tone
+        {
+            public uint8_t ExclusiveClass;
+            public bool Extended;
+            public byte WS;                     // wave style 0:normal, 1:short noize, 2:long noize
+            public byte Fx;                     // fixed note 1~127:note number 0:disable
+            public byte Qt;                     // quantize 1~8:2^n 0:disable
+            public byte[] WT;                   // wave table 0~31*32 entry
+            public EnvelopeParam Env;           // envelope param
+            public LFOParam Lfo;                // lfo param
+
+            // formatted text
+            // @ct8[ WS Fx [31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31]
+            // env[KS VS TL AR DR SL SR RR]
+            // lfo[WS FQ PM AM AR DR SL SR RR]]
+            // true:success
+            public bool LoadFromString(string text);
+
+            public static ToneParam CreateFromString(string str);
+        }
+
+        class MySynthesizerCT8
+        {
+            // construct and connect to mixer.
+            public MySynthesizerCT8(MyMixer mix);
+        }
+
+        public delegate void MyMMLSequencer.AppDataEventFunc(MyMMLSequencer.EventLocation loc, string data);
+        public delegate void MyMMLSequencer.PlayingEventFunc(MyMMLSequencer.EventLocation loc, UInt32 step, UInt32 gate, MyMMLSequence.Instruction inst);
+        public class MyMMLSequencer.EventLocation
+        {
+            public MyMMLSequence Sequence;
+            public int Port;
+            public int Channel;
+            public int TrackNo;
+            public int SectionIndex;
+            public int InstructionIndex;
+            public uint TickCount;
+            public uint MeasureCount;
+            public uint StepTime;
+        }
+
+        class MyMMLSequencer
+        {
+            public UInt32 TimeBase;
+
+            // mml %appDataEvent%
+            public event AppDataEventFunc AppDataEvent;
+
+            // Called by all instructions
+            // for debug and monitor
+            public event PlayingEventFunc PlayingEvent;
+
+            // Determine the next section
+            public event NextSectionEventFunc NextSectionEvent;
+
+            // 0.0~2.0
+            public float VolumeScale;
+
+            // 0.0~2.0
+            public float TempoScale;
+
+            // -12~+12[0]
+            public int KeyShift;
+
+            // The tempo that playing now
+            public Byte Tempo;
+
+            // true is playing
+            // It continues until a sound goes out
+            public bool Playing;
+
+            // total tick counts until now
+            public UInt32 TickCount;
+
+            // Current location
+            public EventLocation Location;
+
+            // constructor
+            // tickFreq = ticks per second
+            public MyMMLSequencer(UInt32 tickFreq);
+
+            // toneSet list of tone objects
+            // toneMap.key=index in the sequence. value=index in the toneSet
+            // voiceMask=0xffffffff
+            public void SetSynthesizer(int port, MySynthesizer synth, List<object> toneSet, Dictionary<int, int> toneMap, UInt32 voiceMask);
+
+            // process one tick
+            public void Tick();
+
+            // Set toneSet,toneMap and synthesizers beforehand.
+            // fadeInTime in second
+            // loop is true theh endless mode.
+            // if false, d.s. and d.c. becomes only once forcibly
+            public void Play(MyMMLSequence seq, float fadeInTime, bool loop);
+
+            // fadeOutTime Stop the music in second.
+            public void Stop(float fadeOutTime);
+
+            public void Continue(float fadeInTime);
+
+            // force enable "|to@[nj]". see mml manual.
+            // caution!! this method is not tested :-)
+            public void EnableJumpPair(int nj);
+
+            public void Vart(int variation);
+
+            public void Jump(int section, int tickcount);
+        }
+
+        class MyMMLSequence.ToneInfo
+        {
+            public int PresetNo;
+            public string Name;
+            public List<string> Data;
+        }
+
+        class MyMMLSequence
+        {
+            public const int MaxNumPorts = 4;
+            public const int MaxNumTracks = 100;
+            public const int MaxNumRepeats = 8;
+            public const int MaxNumChord = 8;
+
+            // The line where the error occurred. 0=no error
+            public int ErrorLine;
+
+            // Character offset into the line where the error occurred.
+            public int ErrorPosition;
+
+            // String of the place that the error occurred
+            public string ErrorString;
+
+            // Property map $<key>=value
+            public Dictionary<string, string> Property
+
+            // Macro map $(key)=value
+            public Dictionary<string, string> Macro
+
+            public List<ToneInfo> ToneInfos
+
+            // List of all %AppData% in mml
+            public List<string> AppData
+
+            // Music instructions.
+            public List<Section> Score
+            public List<TrackInfo> Track
+
+            // Prase mml text and construct music data.
+            public MyMMLSequence(string mml)
+        }
+    }
+}
+

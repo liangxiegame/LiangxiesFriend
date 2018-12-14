@@ -531,6 +531,52 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 1728643822bf69f40be89249196b150d, type: 2}
   m_PrefabInternal: {fileID: 1715559306}
+--- !u!1001 &627836056
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 418954, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418954, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418954, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 418954, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418954, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418954, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418954, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 418954, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448522, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
+      propertyPath: SoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b877a963b61d1b54c821a399670a522d, type: 3}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &872819860
 Prefab:
   m_ObjectHideFlags: 0

@@ -1,0 +1,123 @@
+﻿
+
+# Files
+  +MySynthesizer
+    +plugins
+      MySynthesizer.dll
+      MySynthesizer.xml
+      MyWebAudiotStreamer.cs
+      MyWebAudiotStreamer.jslib
+    +documents
+      ReadMe.txt
+      Overview.txt
+      Reference.txt
+      MyMMLManual.txt
+    +samples
+      +scenes
+        ToneEditorSample.unity
+        MMLBoxSample.unity
+        MMLTesterSample.unity
+       *and assets*
+    +scripts
+      MyExtensions.cs
+      MyFakeTask.cs
+      MyMMLBox.cs
+      MyMMLClip.cs
+      MyMMLPlayer.cs
+      MySyntheStation.cs
+      +Editor
+        MyImporter.cs
+    +tools
+      MyMMLChecker.exe
+      MyMMLChecker.txt
+      MyMMLChecker.zip
+      SMF2MyMML.exe
+      SMF2MyMML.txt
+      SMF2MyMML.zip
+
+
+# Bundle Tools
+  file:MySynthesizer/tools/MyMMLChecker.exe
+    This is commandline program on windows.
+    This program plays MML.
+    Can output to wav file.
+    Source codes : MyMMLChecker.zip
+
+  file:MySynthesizer/tools/SMF2MyMML.exe
+    This is commandline program on windows.
+    This program converts SMF to MyMML.
+    Source codes : SMF2MyMML.zip
+
+# Sample unity project
+  file:MySynthesizer/sample/scenes/ToneEditor/Sample.unity
+    Simple MML player & Tone editor.
+
+  file:MySynthesizer/sample/scenes/MMLBoxSample.unity
+    Usage example of MyMMLBox
+
+  file:MySynthesizer/sample/scenes/MMLTesterSample.unity
+    Simple MML player
+
+# Unity scripts
+  file:MySynthesizer/scripts/*.cs
+
+  // Synthesizer management class. setup tone, generate audioclip.
+  MySpace.MySyntheStation;
+
+  // MML sequencer holder class. bind SynthStation.
+  MySpace.MyMMLPlayer;
+
+  // Clip management class.
+  MySpace.MyMMLBox;
+
+  // MML clip class.
+  MySpace.MyMMLClip;
+
+  // for common use for with UWP.
+  MySpace.Tasks.Task;
+
+# Plugin classes
+  file:MySynthesizer/plugins/MySynthesizer.dll
+
+  // Mixer class. Mixing and buffering MySynthesizer's outputs.
+  MySpace.Synthesizer.MyMixer;
+
+  // Synthesizer base class
+  MySpace.Synthesizer.MySynthesizer;
+
+  // MML sequence data of parsing from text.
+  MySpace.Synthesizer.MyMMLSequence;
+
+  // MML sequencer
+  MySpace.Synthesizer.MyMMLSequencer;
+
+  // Phase Modulation(FM) Synthesizer.
+  MySpace.Synthesizer.MySynthesizerPM8;
+
+  // Simple Sampling Synthesizer.
+  MySpace.Synthesizer.MySynthesizerSS8;
+
+  // Low bits Wave Table Synthesizer.
+  MySpace.Synthesizer.MySynthesizerCT8;
+
+  // SF2 Synthesizer
+  MySpace.Synthesizer.MySynthesizerSF2;
+
+- Usage -
+
+  *Use scripts for Unity
+   - Add MySyhthesizer/MySyntheStation component with audio listener.
+   - Add MySynthesizer/MyMMLPLayer component to any GameObject.
+   - If you use GenerateAudioClip option on MyMMLClip, Add AudioSource to GameObject with MyMMLPlayer.
+   - Write MML text and import as TextAsset.
+   - Drag imported mml and Drop to Hierarchy.
+   - YourMMLBox.Play("clip name") plays clip!
+
+  *SF2 file
+    Add ".byte" extension.
+    Import to resource folder.
+    Add "$<SoundFont2>=sf2filename" to mml file.
+
+  *Preset tone
+    see MySynthesizer/samples/mml/PresetToneTemplate.mml.txt
+    Please set PresetTone.mml.txt to "PresetTone" of MySyntheStation.

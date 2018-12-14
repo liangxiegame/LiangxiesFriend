@@ -1,0 +1,130 @@
+﻿/* xxx
+ block comments
+xxx */
+
+; line comment
+// line comment
+
+// property
+$<title> = Test
+$t00 = 0:0
+$t01 = 0:0
+$t20 = 2:0
+$t21 = 2:0
+
+// tone setting
+// These tone data are produced by Takeshi Abo.
+// Web page: VAL-SOUND url:http://www.valsound.com/
+// I got permission to use. Thank you, Mr. Abo.
+// Notice. These tone data are made for OPM.
+// There is some difference in OPM and my PM8.
+$@(piano1)       = @pm8[2 7 op1[0 0 1 0 3 0 2 0 37 28 4 1 0 5] op2[0 0 12 0 0 0 2 0 47 22 9 1 1 2] op3[0 0 3 0 7 0 1 0 37 29 4 1 3 6] op4[0 0 1 0 0 0 2 1 0 18 8 6 0 6] lfo[0 127 0 0 31 0 0 0 0] ]
+$@(w_bass2)      = @pm8[4 5 op1[0 0 0 0 3 0 1 0 25 31 11 3 5 0] op2[0 0 1 0 3 0 1 1 0 31 10 4 9 8] op3[0 0 0 0 7 0 1 0 14 23 12 4 5 0] op4[0 0 2 0 7 0 1 1 0 31 12 5 9 7] lfo[0 127 0 0 31 0 0 0 0] ]
+$@(horn3)        = @pm8[5 7 op1[0 0 1 0 0 0 0 0 35 15 10 5 0 6] op2[0 0 2 0 2 0 0 1 6 15 5 2 0 8] op3[0 0 1 0 5 0 0 1 6 15 5 2 0 8] op4[0 0 1 0 0 0 0 1 6 15 5 2 0 8] lfo[0 127 0 0 31 0 0 0 0] ]
+$@(trumpet2)     = @pm8[2 6 op1[0 0 2 0 3 0 2 0 14 13 6 1 0 8] op2[0 0 12 0 7 0 1 0 30 15 8 1 0 8] op3[0 0 2 0 3 0 0 0 38 21 7 2 0 8] op4[0 0 2 0 0 0 2 1 0 18 4 2 0 8] lfo[0 127 0 0 31 0 0 0 0] ]
+$@(e-organ2)     = @pm8[6 7 op1[0 0 5 0 7 0 0 0 33 31 0 0 0 9] op2[0 0 3 0 3 0 0 1 0 31 13 1 0 9] op3[0 0 2 0 3 0 0 1 3 31 0 0 0 9] op4[0 0 1 0 7 0 0 1 0 31 0 0 0 9] lfo[0 127 0 0 31 0 0 0 0] ]
+$@(sd1)          = @pm8[4 7 op1[0 0 15 0 0 0 0 0 0 31 0 0 0 7] op2[0 0 15 0 0 0 0 1 0 31 15 2 15 9] op3[0 0 4 0 1 0 0 0 10 31 21 11 0 15] op4[0 0 0 0 7 0 0 1 0 31 19 2 15 9] lfo[0 127 0 0 31 0 0 0 0] ]
+$@(bd2)          = @pm8[0 0 op1[0 0 1 0 0 0 0 0 26 30 26 15 0 13] op2[0 0 15 0 3 0 0 0 37 30 28 15 0 14] op3[0 0 0 0 0 0 0 0 5 30 16 15 0 8] op4[0 0 0 0 0 0 0 1 0 29 16 15 0 8] lfo[0 127 0 0 31 0 0 0 0] ]
+$@(crash)        = @pm8[4 7 op1[0 0 15 0 7 0 0 0 0 31 0 0 0 0] op2[0 0 0 0 7 0 1 1 0 21 10 5 11 13] op3[0 0 8 0 3 0 0 0 0 31 0 0 0 14] op4[0 0 15 0 3 0 2 1 5 31 9 15 9 9] lfo[0 127 0 0 31 0 0 0 0] ]
+$@(h_close5)     = @pm8[4 7 op1[0 0 15 0 7 0 0 0 0 31 0 0 0 0] op2[0 0 0 0 7 0 0 1 0 21 18 5 15 13] op3[0 0 8 0 3 0 0 0 0 31 0 0 0 14] op4[0 0 15 0 3 0 1 1 5 31 17 15 13 9] lfo[0 127 0 0 31 0 0 0 0] ]
+$@(h_open3)      = @pm8[4 7 op1[0 0 15 0 3 0 1 0 0 31 14 3 0 8] op2[0 0 7 0 3 0 0 1 0 31 15 13 8 12] op3[0 0 10 0 7 0 0 0 1 31 13 1 0 6] op4[0 0 7 0 7 0 0 1 0 31 15 7 11 12] lfo[0 127 0 0 31 0 0 0 0] ]
+
+// test tone
+$@(sine)         = @pm8[7 0 op1[0 0 1 0 0 0 0 1 0 31 0 0 0 15] op2[0 0 1 0 0 0 0 1 127 31 0 0 0 15] op3[0 0 1 0 0 0 0 1 127 31 0 0 0 15] op4[0 0 1 0 0 0 0 1 127 31 0 0 0 15] lfo[0 127 0 0 31 0 0 0 0] ]
+$@(triangle)     = @pm8[7 0 op1[1 0 1 0 0 0 0 1 0 31 0 0 0 15] op2[0 0 1 0 0 0 0 1 127 31 0 0 0 15] op3[0 0 1 0 0 0 0 1 127 31 0 0 0 15] op4[0 0 1 0 0 0 0 1 127 31 0 0 0 15] lfo[0 127 0 0 31 0 0 0 0] ]
+$@(saw-tooth)    = @pm8[7 0 op1[2 0 1 0 0 0 0 1 0 31 0 0 0 15] op2[0 0 1 0 0 0 0 1 127 31 0 0 0 15] op3[0 0 1 0 0 0 0 1 127 31 0 0 0 15] op4[0 0 1 0 0 0 0 1 127 31 0 0 0 15] lfo[0 127 0 0 31 0 0 0 0] ]
+$@(square)       = @pm8[7 0 op1[3 0 1 0 0 0 0 1 0 31 0 0 0 15] op2[0 0 1 0 0 0 0 1 127 31 0 0 0 15] op3[0 0 1 0 0 0 0 1 127 31 0 0 0 15] op4[0 0 1 0 0 0 0 1 127 31 0 0 0 15] lfo[0 127 0 0 31 0 0 0 0] ]
+$@(half-sine)    = @pm8[7 0 op1[6 0 1 0 0 0 0 1 0 31 0 0 0 15] op2[0 0 1 0 0 0 0 1 127 31 0 0 0 15] op3[0 0 1 0 0 0 0 1 127 31 0 0 0 15] op4[0 0 1 0 0 0 0 1 127 31 0 0 0 15] lfo[0 127 0 0 31 0 0 0 0] ]
+$@(noise)        = @pm8[7 0 op1[7 0 1 0 0 0 0 1 0 31 0 0 0 15] op2[0 0 1 0 0 0 0 1 127 31 0 0 0 15] op3[0 0 1 0 0 0 0 1 127 31 0 0 0 15] op4[0 0 1 0 0 0 0 1 127 31 0 0 0 15] lfo[0 127 0 0 31 0 0 0 0] ]
+
+$@(xx) = @ct8[0 0 5 [31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ] env[0 1 0 31 0 0 0 15] lfo[0 82 69 40 31 0 0 0 0]]
+
+// macro definition
+$(G-flat major) = [b-e-a-d-g-c-]
+$(F-sharp major) = [f+c+g+d+a+e+]
+
+$(bd) = @(bd2)v127o2c
+$(cc) = @(crash)v64o2d
+$(hh) = @(h_open3)v64o4a
+$(hc) = @(h_close5)v16o2b
+$(sd) = @(sd1)v100o4g
+
+// expression
+!tempo120
+!measure 4/4
+
+/*/
+t20 = %>> pitch bend test <<% r1
+t20 = c1
+t21 = @br12 l32 @p-7000r @p-6000r @p-5000r @p-4000r @p-3000r @p-2000r @p-1000r @p0r @p1000r @p2000r @p3000r @p4000r @p5000r @p6000r @p7000r
+
+/*/
+t20 = %>> modulation test <<% r1
+t20 = @(xx)c1.
+t21 = l8 @m-127r @m-96r @m-64r @m-32r @m0r @m+32r @m+64r @m+96r @m+127r
+
+/*
+// app data
+t00 = %test track00%
+t01 = %test track01%
+
+/*/
+t00 = %>> chord test <<% r1
+t00 = v32@(square)c2e2g2 c1:e1:g1 d2f2a2 d1:r4:r2 f2. a2
+
+/*/
+t00 = %>> wave style test <<% r1
+t00 = v32%sine%@(sine)a1 %triangle%@(triangle)a1 %saw-tooth%@(saw-tooth)a1 %square%@(square)a1 %half-sine%@(half-sine)a1 %noise%@(noise)a1
+
+/*/
+t00 = %>> drum test <<% r1
+t00 = l8 { $(hc):$(bd) $(hc) $(hc):$(sd) $(hc) $(hc):$(bd) $(hc):$(bd) $(hc):$(sd) $(hc) }2 $(cc)1
+
+/*/
+t00 = %>> portament test <<% r1
+t00 = @pt64@(trumpet2)v32o2 g8 & a8 && b2 & a8 & g8 r8 g8 & a8 && b8 & a8 & g8 && a2
+
+/*
+t00 = %>> pitch bend test <<% r1
+t00 = @(square)c1
+t01 = @br12 l32 @p-7000r @p-6000r @p-5000r @p-4000r @p-3000r @p-2000r @p-1000r @p0r @p1000r @p2000r @p3000r @p4000r @p5000r @p6000r @p7000r
+
+/*/
+t00 = %>> repeat test 1 <<% r1
+t00 = @(piano1)
+|:
+t00 = cde
+t00 = @(trumpet2)
+:|
+
+/*/
+t00 = %>> repeat test 2 <<% r1
+t00 = @(piano1)
+!velocity +64
+|:
+t00 = ccc
+!velocity -64
+t00 = ccc
+:|
+!velocity 0
+
+/*/
+t00 = %>> repeat test 3 <<% r1
+|$
+|:
+  t00 = _a_a
+|to@
+|1,3
+  t00 = _b_b
+|2
+  t00 = cc
+:|3
+|$2
+  t00 = dd
+|fine
+  t00 = ee
+|d.s.
+|@coda
+  t00 = ff
+|d.s.2
+

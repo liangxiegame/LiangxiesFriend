@@ -1,0 +1,16 @@
+{
+  "Version": "v0.0.1",
+  "Type": 0,
+  "AccessRight": 0,
+  "DownloadUrl": null,
+  "InstallPath": "Assets/MySynthesizer/",
+  "Readme": {
+    "version": "v0.0.1",
+    "content": "以后的音效用这个制作",
+    "author": "凉鞋的MacBook Pro (2)",
+    "date": "2018-12-15"
+  },
+  "Name": "MySynthesizer",
+  "VersionNumber": 1,
+  "FileName": "MySynthesizer_v0.0.1.unitypackage"
+}

@@ -1,0 +1,52 @@
+﻿
+$<title> = Flohwalzer
+$<composer> = Anonymous
+
+// pm8 (fm tone)
+//$t00 = 0:0
+//$t01 = 0:1
+
+// ss8 (sampling tone)
+//$t00 = 1:0
+//$t01 = 1:1
+
+// ct8 (lowreso wave table)
+//$t00 = 2:0
+//$t01 = 2:1
+
+// sf2 (soundfont2)
+$t00 = 3:0
+$t01 = 3:1
+
+// tone setting
+// PM8 tone data are produced by Takeshi Abo.
+// Web page: VAL-SOUND url:http://www.valsound.com/
+// I got permission to use. Thank you, Mr. Abo.
+// Notice. These tone data are made for OPM.
+// There is some difference in OPM and my PM8.
+$<SoundFont2> = Miaow.sf2
+$@<1,1>
+$@(Miaow) = @pm8[2 7 op1[0 0 1 0 3 0 2 0 37 28 4 1 0 5] op2[0 0 12 0 0 0 2 0 47 22 9 1 1 2] op3[0 0 3 0 7 0 1 0 37 29 4 1 3 6] op4[0 0 1 0 0 0 2 1 0 18 8 6 0 6] lfo[0 127 0 0 31 0 0 0 0] ]
+$@(Miaow) = @ss8[[Miaow] 44100 52330 0 0 0 0 -1 env[1 1 0 31 0 0 0 3] lfo[0 80 0 64 10 0 0 0 0 ]]
+$@(Miaow) = @ct8[0 0 5 [31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ] env[0 1 0 31 0 0 0 15] lfo[0 127 0 0 31 0 0 0 0]]
+
+$(G-flat major) = [b-e-a-d-g-c-]
+
+!tempo120
+!measure 4/4
+
+t00 = @(Miaow)
+t01 = @(Miaow)
+
+t00 = o4$(G-flat major) e8 d8 | r4 q4 _b4:g4 _b4:g4 q7 e8 d8 | r4 q4 _b4:g4 _b4:g4 q7 e8 d8 | r4 q4 _b4:g4 r4 _b4:g4 | r4 q4 c4:f4 c4:f4 q7 e8 d8 |
+t01 = o3$(G-flat major) r4    | g4     r4     r2             | g4     r4     r2             | g4     r4    e4  r4    | d4    r4    r2             |
+
+t00 = o4$(G-flat major) r4 q4 c4:f4 c4:f4 q7 e8 d8 | r4 q4 c4:f4 c4:f4 q7 e8 d8 | r4 q4 c4:f4 r4 c4:f4 | r4 _b4:g4 _b4:g4 q7 e8 d8 |
+t01 = o3$(G-flat major) d4    r4    r2             | d4    r4    r2             | d4    r4    e4 r4    | g4  r4     r2             |
+
+t00 = o4$(G-flat major) r4 q4 _b4:g4 _b4:g4 q7 e8 d8 | r4 q4 _b4:g4 _b4:g4 q7 e8 d8 | r4 q4 _b4:g4  r4 _b4:g4 |  r4 c4:f4 c4:f4 q7 e8 d8 |
+t01 = o4$(G-flat major) b4     r4     r2             | b4     r4     r2             | b4     r4    ~d4  r4    | ~e4 r4    r2             |
+
+t00 = o4$(G-flat major)  r4 q4 c4:f4 c4:f4 q7 e8 d8 |  r4 q4 c4:f4 c4:f4 q7 e8 d8 |  r4 q4 c4:f4  r4 c4:f4 | r4 _b4:g4 _b4:g4 |
+t01 = o4$(G-flat major) ~e4    r4    r2             | ~e4    r4    r2             | ~e4    r4    ~d4 r4    | b2         r4    |
+

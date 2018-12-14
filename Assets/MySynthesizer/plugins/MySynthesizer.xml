@@ -1,0 +1,1975 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MySynthesizer</name>
+    </assembly>
+    <members>
+        <member name="T:MySpace.Synthesizer.MyMixer">
+            <summary>
+            Buffers to mix synthesizer output
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMixer.#ctor(System.UInt32,System.Boolean,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            In the offline mode, only the updated one is output.
+            Otherwise repeat if there is insufficient data.
+            </summary>
+            <param name="outputSampleRate"></param>
+            <param name="offline"></param>
+            <param name="bufferSize"></param>
+            <param name="inputFrequency"></param>
+            <param name="tickFrequency"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMixer.Reset">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMixer.Terminate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMixer.Update">
+            <summary>
+            Call tick callback.
+            Request data for each synthesizer.
+            </summary>
+        </member>
+        <member name="E:MySpace.Synthesizer.MyMixer.TickCallback">
+            <summary>TickCallback is called from Update</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMixer.TickFrequency">
+            <summary>tick per second</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMixer.InputSampleRate">
+            <summary>
+            samples per second
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMixer.OutputSampleRate">
+            <summary>
+            samples per second
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMixer.MasterVolume">
+            <summary>
+            master volume (default=0.5)
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMixer.Output(System.Single[],System.Int32,System.Int32)">
+            <summary>Merge samples</summary>
+            <param nmae="data">in/out sample data</param>
+            <param nmae="Length">num samples per channel</param>
+        </member>
+        <member name="T:MySpace.Synthesizer.MyMMLSequence">
+            <summary>
+            Sequence data parsing MML
+            </summary>
+        </member>
+        <member name="T:MySpace.Synthesizer.MyMMLSequence.TrackInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.TrackInfo.TrackNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.TrackInfo.PortNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.TrackInfo.ChannelNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.TrackInfo.Variation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MySpace.Synthesizer.MyMMLSequence.SectionFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.SectionFlag.None">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.SectionFlag.Fine">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.SectionFlag.Reset">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.SectionFlag.Pairing">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.SectionFlag.Target">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.SectionFlag.DaCapo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.SectionFlag.DalSegno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.SectionFlag.Segno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.SectionFlag.Coda">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.SectionFlag.ToCoda">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.SectionFlag.Repeat">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MySpace.Synthesizer.MyMMLSequence.Section">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.Tempo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.TempoL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.TempoD">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.Velocity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.VelocityL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.VelocityD">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.Volume">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.VolumeL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.VolumeD">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.Divider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.MeasureBeats">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.MeasureNote">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.Condition">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.JumpPair">
+            <summary>
+            d.s., d.c. and toCoda
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.JumpTarget">
+            <summary>
+            Section number
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.RepeatCount">
+            <summary>
+             0:not jump 0&gt;jump 0&lt;repeat count
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.Line">
+            <summary>
+            Line number on original file
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.Flags">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.LNumerator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.LDenominator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.PlayingTrack">
+            <summary>
+            Track list
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Section.Tags">
+            <summary>
+            #Tag
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequence.Section.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MySpace.Synthesizer.MyMMLSequence.Track">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Track.Number">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Track.Index">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Track.Line">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Track.Sequence">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequence.Track.#ctor(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="no"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequence.Track.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="no"></param>
+            <param name="line"></param>
+        </member>
+        <member name="T:MySpace.Synthesizer.MyMMLSequence.InstructionFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionFlag.None">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionFlag.Tie">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionFlag.Portament">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionFlag.Slur">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionFlag.Chord">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionFlag.Direct">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MySpace.Synthesizer.MyMMLSequence.InstructionNote">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.Rest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.NoteMin">
+            <summary>
+            Minimum number of note numbers
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.NoteMax">
+            <summary>
+            Maximum number of note numbers
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.ProgramChange">
+            <summary>
+            presetNo= L + D + V
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.Volume">
+            <summary>
+            V
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.Expression">
+            <summary>
+            V
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.PitchBend">
+            <summary>
+            Q + V
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.Modulation">
+            <summary>
+            V
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.Damper">
+            <summary>
+            V
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.BendRange">
+            <summary>
+            V
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.Tune">
+            <summary>
+            Q + V
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.PortamentTime">
+            <summary>
+            V
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.Panpot">
+            <summary>
+            V
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.ChannelPriority">
+            <summary>
+            V
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.Polyphonic">
+            <summary>
+            V
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.VoiceMask">
+            <summary>
+            ((1 &lt;&lt; Q) - 1) &lt;&lt; V
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.SeqTempo">
+            <summary>
+            V, L, D
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.SeqVolume">
+            <summary>
+            1+V/128, L, D
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.SeqVelocity">
+            <summary>
+            1+V/128, L, D
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.InstructionNote.AppData">
+            <summary>
+            sequence.AppData[V]
+            </summary>
+        </member>
+        <member name="T:MySpace.Synthesizer.MyMMLSequence.Instruction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Instruction.N">
+            <summary>
+            Note Number or ControlCode
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Instruction.L">
+            <summary>
+            Length
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Instruction.D">
+            <summary>
+            Dot
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Instruction.Q">
+            <summary>
+            Quantize
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Instruction.V">
+            <summary>
+            Velocity
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Instruction.F">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.MaxNumPorts">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.MaxNumTracks">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.MaxNumRepeats">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequence.MaxNumChord">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.ErrorLine">
+            <summary>
+            The line where the error occurred. 0=no error
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.ErrorPosition">
+            <summary>
+            Character offset into the line where the error occurred.
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.ErrorString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.ErrorMessage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Property">
+            <summary>$&lt;sss&gt;=xxx  Property.key=sss Property.value=xxx</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Macro">
+            <summary>$(sss)=xxx  Macro.key=sss Macro.value=xxx</summary>
+        </member>
+        <member name="T:MySpace.Synthesizer.MyMMLSequence.ToneInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.ToneInfo.PresetNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.ToneInfo.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.ToneInfo.Data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.ToneInfos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.AppData">
+            <summary>$t nt = %ddd%   ddd=AppData</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.Score">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequence.TrackInfos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequence.Parse(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MySpace.Synthesizer.MyMMLSequence.Parser">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequence.Parser.Parse(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MySpace.Synthesizer.MyMMLSequencer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MySpace.Synthesizer.MyMMLSequencer.AppDataEventFunc">
+            <summary>
+            User-defined event.
+            You can pass any string.
+            </summary>
+            <param name="loc"></param>
+            <param name="data"></param>
+        </member>
+        <member name="T:MySpace.Synthesizer.MyMMLSequencer.PlayingEventFunc">
+            <summary>
+            Called for every play event.
+            It is heavy so we recommend debugging use
+            </summary>
+            <param name="loc"></param>
+            <param name="step"></param>
+            <param name="gate"></param>
+            <param name="inst"></param>
+        </member>
+        <member name="T:MySpace.Synthesizer.MyMMLSequencer.NextSectionEventFunc">
+            <summary>
+            Called to the next section.
+            If necessary, you can specify the section to be played next by return value.
+            </summary>
+            <param name="loc"></param>
+            <param name="nextSection"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MySpace.Synthesizer.MyMMLSequencer.EventLocation">
+            <summary>
+            Location where the event occurred.
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequencer.EventLocation.Sequence">
+            <summary>
+            Current sequence
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequencer.EventLocation.Port">
+            <summary>
+            Current port
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequencer.EventLocation.Channel">
+            <summary>
+            Current channel
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequencer.EventLocation.TrackNo">
+            <summary>
+            Current track number
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequencer.EventLocation.SectionIndex">
+            <summary>
+            Current section index
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequencer.EventLocation.InstructionIndex">
+            <summary>
+            Current instruction index
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequencer.EventLocation.TickCount">
+            <summary>
+            Current position in section
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequencer.EventLocation.MeasureCount">
+            <summary>
+            Total measure count
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequencer.EventLocation.StepTime">
+            <summary>
+            Relative position from bar
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MyMMLSequencer.SectionState.TickCount">
+            <summary>
+            無限ループチェック
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequencer.TimeBase">
+            <summary>
+            Tick counts per quater note.
+            </summary>
+        </member>
+        <member name="E:MySpace.Synthesizer.MyMMLSequencer.AppDataEvent">
+            <summary>
+            User defined application event
+            </summary>
+        </member>
+        <member name="E:MySpace.Synthesizer.MyMMLSequencer.PlayingEvent">
+            <summary>
+            for debug and monitor
+            </summary>
+        </member>
+        <member name="E:MySpace.Synthesizer.MyMMLSequencer.NextSectionEvent">
+            <summary>
+            Determine the next section
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequencer.VolumeScale">
+            <summary>
+            0.0f~2.0f default=1.0f
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequencer.TempoScale">
+            <summary>
+            0.0f~2.0f default=1.0f
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequencer.KeyShift">
+            <summary>-12~+12 default=0</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequencer.Tempo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequencer.Playing">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequencer.TickCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequencer.Location">
+            <summary>
+            Current location
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MyMMLSequencer.Sequence">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequencer.#ctor(System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="tickFrequency">tick per second</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequencer.#ctor(System.UInt32,System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="tickFrequency"></param>
+            <param name="timeBase"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequencer.Tick">
+            <summary>
+            Advance sequence by 1 tick.
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequencer.SetSynthesizer(System.Int32,MySpace.Synthesizer.MySynthesizer,System.UInt32)">
+            <summary>
+            Designate the synthesizer to use for the performance
+            </summary>
+            <param name="port"></param>
+            <param name="synthesizer"></param>
+            <param name="voiceMask"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequencer.Play(MySpace.Synthesizer.MyMMLSequence,System.Single,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="sequence"></param>
+            <param name="fadeInTime"></param>
+            <param name="loop"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequencer.Play(MySpace.Synthesizer.MyMMLSequence,MySpace.Synthesizer.ToneMap,System.Single,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="sequence"></param>
+            <param name="toneMap"></param>
+            <param name="fadeInTime"></param>
+            <param name="loop"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequencer.Play(MySpace.Synthesizer.MyMMLSequence,MySpace.Synthesizer.ToneMap,System.Single,System.Boolean,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="sequence"></param>
+            <param name="toneMap"></param>
+            <param name="fadeInTime"></param>
+            <param name="loop"></param>
+            <param name="startSection"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequencer.Play(MySpace.Synthesizer.MyMMLSequence,MySpace.Synthesizer.ToneMap,System.Single,System.Boolean,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="sequence"></param>
+            <param name="toneMap"></param>
+            <param name="fadeInTime"></param>
+            <param name="loop"></param>
+            <param name="startSection"></param>
+            <param name="variation"></param>
+            <param name="sync"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequencer.SetNextSection(System.Int32)">
+            <summary>
+            Specify the section to be played next
+            </summary>
+            <param name="section"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequencer.Jump(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Jump to the specified beat of the specified section.
+            </summary>
+            <param name="section"></param>
+            <param name="beatNumber"></param>
+            <param name="beatDenominator"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequencer.Jump(System.Int32,System.Int32)">
+            <summary>
+            Jump to the specified beat of the specified section.
+            </summary>
+            <param name="section"></param>
+            <param name="tickCount"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequencer.EnableJumpPair(System.Int32)">
+            <summary>
+            Specify repetition pair
+            </summary>
+            <param name="pair"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequencer.Vary(System.Int32)">
+            <summary>
+            Change variation
+            </summary>
+            <param name="variation"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequencer.Stop(System.Single)">
+            <param name="fadeOutTime">second</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MyMMLSequencer.Continue(System.Single)">
+            <param name="fadeInTime">second</param>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.ModLfoToPitch">
+            <summary>
+            -12000=-10oct 12000=10oct 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.VibLfoToPitch">
+            <summary>
+            -12000=-10oct 12000=10oct 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.ModEnvToPitch">
+            <summary>
+            -12000=-10oct 12000=10oct 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.InitialFilterFc">
+            <summary>
+            1500=20Hz 13500=20kHz 13500
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.InitialFilterQ">
+            <summary>
+            0=None 960=96dB 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.ModLfoToFilterFc">
+            <summary>
+            -12000=-10oct 12000=10oct 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.ModEnvToFilterFc">
+            <summary>
+            -12000=-10oct 12000=10oct 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.ModLfoToVolume">
+            <summary>
+            -960=-96dB 960=96dB 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.ChorusEffectsSend">
+            <summary>
+            0=None 1000=100% 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.ReverbEffectsSend">
+            <summary>
+            0=None 1000=100% 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.Pan">
+            <summary>
+            -500=Left +500=Right 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.DelayModLFO">
+            <summary>
+            -12000=1msec 5000=20sec -12000
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.FreqModLFO">
+            <summary>
+            -16000=1mHz 4500=100Hz 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.DelayVibLFO">
+            <summary>
+            -12000=1msec 5000=20sec -12000
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.FreqVibLFO">
+            <summary>
+            -16000=1mHz 4500=100Hz 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.DelayModEnv">
+            <summary>
+            -12000=1msec 5000=20sec -12000
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.AttackModEnv">
+            <summary>
+            -12000=1msec 8000=100sec -12000
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.HoldModEnv">
+            <summary>
+            -12000=1msec 5000=20sec -12000
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.DecayModEnv">
+            <summary>
+            -12000=1msec 8000=100sec -12000
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.SustainModEnv">
+            <summary>
+            0=100% 1000=0% 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.ReleaseModEnv">
+            <summary>
+            -12000=1msec 8000=100sec -12000
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.KeyNumToModEnvHold">
+            <summary>
+            -1200=-oct/ky 1200=oct/ky 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.KeyNumToModEnvDecay">
+            <summary>
+            -1200=-oct/ky 1200=oct/ky 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.DelayVolEnv">
+            <summary>
+            -12000=1msec 5000=20sec -12000
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.AttackVolEnv">
+            <summary>
+            -12000=1msec 8000=100sec -12000
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.HoldVolEnv">
+            <summary>
+            -12000=1msec 5000=20sec -12000
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.DecayVolEnv">
+            <summary>
+            -12000=1msec 8000=100sec -12000
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.SustainVolEnv">
+            <summary>
+            0=0dB 1440=144dB 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.ReleaseVolEnv">
+            <summary>
+            -12000=1msec 8000=100sec -12000
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.KeyNumToVolEnvHold">
+            <summary>
+            -1200=-oct/ky 1200=oct/ky 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.KeyNumToVolEnvDecay">
+            <summary>
+            -1200=-oct/ky 1200=oct/ky 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.KeyRangeLo">
+            <summary>
+            @0-127
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.KeyRangeHi">
+            <summary>
+            @0-127
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.VelRangeMin">
+            <summary>
+            @0-127
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.VelRangeMax">
+            <summary>
+            @0-127
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.KeyNum">
+            <summary>
+            +@0-127, -1=off
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.Velocity">
+            <summary>
+            +@0-127, -1=off
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.InitialAttenuation">
+            <summary>
+            0=0dB 1440=144dB 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.CoarseTune">
+            <summary>
+            -120=-10oct 120=10oct 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.FineTune">
+            <summary>
+            -99=-99cent 99=99cent 0
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.SampleModes">
+            <summary>
+            +@0=no loop, 1=loop, 3=Loop only while key is pressed
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.ScaleTuning">
+            <summary>
+            @0=none 1200=oct/ky 100
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.ExclusiveClass">
+            <summary>
+            +@1~127, 0=off
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySoundFont2.SF2Generator.OverridingRootKey">
+            <summary>
+            +@0 127 -1=off
+            </summary>
+        </member>
+        <member name="T:MySpace.Synthesizer.IChannel">
+            <summary>
+            MIDI like channel interface
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.NoteOn(System.Byte,System.Byte)">
+            <summary>
+            Note on: Note Number 0~127 Velocity 0~127
+            </summary>
+            <param name="noteNumber">Note Number 0~127</param>
+            <param name="velocity">Velocity 0~127</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.NoteOff(System.Byte)">
+            <summary>
+            Note off: Note Number 0~127
+            </summary>
+            <param name="noteNumber">Note Number 0~127</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.FineTuning(System.UInt16)">
+            <summary>
+            fine tuning: pitch offset 0~16383:(100 * (-8192~+8191)/8192 cent) default=8192
+            </summary>
+            <param name="value">pitch offset 0~16383:(100 * (-8192~+8191)/8192 cent) default=8192</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.PitchBend(System.UInt16)">
+            <summary>
+            pitch bend: pitch 0~16383:(bendrange * 100 * (-8192~+8191)/8192 cent) default=8192
+            </summary>
+            <param name="value">pitch 0~16383:(bendrange * 100 * (-8192~+8191)/8192 cent) default=8192</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.BendRange(System.Byte)">
+            <summary>
+            bend range: 0~127 default=2
+            </summary>
+            <param name="value">0~127 default=2</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.Pressure(System.Byte)">
+            <summary>
+            after pressure: velocity 0~127
+            </summary>
+            <param name="value">velocity 0~127</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.Damper(System.Byte)">
+            <summary>
+            damper: 0~127:open 128~255(-256):close default=0
+            </summary>
+            <param name="value">0~127:open 128~255(-256):close default=0</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.Modulation(System.Byte)">
+            <summary>
+            modulation: 0~127, 128~255(-256) default=0
+            </summary>
+            <param name="value">0~127, 128~255(-256) default=0</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.Portament(System.Byte)">
+            <summary>
+            portament: 0~63:off 64~127:on default=0
+            </summary>
+            <param name="value">0~63:off 64~127:on default=0</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.PortamentTime(System.Byte)">
+            <summary>
+            portament time: 0~127 default=0
+            </summary>
+            <param name="value">0~127 default=0</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.PortamentCtrl(System.Byte)">
+            <summary>
+            portament ctrl: Note Number 0~127
+            </summary>
+            <param name="noteNumber">Note Number 0~127</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.AllNoteOff">
+            <summary>
+            all note off
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.AllSoundOff">
+            <summary>
+            all sound off
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.AllReset">
+            <summary>
+            all reset
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.ProgramChange(MySpace.Synthesizer.ToneSet)">
+            <summary>
+            program change
+            </summary>
+            <param name="value">Tone object</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.ProgramChange(System.UInt32)">
+            <summary>
+            program change: 0~2097152 (bankMSB:0~128, bankLSB:0~127, program:0~127)
+            </summary>
+            <param name="value">preset No. 0~</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.Volume(System.Byte)">
+            <summary>
+            volume: 0~127 default=100
+            </summary>
+            <param name="value">0~127 default=100</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.Expression(System.Byte)">
+            <summary>
+            expression: 0~127 default=127
+            </summary>
+            <param name="value">0~127 default=127</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.Panpot(System.Byte)">
+            <summary>
+            panpot: 0~127 64:center default=64
+            </summary>
+            <param name="value">0~127 64:center default=64</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.Polyphonic(System.Byte)">
+            <summary>
+            polyphonic: 0~31(1~32 voice) default=31
+            </summary>
+            <param name="value">0~15(1~16 voice) default=15</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.Priority(System.Byte)">
+            <summary>
+            priority: 0~15 default=8
+            </summary>
+            <param name="value">0~15 default=8</param>
+        </member>
+        <member name="M:MySpace.Synthesizer.IChannel.VoiceMask(System.UInt32)">
+            <summary>
+            voice mask: 0~0xffffffff default=0xffffffff
+            </summary>
+            <param name="value">0~0xffffffff default=0xffffffff</param>
+        </member>
+        <member name="T:MySpace.Synthesizer.MySynthesizer">
+            <summary>
+            MySynthesizer
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySynthesizer.NumChannels">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MySynthesizer.BaseFrequency">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MySynthesizer.Channel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MySynthesizer.MaxNumVoices">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MySynthesizer.VoiceState">
+            <summary>
+            voic state
+            each bit 0=stop 1=playing
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.IsAcceptable(MySpace.Synthesizer.ToneSet)">
+            <summary>
+            Check if the tone is acceptable
+            </summary>
+            <param name="tone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.GetDefaultTone">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.GetExclusiveClass(MySpace.Synthesizer.ToneSet,System.Byte,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="toneSet"></param>
+            <param name="noteNumber"></param>
+            <param name="velocity"></param>
+            <returns></returns>
+        </member>
+        <member name="E:MySpace.Synthesizer.MySynthesizer.CreateToneSetFuncs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.CreateToneSet(System.Collections.Generic.List{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="toneData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.SetToneGenerator(System.Int32,MySpace.Synthesizer.MySynthesizer.ToneGenerator)">
+            <summary>
+            
+            </summary>
+            <param name="voiceIndex"></param>
+            <param name="generator"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.#ctor(MySpace.Synthesizer.MyMixer,System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="mixer"></param>
+            <param name="maxNumVoices"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.AddToneMap(MySpace.Synthesizer.ToneMap)">
+            <summary>
+            
+            </summary>
+            <param name="toneMap"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.RemoveToneMap(MySpace.Synthesizer.ToneMap)">
+            <summary>
+            
+            </summary>
+            <param name="toneMap"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.RemoveAllToneMaps">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.NoteOn(System.Int32,System.Byte,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="noteNumber"></param>
+            <param name="velocity"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.NoteOff(System.Int32,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="noteNumber"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.FineTuning(System.Int32,System.UInt16)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.PitchBend(System.Int32,System.UInt16)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.BendRange(System.Int32,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.Pressure(System.Int32,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.Expression(System.Int32,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.Damper(System.Int32,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.Modulation(System.Int32,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.Portament(System.Int32,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.PortamentTime(System.Int32,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.PortamentCtrl(System.Int32,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.ProgramChange(System.Int32,MySpace.Synthesizer.ToneSet)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="toneObject"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.ProgramChange(System.Int32,System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.Volume(System.Int32,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.Panpot(System.Int32,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.Polyphonic(System.Int32,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.Priority(System.Int32,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.VoiceMask(System.Int32,System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.AllNoteOff(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.AllSoundOff(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.AllReset(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="chNo"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.MasterVolume(System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.Reset">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizer.Terminate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MySpace.Synthesizer.MySynthesizerCT8">
+            <summary>
+            Simple Sampling Synthesizer
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MySynthesizerCT8.ToneParam.WS">
+            <summary>2bit wave style 0:normal,1:short noise,2:long noise,3:reserved</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MySynthesizerCT8.ToneParam.Fx">
+            <summary>7bit fixed note number. 0==disabled</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MySynthesizerCT8.ToneParam.Qt">
+            <summary>4bit Quantize 0:float, 1~8:2^n</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MySynthesizerCT8.ToneParam.WT">
+            <summary>5bit wave table</summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerCT8.ToneParam.LoadFromString(System.String)">
+            <summary>Load ToneParam</summary>
+            <param name="str">
+            $@(name)=@ct8[ WS Fx Qt [31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31] env[KS VS TL AR DR SL SR RR] lfo[WS FQ PM AM AR DR SL SR RR]]
+            </param>
+            <returns>true:success</returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerCT8.#ctor(MySpace.Synthesizer.MyMixer,System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="mixer"></param>
+            <param name="maxNumVoices"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerCT8.#ctor(MySpace.Synthesizer.MyMixer)">
+            <summary>
+            
+            </summary>
+            <param name="mixer"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerCT8.IsAcceptable(MySpace.Synthesizer.ToneSet)">
+            <summary>
+            
+            </summary>
+            <param name="tone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerCT8.GetDefaultTone">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerCT8.GetExclusiveClass(MySpace.Synthesizer.ToneSet,System.Byte,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="toneSet"></param>
+            <param name="noteNumber"></param>
+            <param name="velocity"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MySpace.Synthesizer.EnvelopeParam.KS">
+            <summary>2bit key scale</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.EnvelopeParam.VS">
+            <summary>3bit velocity sense</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.EnvelopeParam.TL">
+            <summary>7bit total level</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.EnvelopeParam.AR">
+            <summary>5bit attack rate</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.EnvelopeParam.DR">
+            <summary>5bit decay rate</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.EnvelopeParam.SL">
+            <summary>4bit sustain level</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.EnvelopeParam.SR">
+            <summary>5bit sustain rate</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.EnvelopeParam.RR">
+            <summary>4bit release rate</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.EnvelopeParam.ExAR">
+            <summary>7bit attack rate</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.EnvelopeParam.ExDR">
+            <summary>7bit decay rate</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.EnvelopeParam.ExSL">
+            <summary>7bit sustain level</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.EnvelopeParam.ExSR">
+            <summary>7bit sustain rate</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.EnvelopeParam.ExRR">
+            <summary>7bit release rate</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.LFOParam.WS">
+            <summary>3bit wave style 0:sine,1:triangle,2:sawtooth,3:square</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.LFOParam.LF">
+            <summary>7bit LFO frequency</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.LFOParam.LP">
+            <summary>7bit pitch modulation power</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.LFOParam.LA">
+            <summary>7bit amplitude modulation power</summary>
+        </member>
+        <member name="T:MySpace.Synthesizer.MySynthesizerPM8">
+            <summary>
+            Frequency Modulation Synthesizer
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.MySynthesizerPM8.ToneParam.NumOperators">
+            <summary>
+            Number of operators
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MySynthesizerPM8.ToneParam.OperatorParam.WS">
+            <summary>3bit wave style 0:sine,1:triangle,2:sawtooth,3:square, 4:5:reserved, 6:half sine, 7:noise</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MySynthesizerPM8.ToneParam.OperatorParam.AE">
+            <summary>1bit amplitude modulation</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MySynthesizerPM8.ToneParam.OperatorParam.Ml">
+            <summary>4bit multiple</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MySynthesizerPM8.ToneParam.OperatorParam.MF">
+            <summary>7bit fraction of multiple</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MySynthesizerPM8.ToneParam.OperatorParam.Dt">
+            <summary>3bit detune</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MySynthesizerPM8.ToneParam.OperatorParam.Fx">
+            <summary>7bit fixed note number. 0==disabled</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MySynthesizerPM8.ToneParam.Al">
+            <summary>3bit algorithm</summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MySynthesizerPM8.ToneParam.Fb">
+            <summary>3bit feedback</summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerPM8.ToneParam.LoadFromString(System.String)">
+            <summary>Load ToneParam</summary>
+            <param name="str">
+            @pm8[Al Fb
+            op1[WS AE Ml MF Dt Fx KS VS TL AR DR SL SR RR]
+            op2[WS AE Ml MF Dt Fx KS VS TL AR DR SL SR RR]
+            op3[WS AE Ml MF Dt Fx KS VS TL AR DR SL SR RR]
+            op4[WS AE Ml MF Dt Fx KS VS TL AR DR SL SR RR]
+            lfo[WS FQ PM AM AR DR SL SR RR]]
+            </param>
+            <returns>true:success</returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerPM8.#ctor(MySpace.Synthesizer.MyMixer,System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="mixer"></param>
+            <param name="maxNumVoices"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerPM8.#ctor(MySpace.Synthesizer.MyMixer)">
+            <summary>
+            
+            </summary>
+            <param name="mixer"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerPM8.IsAcceptable(MySpace.Synthesizer.ToneSet)">
+            <summary>
+            
+            </summary>
+            <param name="tone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerPM8.GetDefaultTone">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerPM8.GetExclusiveClass(MySpace.Synthesizer.ToneSet,System.Byte,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="toneSet"></param>
+            <param name="noteNumber"></param>
+            <param name="velocity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MySpace.Synthesizer.MySynthesizerSF2">
+            <summary>
+            SoundFont2 Synthesizer
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerSF2.CreateToneMap(MySpace.Synthesizer.MySoundFont2.SF2Bank)">
+            <summary>
+            
+            </summary>
+            <param name="sf2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerSF2.ToneParam.LoadFromString(System.String)">
+            <summary>Load ToneParam</summary>
+            <param name="str">
+            @sf2[ [Resource name] bank preset]
+            </param>
+            <returns>true:success</returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerSF2.#ctor(MySpace.Synthesizer.MyMixer,System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="mixer"></param>
+            <param name="maxNumVoices"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerSF2.#ctor(MySpace.Synthesizer.MyMixer)">
+            <summary>
+            
+            </summary>
+            <param name="mixer"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerSF2.IsAcceptable(MySpace.Synthesizer.ToneSet)">
+            <summary>
+            
+            </summary>
+            <param name="tone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerSF2.GetDefaultTone">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerSF2.GetExclusiveClass(MySpace.Synthesizer.ToneSet,System.Byte,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="toneSet"></param>
+            <param name="noteNumber"></param>
+            <param name="velocity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MySpace.Synthesizer.MySynthesizerSS8">
+            <summary>
+            Simple Sampling Synthesizer
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.MySynthesizerSS8.ToneParam.Fx">
+            <summary>7bit fixed note number. 0==disabled</summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerSS8.ToneParam.LoadFromString(System.String)">
+            <summary>Load ToneParam</summary>
+            <param name="str">
+            @ss8[ [Resource name] frequency cent P0 P1 P2 P3 P4 Fx env[KS VS TL AR DR SL SR RR] lfo[WS FQ PM AM AR DR SL SR RR]]
+            </param>
+            <returns>true:success</returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerSS8.#ctor(MySpace.Synthesizer.MyMixer,System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="mixer"></param>
+            <param name="maxNumVoices"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerSS8.#ctor(MySpace.Synthesizer.MyMixer)">
+            <summary>
+            
+            </summary>
+            <param name="mixer"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerSS8.IsAcceptable(MySpace.Synthesizer.ToneSet)">
+            <summary>
+            
+            </summary>
+            <param name="tone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerSS8.GetDefaultTone">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.MySynthesizerSS8.GetExclusiveClass(MySpace.Synthesizer.ToneSet,System.Byte,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="toneSet"></param>
+            <param name="noteNumber"></param>
+            <param name="velocity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MySpace.Synthesizer.Tone">
+            <summary>
+            Tone base class
+            </summary>
+        </member>
+        <member name="F:MySpace.Synthesizer.Tone.ValidSymbols">
+            <summary>
+            Characters valid as the name of the tone
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.Tone.IsValidAsName(System.String)">
+            <summary>
+            Check if it is valid as the name of the tone
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MySpace.Synthesizer.Tone.Name">
+            <summary>
+            tone name
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.Tone.Validate">
+            <summary>
+            validate
+            </summary>
+            <returns>true=ok, false=invalid tone, recoverd!(or initialized)</returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.Tone.LoadFromString(System.String)">
+            <summary>
+            load from string
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.Tone.Clone">
+            <summary>
+            clone tone object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MySpace.Synthesizer.ToneProgram">
+            <summary>
+            Replace with the specified program number
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.ToneProgram.BankMSB">
+            <summary>
+            bank MSB
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.ToneProgram.BankLSB">
+            <summary>
+            bank LSB
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.ToneProgram.ProgramNo">
+            <summary>
+            program number
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.ToneProgram.PresetNo">
+            <summary>
+            preset number
+            bankmsb + banklsb + programNo
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.ToneProgram.Validate">
+            <summary>
+            常に有効
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.ToneProgram.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.ToneProgram.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="Str"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.ToneProgram.#ctor(MySpace.Synthesizer.ToneProgram)">
+            <summary>
+            
+            </summary>
+            <param name="src"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.ToneProgram.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Program number designation constructor
+            </summary>
+            <param name="bankMSB"></param>
+            <param name="bankLSB"></param>
+            <param name="programNo"></param>
+        </member>
+        <member name="M:MySpace.Synthesizer.ToneProgram.LoadFromString(System.String)">
+            <summary>Load ToneParam</summary>
+            <param name="str">
+            @&lt;[msb,[lsb,]]program&gt;
+            </param>
+            <returns>true:success</returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.ToneProgram.CreateFromString(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.ToneProgram.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.ToneProgram.Clone">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MySpace.Synthesizer.ToneMap">
+            <summary>
+            Correspondence table of tone and preset number
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.ToneMap.Merge(MySpace.Synthesizer.ToneMap)">
+            <summary>
+            merge ToneMap
+            </summary>
+            <param name="toneMap"></param>
+        </member>
+        <member name="T:MySpace.Synthesizer.ToneSet">
+            <summary>
+            List of multiple tones
+            </summary>
+        </member>
+        <member name="P:MySpace.Synthesizer.ToneSet.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MySpace.Synthesizer.ToneSet.Validate">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.Synthesizer.ToneSet.Clone">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.MyRIFFParser.Chunk.GetZSTR(System.Int32)">
+            <summary>
+            zero terminated ascii string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MySpace.MyDebugOutput.DebugWrite(System.String,System.Object[])">
+            <summary>
+            デバッグ出力
+            </summary>
+            <param name="frm"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:MySpace.MyBiQuadLPF.Setup(System.Single,System.Single)">
+            <summary>
+            fc = cutoff frequency / sampleRate
+            </summary>
+            <param name="fc"></param>
+            <param name="q"></param>
+        </member>
+        <member name="T:MySpace.MySMF2MML">
+            <summary>
+            Convert standard MIDI file to MML
+            </summary>
+        </member>
+        <member name="P:MySpace.MySMF2MML.Encoding">
+            <summary>
+            smf text encoding
+            </summary>
+        </member>
+        <member name="P:MySpace.MySMF2MML.ExpandDrum">
+            <summary>
+            Expand drums to program changes and notes.
+            </summary>
+        </member>
+        <member name="P:MySpace.MySMF2MML.Verbose">
+            <summary>
+            Output detailed information to Output
+            </summary>
+        </member>
+        <member name="E:MySpace.MySMF2MML.Output">
+            <summary>
+            Detailed output destination
+            </summary>
+        </member>
+        <member name="M:MySpace.MySMF2MML.Convert(MySpace.MySMFSequence,System.UInt32)">
+            <summary>
+            Convert MySMFSequence to MML
+            </summary>
+            <param name="sequence"></param>
+            <param name="port"></param>
+        </member>
+        <member name="M:MySpace.MySMF2MML.Convert(MySpace.MySMFSequence,System.Text.Encoding,System.Boolean,System.UInt32)">
+            <summary>
+            Convert MySMFSequence to MML
+            </summary>
+            <param name="sequence"></param>
+            <param name="encoding"></param>
+            <param name="expandDrum"></param>
+            <param name="port"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

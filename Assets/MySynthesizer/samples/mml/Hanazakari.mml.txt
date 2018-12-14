@@ -1,0 +1,221 @@
+﻿
+// I refferd to this site.
+// http://promusica.web.fc2.com/
+// Thank you, Mr. Promusica.
+$<title> = Hanazakari
+$<composer> = Taki Rentaro
+
+/*/
+$t00 = 0:0
+$t01 = 0:1
+$t02 = 0:2
+$t03 = 0:3
+// These tone data are produced by Takeshi Abo.
+// Web page: VAL-SOUND url:http://www.valsound.com/
+// I got permission to use. Thank you, Mr. Abo.
+// Notice. These tone data are made for OPM.
+// There is some difference in OPM and my PM8.
+$@(piano1)  = @pm8[2 7 op1[0 0 1 0 3 0 2 0 37 28 4 1 0 5] op2[0 0 12 0 0 0 2 0 47 22 9 1 1 2] op3[0 0 3 0 7 0 1 0 37 29 4 1 3 6] op4[0 0 1 0 0 0 2 1 0 18 8 6 0 6] lfo[0 127 0 0 31 0 0 0 0] ]
+$@(strings) = @pm8[2 7 op1[0 0 2 0 3 0 2 0 27 15 9 1 0 5] op2[0 0 2 0 0 0 2 0 31 15 0 15 0 5] op3[0 0 2 0 0 0 1 0 27 15 0 0 0 5] op4[0 0 2 0 7 0 1 1 0 13 3 0 0 8] lfo[0 127 0 0 31 0 0 0 0] ]
+/*/
+
+/*
+$t00 = 3:0
+$t01 = 3:1
+$t02 = 3:2
+$t03 = 3:3
+$@(piano1)  = @<0>
+$@(strings) = @<40>
+/*/
+
+$(A major) = [f+c+g+]
+
+; allegro moderato
+!tempo 60
+!measure 2/4
+
+
+t00 = @v72 @(strings)
+t01 = @v72 @(strings)@tn-3
+t02 = @v90 @(piano1)@d+64
+t03 = @v90 @(piano1)@d+64
+
+// 1
+!velocity -48
+!velocity -32,4
+t00 = o3 $(A major) r2
+t01 = o3 $(A major) r2
+t02 = o3 $(A major)  e16&:a16& c16& e16&:a16& c16& g16&:b16& e16&  a16&:~c16& e16& |
+t03 = o2 $(A major) _a4.&:a4.&                                    _g8&:g8&         |
+
+!velocity -16,4
+t00 = o3 $(A major) r2
+t01 = o3 $(A major) r2
+t02 = o3 $(A major)  b16&:~d16& f16&  a16&:~f16& f16&  b16&:~e16& f16& b16&:d16& f16& |
+t03 = o2 $(A major) _f8&:g8&         _d8&:d8& >       _b4&:b4& <                      |
+
+!velocity -32,4
+t00 = o3 $(A major) r2
+t01 = o3 $(A major) r2
+t02 = o3 $(A major)  b16&:d16& e16& e16&:a16& c16& e16&:g16&:b16& d16& e16&:g16&:b16& d16& |
+t03 = o2 $(A major) _e4:e4                        _e4:e4                                   |
+
+!velocity -48,4
+t00 = o3 $(A major) r2
+t01 = o3 $(A major) r2
+t02 = o3 $(A major) q4  c8:e8:a8  c8:e8:a8  c8:e8:a8 r8 |
+t03 = o2 $(A major) q4 _a8:q8    _a8:q8    _a8:q8    r8 |
+
+// 5
+!velocity 0
+t00 = o3 $(A major) e8. e16 a8 r16 a16 | b16& a16 g16& f16 e4 | c16& e16 a16& b16 ~c8 ~e8 | b4 ^ b8 r8 |
+t01 = o3 $(A major) e8. e16 c8 r16 c16 | d16& f16 e16& d16 c4 | c8       c16& e16  a8  c8 | e4 ^ e8 r8 |
+t02 = o3 $(A major) { e16:a16 c16 }4 | { f16:a16 _a16 }2 { e16:a16 _a16 }2 | { e16:a16 c16 }3 e16:a16 _a16| { e16:g16 _b16 }2 { d16:e16:g16 _b16}2 |
+t03 = o2 $(A major) q6 v32 _a2:a2 | d4 & c4 | _a4.&:a2 c8 | e4& _e4|
+
+// 9
+!velocity 0
+t00 = o3 $(A major) e8. e16 a8 r16 a16 | b16 & a16 f16 & g16 e4 |  b8. b16 b8 ~c8  |
+t01 = o3 $(A major) e8. e16 c8 r16 c16 | d16 & f16 e16 & d16 c4 | _b8. e16 e8. d16 |
+t02 = o3 $(A major) { e16:a16 c16 }4 | { f16:a16 _a16 }2 { e16:a16 _a16 }2 | { e16:g16 _b16 }4 |
+t03 = o2 $(A major) q6 v32 _a2:a2 | d4 & c4 | e4 ^ e16 d#16 e16 _e16 |
+
+!velocity +32,4
+t00 = o3 $(A major) a4 ^ a8 r8 |
+t01 = o3 $(A major) c4 ^ c8 r8 |
+t02 = o3 $(A major) c16:a16 e16 c16 e16 _a16 e16,4 a16,4 ~c16,4 |
+t03 = o2 $(A major) _a4 ^ _a8 r8 |
+
+// 13
+!velocity +16
+t00 = o3 $(A major) ~e8. ~e16 ~e8 r16 ~c16 | ~d8. ~d16 ~d8 r16 b16 | ~c4 f8  b8 |
+t01 = o3 $(A major) ~c8. ~c16 ~c8 r16  a16 |  b8.  b16  b8 r16 g16 |  e4 e8 d#8 |
+t02 = o3 $(A major) { a16:~c16:~e16 e16 }3 a16:~c16 e16 | { g16:b16:~d16 e16 }3 g16:b16 e16 | r16:a8:~c8 e8 a8:~c8 d8 f8:b8 c8 f16:a16 _b16 |
+t03 = o2 $(A major) _a2:a2 | _e2:e2 | _a8:a8 _f8:f8 _d8:d8 _d#8:d#8 |
+
+!velocity +0,4
+t00 = o3 $(A major) e4 ^ e8 r8 |
+t01 = o3 $(A major) e4 ^ e8 r8 |
+t02 = o3 $(A major) e16:g16 _b16 e16:g16 _b16 e8:g8 r8 |
+t03 = o2 $(A major) _e4:e4^ e16 d16,4 c16,4 _b16,4 |
+
+// 17
+!velocity +0
+t00 = o3 $(A major) e8. e16 a8 a8 | b16 & a16 g16 & f16 e4 |  b8 b16. & ~c32 ~d8 b8        |
+t01 = o3 $(A major) e8. e16 c8 c8 | d16 & f16 e16 & d16 c4 | _b8 e8           e8 f16 & g16 |
+t02 = o3 $(A major) { e16:a16 c16 } 4 | { f16:a16 _a16 }2 { e16:a16 _a16 }2 | { e16:g16 _b16 }4 |
+t03 = o2 $(A major) _a2:a2 | d4 & c4 | e4 _e4 |
+
+!velocity +32,4
+t00 = o3 $(A major) a4 ^ a8 r8 |
+t01 = o3 $(A major) a4 ^ a8 r8 |
+t02 = o3 $(A major) c16:a16 e16 c16 e16 _a16 r16 c32 e32 a32 ~c32 |
+t03 = o2 $(A major) _a4 ^ _a16 e32 a32 r8 |
+
+// 21
+!velocity +16
+t00 = o3 $(A major) r2 | r2 | r2 |
+t01 = o3 $(A major) r2 | r2 | r2 |
+t02 = o3 $(A major) a16:~c8..:~e8.. e16 a16 e16 ~c32:~e32 ~c16:~e8 e16 a16:~c8 e16 | g16:b8..:~d8.. e16 g16 e16 b32:~d32 b16:~d8 e16 g16:b8 e16 |  e4:a4:~c4        _b8,4:f8,4 _b8,4:f8,4:b8,4 |
+t03 = o2 $(A major) _a2:a2                                                         | _e2:e2                                                     | _a8:a8 _f8,4:f8,4 _d8,4:d8,4 _d#8,4:d#8,4    |
+
+!velocity -32,4
+t00 = o3 $(A major) r2 | r2 |
+t01 = o3 $(A major) r2 | e8. e16 a8 r16 a16 |
+t02 = o3 $(A major) _g4:_b4:e4 _g4:_b4:e4 | { e16:a16 c16 }4 |
+t03 = o2 $(A major) _e4: e4     _e4: e4   | _a2:a2 |
+
+// 26
+!velocity -16
+t00 = o3 $(A major) r2 | r2 | r2 | r2 | r2 |
+t01 = o3 $(A major) b16 & a16 g16 & f16 e4 | c16 & e16 a16 & b16 ~c8 a8 | b4 ^ b8 r8 | e8. e16 a8 r16 a16 | b16 & a16 f16 & g16 e4 |
+t02 = o3 $(A major) { f16:a16 _a16 }2 { e16:a16 _a16 }2 | { e16:a16 c16 }3 e16:a16 _a16 | { e16:g16 _b16 }2 { d16:e16:g16 _b16 }2 | { e16:a16 c16 }4 | { f16:a16 _a16 }2 { e16:a16 _a16 }2 |
+t03 = o2 $(A major) d4 & c4 | _a4.&:a2 c8 | e4 _e4 | _a2:a2 | d4 & c4 |
+
+// 31
+!velocity -16
+t00 = o3 $(A major) r2 |
+t01 = o3 $(A major) b8. b16 b8 ~c8 |
+t02 = o3 $(A major) { e16:g16 _b16 }4 |
+t03 = o2 $(A major) e4 ^ e16 d#16 e16 _e16 |
+
+!velocity +32,2
+t00 = o3 $(A major) r2 | ~e8. ~e16 ~e8 r16 ~c16 | ~d8. ~d16 ~d8 r16 b16 | ~c4 f8 b8 |
+t01 = o3 $(A major) a4 ^ a8 r8 | r2 | r2 | r2 |
+t02 = o3 $(A major) c16:a16 e16 c16 e16 _b16 e16,4 a16,4 ~c16,4 | { a16:~c16:~e16 e16 }3 a16:~c16 e16 | { g16:b16:~d16 e16 }3 g16:b16 e16 | r16:a8:~c8 e8 a8:~c8 d8 f8:b8 c8 f8:a8 _b16 |
+t03 = o2 $(A major) a4 ^ a8 r8| _a2:a2 | _e2:e2 | _a8:a8 _f8:f8 _d8:d8 _d#8:d#8 |
+
+// 36
+!velocity +0,4
+t00 = o3 $(A major) e4 ^ e8 r8 |
+t01 = o3 $(A major) r2 |
+t02 = o3 $(A major) e16:g16 _b16 e16:g16 _b16 e8:g8 r8 |
+t03 = o2 $(A major) _e4:e4^ e16 d16,4 c16,4 b16,4 |
+
+!velocity +0
+t00 = o3 $(A major) e8. e16 a8 a8 | b16 & a16 g16 & f16 e4 | b8 b16.& ~c32 ~d8 b8 |
+t01 = o3 $(A major) r2 | r2 | r2 |
+t02 = o3 $(A major) { e16:a16 c16 }4 | { f16:a16 _a16 }2 { e16:a16 _a16 }2 | { e16:g16 _b16 }4 |
+t03 = o2 $(A major) _a2:a2 | d4 & c4 | e4 _e4 |
+
+!velocity +32,4
+t00 = o3 $(A major) a4 ^ a8 r8 |
+t01 = o3 $(A major) r2 |
+t02 = o3 $(A major) c16:a16 e16 c16 e16 _a16 _e32 _a32 c32 e32 a32 ~c32 |
+t03 = o2 $(A major) _a4 ^ _a16 r16 r8 |
+
+// 41
+!velocity +16
+t00 = o3 $(A major) r2 | r2 | r2 | r2 |
+t01 = o3 $(A major) r2 | r2 | r2 | r2 |
+t02 = o3 $(A major) a16:~c8..:~e8.. e16 a16 e16 ~c32:~e32 e4:~c16&:~e16& b16&:~d16& b16&:~d16& a16:~c16 | g16:b8..:~d8.. e16 g16 e16 b32:~d32 e4:b16&:~d16& a16&:~c16& a16&:~c16& g16:b16 | e4:a4:~c4 _b8,4:f8,4 _b8,4:f8,4:b8,4 | _g4:_b4:e4 r4 |
+t03 = o2 $(A major) _a2:a2 | _e2:e2 | _a16:a16 _g16:g16 _f16:f16 _e16:e16 _d8:d8 _d#8:d#8 | _e4^:e4^ _e16:e16 _d16,4:d16,4 > _b16,4:b16,4 < _c16,4:c16,4 |
+
+// 45
+!velocity +16
+t00 = o3 $(A major) e8. e16 a8 r16 a16 | b16 & a16 g16 & f16 e4 | c16 & e16 & a16 & b16 ~c8 ~e8 | b4 ^ b8 r8 |
+t01 = o3 $(A major) e8. e16 c8 r16 c16 | d16 & f16 e16 & d16 c4 | e8. &             e16  a8  c8 | e4 ^ e8 r8 |
+t02 = o3 $(A major) { e16:a16 c16 }4 | { f16:a16 _a16 }2 { e16:a16 _a16 }2 | { e16:a16 c16 }3 e16:a16 _a16 | { e16:g16 _b16 }2 { d16:e16:g16 _b16 }2 |
+t03 = o2 $(A major) > _a2:a2 < | d4 & c4 | a4.:a2 c8 | e4 _e4 |
+
+// 49
+!velocity -16
+t00 = o3 $(A major) e8. e16 a8 a8 | b16 & a16 f16 & g16 e4 |  b8. b16 b8 ~c8 |
+t01 = o3 $(A major) e8. e16 c8 c8 | d16 & f16 e16 & d16 c4 | _b8. e16 e8. d16 |
+t02 = o3 $(A major) { e16:a16 c16 }4 | { f16:a16 _a16 }2 { e16:a16 _a16 }2 | { e16:g16 _b16 }4 |
+t03 = o2 $(A major) _a2:a2 | d4 & c4 | e4 ^ e16 d#16 e16 _e16 |
+
+!velocity +16,4
+t00 = o3 $(A major) a4 ^ a8 r8 |
+t01 = o3 $(A major) c4 ^ c8 r8 |
+t02 = o3 $(A major) c16:a16 e16 c16 e16 _a16 e16,4 a16,4 ~c16,4 |
+t03 = o2 $(A major) _a4 ^ _a8 r8 |
+
+// 53
+!velocity +16
+t00 = o3 $(A major) ~e8. ~e16 ~e8. & ~c16 | ~d8. ~d16 ~d8 r16 b16 | ~c4 f8 b8  |
+t01 = o3 $(A major) ~c8. ~c16 ~c8. &  a16 |  b8.  b16  b8 r16 g16 |  e4 e8 d#8 |
+t02 = o3 $(A major) { a16:~c16:~e16 e16 }3 a16:~c16 e16 | { g16:b16:~d16 e16 }3 g16:b16 e16 | r16:a8:~c8 e8 a8:~c8 d8 f8:b8 c8 f8:a8 _b16 |
+t03 = o2 $(A major) _a2:a2 | _e2:e2 | _a8:a8 _f8:f8 _d8:d8 _d#8:d#8 |
+
+!velocity -32,4
+t00 = o3 $(A major) e4 ^ e8 r8 |
+t01 = o3 $(A major) e4 ^ e8 r8 |
+t02 = o3 $(A major) e16:g16 _b16 e16:g16 _b16 e8:g8 r8 |
+t03 = o2 $(A major) _e4:e4 ^ e16 d16,4 c16,4 _b16,4 |
+
+// 57
+!velocity -16
+!velocity +16,2
+t00 = o3 $(A major) e8. e16 a8 a#8 | b16 & ~c16 ~d16 & ~e16 ~f4 ^ ~f2 | ~e8. ~e16 b8 ~c8 |
+t01 = o3 $(A major) e8. e16 c8 c8  | d16 &  f16  b16 & ~c16 ~d4 ^ ~d2 | ~c8 & b16 a16 g16 f16 e16 d16 |
+t02 = o3 $(A major) c16:e16 _a16 d16:g16 _b16 f16:a16 c16 f16:a#16 c16 | f16:b16 _b16 f16:b16 _b16 _a4^:f4^:a4^ _a2:f2:a2 | { e16:a16 c16 }2 { e16:g16 _b16 }2 |
+t03 = o2 $(A major) _a8:a8 _g8:g8 _f8:f8 _e8:e8 | _d2^:d2^ _d2:d2 | _e4:e4 > _e4:e4 < |
+
+// 60
+t00 = o3 $(A major) a4 ^ a8 r8 | r2 | r2 | r2 |
+t01 = o3 $(A major) c4 ^ c8 r8 | r2 | r2 | r2 |
+t02 = o3 $(A major) { e16:a16 c16 }2 g16:b16 e16 a16:~c16 e16 | b16:~d16 f16 a16:~f16 f16 b16:~d16 f16 | a16:~c16 e16 e16:a16 c16 e16:g16:b16 d16 e16:g16:b16 d16 | c4^:e4^:a4^ c8:e8:a8 r8 |
+t03 = o2 $(A major) > _a4.&:a4.& _g8&:g8& | _f8:f8 < _d8:d8 > _b4:b4 | < _e4:e4 > _e4:e4 | _a8,4:a8,4 e8,4 _a8,4 r8 |
+
+/*/
