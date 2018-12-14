@@ -7,24 +7,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
-using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 namespace IndieGame
 {
-	public class UIHomePanelData : UIPanelData
+	public class UIStoryPanelData : UIPanelData
 	{
 		// TODO: Query Mgr's Data
 	}
 
-	public partial class UIHomePanel : UIPanel
+	public partial class UIStoryPanel : UIPanel
 	{
 		protected override void InitUI(IUIData uiData = null)
 		{
-			mData = uiData as UIHomePanelData ?? new UIHomePanelData();
+			mData = uiData as UIStoryPanelData ?? new UIStoryPanelData ();
 			//please add init code here
-			DeathCountMin.text = string.Format ("Death Count Min : {0}", GameData.DeathCountMin == int.MaxValue ? "None":GameData.DeathCountMin.ToString());
 
-			Version.text = "v" + Application.version;
+			var text = Content.text;
+			Content.text = string.Empty;
+			Content.DOText (text, 10.0f)
+				.OnComplete (() =>
+			{
+				GotoNextPanel ();
+			});
+		}
+
+		void GotoNextPanel()
+		{
+			CloseSelf ();
+			UIMgr.OpenPanel<UIGamePanel> (new UIGamePanelData () {
+				InitLevelName = "Level1"
+			});
 		}
 
 		protected override void ProcessMsg (int eventId,QMsg msg)
@@ -34,16 +47,11 @@ namespace IndieGame
 
 		protected override void RegisterUIEvent()
 		{
-			BtnStartGame.onClick.AddListener (() =>
+			BtnSkip.onClick.AddListener (() =>
 			{
-				CloseSelf ();
-				UIMgr.OpenPanel<UIStoryPanel>();
-			});
+				Content.DOKill();
 
-
-			BtnAbout.onClick.AddListener (() =>
-			{
-				UIMgr.OpenPanel<UIAboutPanel> (UILevel.PopUI);
+				GotoNextPanel();
 			});
 		}
 
@@ -64,7 +72,7 @@ namespace IndieGame
 
 		void ShowLog(string content)
 		{
-			Debug.Log("[ UIHomePanel:]" + content);
+			Debug.Log("[ UIStoryPanel:]" + content);
 		}
 	}
 }

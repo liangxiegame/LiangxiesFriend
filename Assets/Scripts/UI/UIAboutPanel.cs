@@ -7,24 +7,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
-using UnityEngine.SceneManagement;
 
 namespace IndieGame
 {
-	public class UIHomePanelData : UIPanelData
+	public class UIAboutPanelData : UIPanelData
 	{
 		// TODO: Query Mgr's Data
 	}
 
-	public partial class UIHomePanel : UIPanel
+	public partial class UIAboutPanel : UIPanel
 	{
 		protected override void InitUI(IUIData uiData = null)
 		{
-			mData = uiData as UIHomePanelData ?? new UIHomePanelData();
+			mData = uiData as UIAboutPanelData ?? new UIAboutPanelData();
 			//please add init code here
-			DeathCountMin.text = string.Format ("Death Count Min : {0}", GameData.DeathCountMin == int.MaxValue ? "None":GameData.DeathCountMin.ToString());
-
-			Version.text = "v" + Application.version;
 		}
 
 		protected override void ProcessMsg (int eventId,QMsg msg)
@@ -34,16 +30,9 @@ namespace IndieGame
 
 		protected override void RegisterUIEvent()
 		{
-			BtnStartGame.onClick.AddListener (() =>
+			BtnBack.onClick.AddListener (() =>
 			{
-				CloseSelf ();
-				UIMgr.OpenPanel<UIStoryPanel>();
-			});
-
-
-			BtnAbout.onClick.AddListener (() =>
-			{
-				UIMgr.OpenPanel<UIAboutPanel> (UILevel.PopUI);
+				CloseSelf();
 			});
 		}
 
@@ -64,7 +53,7 @@ namespace IndieGame
 
 		void ShowLog(string content)
 		{
-			Debug.Log("[ UIHomePanel:]" + content);
+			Debug.Log("[ UIAboutPanel:]" + content);
 		}
 	}
 }

@@ -13,11 +13,15 @@ namespace IndieGame
 
 		[SerializeField] public Button BtnStartGame;
 		[SerializeField] public Text DeathCountMin;
+		[SerializeField] public Text Version;
+		[SerializeField] public Button BtnAbout;
 
 		protected override void ClearUIComponents()
 		{
 			BtnStartGame = null;
 			DeathCountMin = null;
+			Version = null;
+			BtnAbout = null;
 		}
 
 		private UIHomePanelData mPrivateData = null;

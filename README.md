@@ -2,9 +2,28 @@
 
 ## 环境
 
-* Unity 2017.3
-* Mac/Windows
-* CorgiEngine v5.1
+* Unity 2017.3(GameEngine)
+
+* Mac/Windows(OS)
+
+* [CorgiEngine v5.1](https://assetstore.unity.com/packages/templates/systems/corgi-engine-2d-2-5d-platformer-26617)
+
+* [QFramework (include)](https://github.com/liangxiegame/QFramework)
+
+
+
+
+## 交流
+
+QQ 群 ：746260877
+
+
+
+## 一个人如何做个游戏
+
+http://www.sikiedu.com/course/327
+
+
 
 ## 名字
 
@@ -32,7 +51,7 @@
 
 这是一个关于友情的故事。
 
-主角有一个朋友 A，朋友 A 的梦想是要上天，去天空寻找传说中的宝藏。但是朋友 A 还没完成梦想就去世了。主角非常想念朋友 A，决定替朋友 A 实现梦想，踏上了上天之路。
+主角有一个朋友 A，朋友 A 的梦想是要去天空寻找传说中的宝藏。但是朋友 A 还没完成梦想就去世了。主角非常想念朋友 A，决定替朋友 A 实现梦想，踏上了上天之路。
 
 
 
@@ -57,9 +76,9 @@
 
 - [x] [按键提示](https://www.processon.com/view/link/5c1275bce4b00a4d62364074)。
 
-- [ ] 关于界面。
+- [x] [关于界面](https://www.processon.com/view/link/5c132ed2e4b0e651c724972c)。
 
-- [ ] 叙事界面。
+- [x] 叙事界面。
 
 - [ ] 传达的情感、给玩家的感觉。
 
@@ -143,10 +162,12 @@
 - [x] 没有背景音乐的。
 - [x] 游戏结束后的:Reacord。
 - [x] 关卡顺序改变之后，要去做很多重复操作。
-- [ ] 按键的提示，新手不知道全部按键。
-- [ ] About 界面，作者，以及所属的机构，sikiedu.com。github、课程地址、QQ 群。
-- [ ] 叙事界面，在第一关之前。
+- [x] 按键的提示，新手不知道全部按键。
+- [x] About 界面，作者，以及所属的机构，sikiedu.com。github、课程地址、QQ 群。
+- [x] 叙事界面，在第一关之前。
 - [ ] 角色的名字要想一下。
+- [ ] UI 按钮点击的音效。
+- [ ] 叙事界面有待改进。
 
 ## 游戏制作流程
 
