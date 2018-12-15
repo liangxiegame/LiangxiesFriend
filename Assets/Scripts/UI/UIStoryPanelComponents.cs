@@ -12,12 +12,12 @@ namespace IndieGame
 		public const string NAME = "UIStoryPanel";
 
 		[SerializeField] public Text Content;
-		[SerializeField] public Button BtnSkip;
+		[SerializeField] public Button BtnNext;
 
 		protected override void ClearUIComponents()
 		{
 			Content = null;
-			BtnSkip = null;
+			BtnNext = null;
 		}
 
 		private UIStoryPanelData mPrivateData = null;

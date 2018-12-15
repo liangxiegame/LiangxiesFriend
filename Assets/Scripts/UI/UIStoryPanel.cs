@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
 using DG.Tweening;
+using UniRx;
 
 namespace IndieGame
 {
@@ -23,19 +24,35 @@ namespace IndieGame
 			mData = uiData as UIStoryPanelData ?? new UIStoryPanelData ();
 			//please add init code here
 
+			BtnNext.Hide ();
+
 			var text = Content.text;
 			Content.text = string.Empty;
 			Content.DOText (text, 10.0f)
 				.OnComplete (() =>
 			{
-				GotoNextPanel ();
+				BtnNext.Show ();
 			});
+
+			// 监听鼠标点击事件
+			Observable.EveryUpdate ()
+				.Where (_ => 
+					Input.GetMouseButtonUp (0) ||
+			Input.GetKeyUp (KeyCode.H) ||
+			Input.GetKeyUp (KeyCode.Return) ||
+			Input.GetKeyUp (KeyCode.Space))
+				.Subscribe (_ =>
+			{
+				Content.DOKill ();
+				Content.text = text;
+				BtnNext.Show ();
+
+			}).AddTo (this);
 		}
 
 		void GotoNextPanel()
 		{
-			CloseSelf ();
-			UIMgr.OpenPanel<UIGamePanel> (new UIGamePanelData () {
+			this.DoTransition<UIGamePanel> (new FadeInOut (), uiData: new UIGamePanelData () {
 				InitLevelName = "Level1"
 			});
 		}
@@ -47,10 +64,8 @@ namespace IndieGame
 
 		protected override void RegisterUIEvent()
 		{
-			BtnSkip.onClick.AddListener (() =>
+			BtnNext.onClick.AddListener (() =>
 			{
-				Content.DOKill();
-
 				GotoNextPanel();
 			});
 		}
