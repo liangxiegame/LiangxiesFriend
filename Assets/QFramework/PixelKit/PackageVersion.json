@@ -1,16 +1,16 @@
 {
-  "Version": "v0.0.1",
-  "Type": 0,
+  "Version": "v0.0.2",
+  "Type": 3,
   "AccessRight": 0,
   "DownloadUrl": null,
   "InstallPath": "Assets/QFramework/PixelKit/",
   "Readme": {
-    "version": "v0.0.1",
-    "content": "汉化自 UniPix，UniPix 是免费的 2D 图像制作工具，但是作者不更新了，以后可能会从 Asset Store 上下架。",
+    "version": "v0.0.2",
+    "content": "更改插件地址",
     "author": "凉鞋的MacBook Pro (2)",
-    "date": "2018-12-12"
+    "date": "2018-12-16"
   },
   "Name": "PixelKit",
-  "VersionNumber": 1,
-  "FileName": "PixelKit_v0.0.1.unitypackage"
+  "VersionNumber": 2,
+  "FileName": "PixelKit_v0.0.2.unitypackage"
 }

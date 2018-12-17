@@ -1,16 +1,16 @@
 {
-  "Version": "v0.0.46",
+  "Version": "v0.0.49",
   "Type": 0,
   "AccessRight": 0,
   "DownloadUrl": "http://liangxiegame.com/media/6.PackageManager_v0.0.35.unitypackage",
   "InstallPath": "Assets/QFramework/Framework/6.PackageManager/",
   "Readme": {
-    "version": "v0.0.46",
-    "content": "add execut menu itm",
+    "version": "v0.0.49",
+    "content": "下载完成后关闭窗口",
     "author": "DESKTOP-ALVD4JR",
     "date": "2018-12-17"
   },
   "Name": "6.PackageManager",
-  "VersionNumber": 46,
-  "FileName": "6.PackageManager_v0.0.46.unitypackage"
+  "VersionNumber": 49,
+  "FileName": "6.PackageManager_v0.0.49.unitypackage"
 }

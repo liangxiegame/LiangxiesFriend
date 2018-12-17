@@ -35,8 +35,6 @@ namespace QFramework
     {
         private List<PackageData> mPackageDatas = new List<PackageData>();
 
-        public FrameworkLocalVersion FrameworkLocalVersion;
-
         private static readonly string EXPORT_ROOT_DIR = Application.dataPath.CombinePath("../");
 
         public static string ExportPaths(string exportPackageName, params string[] paths)
@@ -59,10 +57,12 @@ namespace QFramework
             return string.Empty;
         }
 
-        public void Init(EditorWindow window)
+        private PreferencesWindow mMainWindow;
+        
+        public void Init(PreferencesWindow window)
         {
-            FrameworkLocalVersion = FrameworkLocalVersion.Get();
-
+            mMainWindow = window;
+            
             mPackageDatas = PackageInfosRequestCache.Get().PackageDatas;
 
             InstalledPackageVersions.Reload();
@@ -114,7 +114,8 @@ namespace QFramework
             GUILayout.Label("Framework:");
             GUILayout.BeginVertical("box");
 
-            GUILayout.Label(string.Format("Current Framework Version:{0}", FrameworkLocalVersion.Version));
+            GUILayout.Label(string.Format("QFramework:{0}",
+                mPackageDatas.Find(packageData => packageData.Name == "Framework").Version));
 
             mToolbarIndex = GUILayout.Toolbar(mToolbarIndex, ToolbarNames);
 
@@ -147,6 +148,9 @@ namespace QFramework
                     if (GUILayout.Button("Import", GUILayout.Width(90)))
                     {
                         EditorActionKit.ExecuteNode(new InstallPackage(packageData));
+                        
+                        mMainWindow.Close();
+                        mMainWindow = null;
                     }
                 }
                 else if (installedPackage != null && packageData.VersionNumber > installedPackage.VersionNumber)
@@ -159,8 +163,11 @@ namespace QFramework
                         {
                             Directory.Delete(path, true);
                         }
-
+                       
                         EditorActionKit.ExecuteNode(new InstallPackage(packageData));
+                        
+                        mMainWindow.Close();
+                        mMainWindow = null;
                     }
                 }
                 else if (installedPackage != null)

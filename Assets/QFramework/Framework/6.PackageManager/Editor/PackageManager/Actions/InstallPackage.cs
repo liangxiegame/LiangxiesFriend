@@ -70,7 +70,7 @@ namespace QFramework
 
 					InstalledPackageVersions.Reload();
 
-					EditorApplication.ExecuteMenuItem(FrameworkMenuItems.Preferences);
+//					EditorApplication.ExecuteMenuItem(FrameworkMenuItems.Preferences);
 				}, e =>
 				{
 					EditorUtility.ClearProgressBar();

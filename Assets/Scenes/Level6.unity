@@ -435,10 +435,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ace2d4bf56f98df4196ff81845a465d7, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &533672689 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400000, guid: 1728643822bf69f40be89249196b150d, type: 2}
-  m_PrefabInternal: {fileID: 1715559306}
 --- !u!1001 &872819860
 Prefab:
   m_ObjectHideFlags: 0
@@ -646,7 +642,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4514363736812070, guid: 025abe5b89b174ca09a8b619a811335f, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 025abe5b89b174ca09a8b619a811335f, type: 2}
@@ -656,52 +652,56 @@ Transform:
   m_PrefabParentObject: {fileID: 4514363736812070, guid: 025abe5b89b174ca09a8b619a811335f,
     type: 2}
   m_PrefabInternal: {fileID: 1633707690}
---- !u!1001 &1715559306
+--- !u!1001 &2117215501
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 2122634802}
     m_Modifications:
-    - target: {fileID: 400000, guid: 1728643822bf69f40be89249196b150d, type: 2}
+    - target: {fileID: 400000, guid: 515202ca97b0b424299951ac123b69e3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -26.34
+      value: -26.32
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1728643822bf69f40be89249196b150d, type: 2}
+    - target: {fileID: 400000, guid: 515202ca97b0b424299951ac123b69e3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -11.05
+      value: -11.19
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1728643822bf69f40be89249196b150d, type: 2}
+    - target: {fileID: 400000, guid: 515202ca97b0b424299951ac123b69e3, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1728643822bf69f40be89249196b150d, type: 2}
+    - target: {fileID: 400000, guid: 515202ca97b0b424299951ac123b69e3, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1728643822bf69f40be89249196b150d, type: 2}
+    - target: {fileID: 400000, guid: 515202ca97b0b424299951ac123b69e3, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1728643822bf69f40be89249196b150d, type: 2}
+    - target: {fileID: 400000, guid: 515202ca97b0b424299951ac123b69e3, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1728643822bf69f40be89249196b150d, type: 2}
+    - target: {fileID: 400000, guid: 515202ca97b0b424299951ac123b69e3, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1728643822bf69f40be89249196b150d, type: 2}
+    - target: {fileID: 400000, guid: 515202ca97b0b424299951ac123b69e3, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1728643822bf69f40be89249196b150d, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.20330904
+    - target: {fileID: 100000, guid: 515202ca97b0b424299951ac123b69e3, type: 2}
+      propertyPath: m_Name
+      value: OneWayPlatform (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 1728643822bf69f40be89249196b150d, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 515202ca97b0b424299951ac123b69e3, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &2117215502 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: 515202ca97b0b424299951ac123b69e3, type: 2}
+  m_PrefabInternal: {fileID: 2117215501}
 --- !u!1 &2122634799
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,7 +731,7 @@ Transform:
   - {fileID: 1494325979}
   - {fileID: 1267461638}
   - {fileID: 1505988468}
-  - {fileID: 533672689}
+  - {fileID: 2117215502}
   - {fileID: 1633707691}
   m_Father: {fileID: 0}
   m_RootOrder: 5
