@@ -786,52 +786,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06710df06f403c948b4d2a9357fa5e8a, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &1015408125
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 418954, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 418954, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 418954, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 418954, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 418954, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 418954, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 418954, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 418954, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 11448522, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
-      propertyPath: SoundClip
-      value: 
-      objectReference: {fileID: 8300000, guid: ebc65fb6edf72b14786d50be9b58bec8, type: 3}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
-  m_IsPrefabParent: 0
 --- !u!4 &1125483369 stripped
 Transform:
   m_PrefabParentObject: {fileID: 443842, guid: 06710df06f403c948b4d2a9357fa5e8a, type: 2}

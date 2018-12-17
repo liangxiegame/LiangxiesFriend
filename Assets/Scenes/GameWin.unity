@@ -155,7 +155,18 @@ Prefab:
     - target: {fileID: 11448522, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
       propertyPath: SoundClip
       value: 
-      objectReference: {fileID: 8300000, guid: d1e610511b3044b4da0a4789b73426fb, type: 3}
+      objectReference: {fileID: 8300000, guid: ea9d8c92520253a4ebaee34f4cc029ea, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &851502712 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 118954, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
+  m_PrefabInternal: {fileID: 851502711}
+--- !u!81 &851502713
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 851502712}
+  m_Enabled: 1

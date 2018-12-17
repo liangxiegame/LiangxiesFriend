@@ -676,6 +676,23 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a343ffc127af4b41b1e509d55d21956, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1138087617 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 118954, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
+  m_PrefabInternal: {fileID: 1908824087}
+--- !u!114 &1138087618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1138087617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764d1a6c323a1394ab557549bf496a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationTime: 0
+  SoundClip: {fileID: 8300000, guid: d8c8c509655347a4a84fbf2c2519db7a, type: 3}
 --- !u!4 &1267461638 stripped
 Transform:
   m_PrefabParentObject: {fileID: 444820, guid: f30df32b0e5954d7fa78d0b4cdf659c3, type: 2}
@@ -842,8 +859,9 @@ Prefab:
     - target: {fileID: 11448522, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
       propertyPath: SoundClip
       value: 
-      objectReference: {fileID: 8300000, guid: 6ef4ade26fd5d9d419f586d002252cee, type: 3}
-    m_RemovedComponents: []
+      objectReference: {fileID: 8300000, guid: d8c8c509655347a4a84fbf2c2519db7a, type: 3}
+    m_RemovedComponents:
+    - {fileID: 11448522, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2122634799

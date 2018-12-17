@@ -278,6 +278,10 @@ Prefab:
       propertyPath: m_Name
       value: HomeCloundMusic
       objectReference: {fileID: 0}
+    - target: {fileID: 11448522, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
+      propertyPath: SoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d4da07b973b5e6847b5044ca560dd0a0, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc03da2db73a146869f430fc7abf07a0, type: 2}
   m_IsPrefabParent: 0
