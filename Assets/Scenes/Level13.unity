@@ -898,6 +898,18 @@ Prefab:
       propertyPath: m_Poly.m_Paths.Array.data[0].Array.data[3].y
       value: -1.44345856
       objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: af464b7890405c64bb44f0215974fac3, type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: af464b7890405c64bb44f0215974fac3, type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: af464b7890405c64bb44f0215974fac3, type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6000000, guid: af464b7890405c64bb44f0215974fac3, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: af464b7890405c64bb44f0215974fac3, type: 2}

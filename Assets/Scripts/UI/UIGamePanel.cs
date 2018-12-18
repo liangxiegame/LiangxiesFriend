@@ -19,7 +19,7 @@ namespace IndieGame
 		// TODO: Query Mgr's Data
 		public int DeathCount;
 
-		public string InitLevelName = "Level15";
+		public string InitLevelName = "Level20";
 	}
 
 	public partial class UIGamePanel : UIPanel,MMEventListener<CorgiEngineEvent>

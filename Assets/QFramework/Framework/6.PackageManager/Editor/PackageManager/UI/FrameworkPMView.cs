@@ -26,6 +26,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using UniRx;
 using UnityEditor;
 using UnityEngine;
 
@@ -108,14 +109,25 @@ namespace QFramework
             }
         }
 
+       
+        public static bool VersionCheck
+        {
+            get { return EditorPrefs.GetBool("QFRAMEWORK_VERSION_CHECK", true); }
+            set { EditorPrefs.SetBool("QFRAMEWORK_VERSION_CHECK", value); }
+        }
 
         public void OnGUI()
         {
             GUILayout.Label("Framework:");
             GUILayout.BeginVertical("box");
-
+            
+            GUILayout.BeginHorizontal();
             GUILayout.Label(string.Format("QFramework:{0}",
-                mPackageDatas.Find(packageData => packageData.Name == "Framework").Version));
+                mPackageDatas.Find(packageData => packageData.Name == "Framework").Version),GUILayout.Width(150));
+            
+            VersionCheck = GUILayout.Toggle(VersionCheck, "Version Check");
+            
+            GUILayout.EndHorizontal();
 
             mToolbarIndex = GUILayout.Toolbar(mToolbarIndex, ToolbarNames);
 
