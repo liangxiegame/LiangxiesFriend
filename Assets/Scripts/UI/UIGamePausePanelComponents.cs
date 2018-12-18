@@ -1,5 +1,5 @@
 /****************************************************************************
- * 2018.12 凉鞋的MacBook Pro (2)
+ * 2018.12 DESKTOP-ALVD4JR
  ****************************************************************************/
 
 namespace IndieGame
@@ -12,11 +12,15 @@ namespace IndieGame
 		public const string NAME = "UIGamePausePanel";
 
 		[SerializeField] public Image PauseSplash;
+		[SerializeField] public Animator BtnResume;
+		[SerializeField] public Animator BtnRestart;
 		[SerializeField] public Animator BtnHome;
 
 		protected override void ClearUIComponents()
 		{
 			PauseSplash = null;
+			BtnResume = null;
+			BtnRestart = null;
 			BtnHome = null;
 		}
 

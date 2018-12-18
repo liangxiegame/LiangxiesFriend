@@ -14,7 +14,16 @@ namespace IndieGame
 {
 	public class UIStoryPanelData : UIPanelData
 	{
-		// TODO: Query Mgr's Data
+		public string StoryContent = @"主角终于找到了传说中的宝藏，
+
+实现了 A 的梦想。";
+
+		public Action<UIStoryPanel> OnStoryFinish = storyPanel =>
+		{
+			storyPanel.DoTransition<UIGamePanel> (new FadeInOut (), uiData: new UIGamePanelData () {
+				InitLevelName = "Level1"
+			});
+		};
 	}
 
 	public partial class UIStoryPanel : UIPanel
@@ -26,9 +35,8 @@ namespace IndieGame
 
 			BtnNext.Hide ();
 
-			var text = Content.text;
 			Content.text = string.Empty;
-			Content.DOText (text, 10.0f)
+			Content.DOText (mData.StoryContent, 10.0f / 128 * mData.StoryContent.Length)
 				.OnComplete (() =>
 			{
 				BtnNext.Show ();
@@ -44,7 +52,7 @@ namespace IndieGame
 				.Subscribe (_ =>
 			{
 				Content.DOKill ();
-				Content.text = text;
+				Content.text = mData.StoryContent;
 				BtnNext.Show ();
 
 			}).AddTo (this);
@@ -52,9 +60,7 @@ namespace IndieGame
 
 		void GotoNextPanel()
 		{
-			this.DoTransition<UIGamePanel> (new FadeInOut (), uiData: new UIGamePanelData () {
-				InitLevelName = "Level1"
-			});
+			mData.OnStoryFinish.InvokeGracefully(this);
 		}
 
 		protected override void ProcessMsg (int eventId,QMsg msg)
@@ -66,6 +72,7 @@ namespace IndieGame
 		{
 			BtnNext.onClick.AddListener (() =>
 			{
+				SendMsg(new AudioSoundMsg("Click"));
 				GotoNextPanel();
 			});
 		}

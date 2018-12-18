@@ -32,6 +32,7 @@ namespace IndieGame
 		{
 			BtnBack.onClick.AddListener (() =>
 			{
+				SendMsg(new AudioSoundMsg("Click"));
 				CloseSelf();
 			});
 		}

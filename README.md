@@ -196,13 +196,13 @@ http://www.sikiedu.com/course/327
 - [x] About 界面，作者，以及所属的机构，sikiedu.com。github、课程地址、QQ 群。
 - [x] 叙事界面，在第一关之前。
 - [ ] 角色的名字要想一下。
-- [ ] UI 按钮点击的音效。
+- [x] UI 按钮点击的音效。
 - [x] 叙事界面有待改进。
 - [x] 播放完剧情后，会先显示 GamePanel，FadeIn，FadeOut。
-- [ ] 通关剧情也用 UIStoryPanel，播放完文本效果后，跳转到完成页面。
+- [x] 通关剧情也用 UIStoryPanel，播放完文本效果后，跳转到完成页面。
 - [x] 第七关的落地是 bug
 - [x] 背景音乐声音太大了，音效声音偏小。
-- [ ] Level15 ~ Level20 背景音乐
+- [x] Level15 ~ Level20 背景音乐
 
 ## 游戏制作流程
 

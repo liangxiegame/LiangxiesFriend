@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 224395624509832668}
   - component: {fileID: 95096351005640202}
   - component: {fileID: 114712439814977616}
+  - component: {fileID: 114732359203284706}
   m_Layer: 5
   m_Name: BtnResume
   m_TagString: Untagged
@@ -253,6 +254,7 @@ GameObject:
   - component: {fileID: 224969298508918406}
   - component: {fileID: 95221805802554874}
   - component: {fileID: 114519433357357722}
+  - component: {fileID: 114754556690016944}
   m_Layer: 5
   m_Name: BtnRestart
   m_TagString: Untagged
@@ -910,6 +912,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e7d04d6c99d99b44bcbbf1dd8aa5547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114732359203284706
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1536410378491804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4211833ca4e7a4984b2d973425a62933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: 
 --- !u!114 &114733807672119110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -951,6 +966,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.153}
   m_EffectDistance: {x: 0, y: -2}
   m_UseGraphicAlpha: 1
+--- !u!114 &114754556690016944
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1914381747490326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4211833ca4e7a4984b2d973425a62933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: 
 --- !u!114 &114814585137539144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1120,6 +1148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mSubPanelInfos: []
   PauseSplash: {fileID: 114222654127151458}
+  BtnResume: {fileID: 95096351005640202}
+  BtnRestart: {fileID: 95221805802554874}
   BtnHome: {fileID: 95073186854787052}
 --- !u!114 &114898608118047396
 MonoBehaviour:

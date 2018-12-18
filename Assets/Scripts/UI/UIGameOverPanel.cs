@@ -37,6 +37,7 @@ namespace IndieGame
 		{
 			BtnHome.onClick.AddListener (() =>
 			{
+				SendMsg(new AudioSoundMsg("Click"));
 				CloseSelf();
 				UIMgr.OpenPanel<UIHomePanel>();
 			});

@@ -72,8 +72,19 @@ namespace IndieGame
 				Debug.LogFormat ("Death Count : {0}", mData.DeathCount);
 
 				CloseSelf ();
-				UIMgr.OpenPanel<UIGameOverPanel> (new UIGameOverPanelData () {
-					DeathCountCurrent = mData.DeathCount
+
+				UIMgr.OpenPanel<UIStoryPanel>(new UIStoryPanelData()
+				{
+					StoryContent = @"主角终于找到了传说中的宝藏，
+
+实现了 A 的梦想。",
+					OnStoryFinish = storyPanel =>
+					{
+						storyPanel.DoTransition<UIGameOverPanel>(new FadeInOut(), uiData: new UIGameOverPanelData()
+						{
+							DeathCountCurrent = mData.DeathCount
+						});
+					}
 				});
 			}
 			else if (scene.name.StartsWith ("Level"))

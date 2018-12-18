@@ -40,10 +40,28 @@ namespace IndieGame
 				.GetComponent<MMTouchButton> ()
 				.ButtonPressedFirstTime.AddListener (() =>
 			{
-				Log.I ("@@@@");
+				SendMsg(new AudioSoundMsg("Click"));
 				UIMgr.ClosePanel<UIGamePanel> ();
 				CloseSelf ();
 			});
+			
+			BtnRestart
+				.transform
+				.Find ("Container/Background")
+				.GetComponent<MMTouchButton> ()
+				.ButtonPressedFirstTime.AddListener (() =>
+				{
+					SendMsg(new AudioSoundMsg("Click"));
+				});
+			
+			BtnResume
+				.transform
+				.Find ("Container/Background")
+				.GetComponent<MMTouchButton> ()
+				.ButtonPressedFirstTime.AddListener (() =>
+				{
+					SendMsg(new AudioSoundMsg("Click"));
+				});
 		}
 
 		protected override void OnShow()
