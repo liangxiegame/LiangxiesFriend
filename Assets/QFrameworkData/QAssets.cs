@@ -19,6 +19,7 @@ namespace QAssetBundle
     public class Sounds
     {
         public const string BundleName = "SOUNDS";
+        public const string CLICK = "CLICK";
         public const string HIT = "HIT";
     }
     public class Spriteatlas_spriteatlas
