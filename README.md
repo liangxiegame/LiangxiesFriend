@@ -63,6 +63,7 @@ http://www.sikiedu.com/course/327
 - [x] 冲刺的按键提示。
 - [x] 飞行器的按键提示。
 - [ ] UHomePanel 对键盘的支持。
+- [x] Level7 下落物体触发之后需要 restart level 的 bug。
 
 ## 规划 Roadmap
 
