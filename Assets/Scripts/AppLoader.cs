@@ -50,12 +50,19 @@ namespace IndieGame
 				PlayerPrefs.SetInt ("FIRST_TIME_ENTER_LEVEL_1", value ? 1 : 0);
 			}
 		}
+
+		public static string CurLevelName
+		{
+			get { return PlayerPrefs.GetString("CUR_LEVEL_NAME", "Level1"); }
+			set { PlayerPrefs.SetString("CUR_LEVEL_NAME", value); }
+		}
 	}
 
 
 	public class LevelConfig
 	{
-		static List<string> mLevelNamesOrder = new List<string> () {
+		static List<string> mLevelNamesOrder = new List<string>()
+		{
 			"Level1",
 			"Level2",
 			"Level3",
@@ -83,13 +90,33 @@ namespace IndieGame
 			"GameWin",
 		};
 
+		public static List<string> LevelNamesOrder
+		{
+			get { return mLevelNamesOrder; }
+		}
+
+		public static int CurrentLevelIndex(string curLevelName)
+		{
+			var curLevelIndex = mLevelNamesOrder.IndexOf(curLevelName);
+
+			return curLevelIndex;
+		}
+
 		public static string GetNextLevelName()
 		{
-			var curLevelName = SceneManager.GetActiveScene ().name;
-
-			var curLevelIndex = mLevelNamesOrder.IndexOf (curLevelName);
+			var curLevelIndex = CurrentLevelIndex(SceneManager.GetActiveScene().name);
+			
 			curLevelIndex++;
-			var nextLevelName = mLevelNamesOrder [curLevelIndex];
+			var nextLevelName = mLevelNamesOrder[curLevelIndex];
+
+			if (curLevelIndex == mLevelNamesOrder.Count - 1)
+			{
+				GameData.CurLevelName = "Level1";
+			}
+			else
+			{
+				GameData.CurLevelName = nextLevelName;
+			}
 
 			return nextLevelName;
 		}

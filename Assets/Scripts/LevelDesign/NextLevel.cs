@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Tools;
 using MoreMountains.CorgiEngine;
+using QFramework;
+using UniRx;
 using UnityEngine.SceneManagement;
 
 namespace IndieGame
@@ -22,23 +24,15 @@ namespace IndieGame
 			base.TriggerButtonAction ();
 			GoToNextLevel();
 			ZoneActivated ();
-		}			
+		}
 
 		/// <summary>
 		/// Loads the next level
 		/// </summary>
 		public virtual void GoToNextLevel()
 		{
-			var nextLevelName = LevelConfig.GetNextLevelName ();
-
-			if (LevelManager.Instance!=null)
-			{
-				LevelManager.Instance.GotoLevel(nextLevelName);
-			}
-			else
-			{
-				LoadingSceneManager.LoadScene(nextLevelName);
-			}
+			AudioManager.Instance.SendMsg(new AudioSoundMsg("pass_level"));
+			GameModeLogic.LevelFinish();
 		}
 	}
 }

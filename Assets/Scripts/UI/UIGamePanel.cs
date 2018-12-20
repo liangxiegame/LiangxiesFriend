@@ -20,7 +20,11 @@ namespace IndieGame
 		public int DeathCount;
 
 		public string InitLevelName = "Level7";
+
+		public GameMode Mode = GameMode.Normal;
 	}
+
+
 
 	public partial class UIGamePanel : UIPanel,MMEventListener<CorgiEngineEvent>
 	{
@@ -52,21 +56,22 @@ namespace IndieGame
 		}
 			
 		protected override void InitUI(IUIData uiData = null)
-		{
+		{	
 			mData = uiData as UIGamePanelData ?? new UIGamePanelData ();
+
+			GameModeLogic.Mode = mData.Mode;
 
 			SceneManager.sceneLoaded += OnSceneLoaded;
 
 			SceneManager.LoadScene (mData.InitLevelName);
 
-			this.MMEventStartListening<CorgiEngineEvent> ();
-
+			this.MMEventStartListening ();
 
 			KeyBoardHelp.Hide ();
 		}
 
 		void OnSceneLoaded(Scene scene,LoadSceneMode mode)
-		{
+		{			
 			if (scene.name == "GameWin")
 			{
 				Debug.LogFormat ("Death Count : {0}", mData.DeathCount);

@@ -1,5 +1,5 @@
 /****************************************************************************
- * 2018.12 凉鞋的MacBook Pro (2)
+ * 2018.12 DESKTOP-ALVD4JR
  ****************************************************************************/
 
 namespace IndieGame
@@ -15,6 +15,7 @@ namespace IndieGame
 		[SerializeField] public Text DeathCountMin;
 		[SerializeField] public Text Version;
 		[SerializeField] public Button BtnAbout;
+		[SerializeField] public Button BtnTrainMode;
 
 		protected override void ClearUIComponents()
 		{
@@ -22,6 +23,7 @@ namespace IndieGame
 			DeathCountMin = null;
 			Version = null;
 			BtnAbout = null;
+			BtnTrainMode = null;
 		}
 
 		private UIHomePanelData mPrivateData = null;

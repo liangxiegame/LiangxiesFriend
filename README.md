@@ -4,7 +4,15 @@
 
 # 1. Liangxie's Friend
 
-## 环境
+
+
+## 游戏下载地址:
+
+* https://github.com/liangxiegame/LiangxiesFriend/releases
+
+
+
+## 开发环境
 
 * Unity 2017.3(GameEngine)
 
@@ -64,6 +72,8 @@ http://www.sikiedu.com/course/327
 - [x] 飞行器的按键提示。
 - [x] UHomePanel 对键盘的支持。
 - [x] Level7 下落物体触发之后需要 restart level 的 bug。
+- [ ] 每个关卡都要播放音乐。
+- [ ] LevelFinished 页面（通关的页面，训练模式下）。
 
 ## 规划 Roadmap
 
@@ -119,12 +129,15 @@ http://www.sikiedu.com/course/327
 
 ### 第七章 （20 课时） v0.0.7
 
-- [ ] levelchoose 。
-- [ ] 进度记录。
+- [x] Level Choose 关卡选择。
+- [x] 进度记录。
 - [ ] 关卡重头开始去优化一下。
-- [ ] 通关音效 建议加一个。
+- [x] 通关音效 建议加一个。
 - [ ] 镜头的优化，角色在左侧边界死亡的时候 重生 很容易片镜头。
-- [ ] 后效，Bloom。
+- [x] 后效，Bloom。
+- [ ] 撰写文档，它描述了目前游戏的一些信息。
+- [ ] 火箭的能量值显示。
+- [ ] 成就系统，研究它的使用。
 
 
 
@@ -140,6 +153,7 @@ http://www.sikiedu.com/course/327
 - 攀爬技能。
 - 第三次跳跃的时候反向跳跃。
 - 冲刺的使用。
+- 火箭。
 
 ## 技巧
 

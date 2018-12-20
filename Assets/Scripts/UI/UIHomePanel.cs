@@ -37,10 +37,14 @@ namespace IndieGame
 		private void StartGame()
 		{
 			SendMsg(new AudioSoundMsg("Click"));
-			CloseSelf ();
-			UIMgr.OpenPanel<UIStoryPanel>(new UIStoryPanelData()
+
+			if (GameData.CurLevelName == "Level1")
 			{
-				StoryContent = @"这是一个关于友情的故事。
+				CloseSelf ();
+
+				UIMgr.OpenPanel<UIStoryPanel>(new UIStoryPanelData()
+				{
+					StoryContent = @"这是一个关于友情的故事。
 
 主角有一个朋友 A，
 
@@ -54,14 +58,22 @@ namespace IndieGame
 
 踏上了上天之路。
 ",
-				OnStoryFinish = storyPanel =>
-				{
-					storyPanel.DoTransition<UIGamePanel>(new FadeInOut(), uiData: new UIGamePanelData()
+					OnStoryFinish = storyPanel =>
 					{
-						InitLevelName = "Level1"
-					});
-				}
-			});
+						storyPanel.DoTransition<UIGamePanel>(new FadeInOut(), uiData: new UIGamePanelData()
+						{
+							InitLevelName = GameData.CurLevelName
+						});
+					}
+				});
+			}
+			else
+			{
+				this.DoTransition<UIGamePanel>(new FadeInOut(), uiData: new UIGamePanelData()
+				{
+					InitLevelName = GameData.CurLevelName
+				});
+			}
 		}
 
 		protected override void ProcessMsg (int eventId,QMsg msg)
@@ -78,8 +90,16 @@ namespace IndieGame
 			{
 				SendMsg(new AudioSoundMsg("Click"));
 				CloseSelf();
-				UIMgr.OpenPanel<UIAboutPanel> (UILevel.PopUI);
+				UIMgr.OpenPanel<UIAboutPanel> ();
 			});
+
+			BtnTrainMode.OnClickAsObservable()
+				.Subscribe(_ =>
+				{
+					SendMsg(new AudioSoundMsg("Click"));
+					CloseSelf();
+					UIMgr.OpenPanel<UITrainModePanel>();
+				});
 		}
 
 		protected override void OnShow()
