@@ -34,6 +34,7 @@ namespace IndieGame
 			{
 				SendMsg(new AudioSoundMsg("Click"));
 				CloseSelf();
+				UIMgr.OpenPanel<UIHomePanel>();
 			});
 		}
 

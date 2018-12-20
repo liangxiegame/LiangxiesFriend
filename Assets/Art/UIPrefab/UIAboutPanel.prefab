@@ -161,7 +161,7 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "Author : liangxie       Company : sikiedu\n\nQQ Group : 746260877\n\nCourse
-    : \n\thttp://www.sikiedu.com/course/327\ngithub : \n\thttps://github.com/liangxiegame/IndieGame\n\nTools
+    : \n\thttp://www.sikiedu.com/course/327\ngithub : \n\thttps://github.com/liangxiegame/LiangxiesFriend\n\nTools
     :\n\tQFramework : \n\t\thttps://github.com/liangxiegame/QFramework\n\n"
 --- !u!114 &114558591750965182
 MonoBehaviour:

@@ -30,36 +30,38 @@ namespace IndieGame
 	{
 		protected override void InitUI(IUIData uiData = null)
 		{
-			mData = uiData as UIStoryPanelData ?? new UIStoryPanelData ();
+			mData = uiData as UIStoryPanelData ?? new UIStoryPanelData();
 			//please add init code here
 
-			BtnNext.Hide ();
+			BtnNext.Hide();
 
 			Content.text = string.Empty;
-			Content.DOText (mData.StoryContent, 10.0f / 128 * mData.StoryContent.Length)
-				.OnComplete (() =>
-			{
-				BtnNext.Show ();
-			});
+			Content.DOText(mData.StoryContent, 10.0f / 128 * mData.StoryContent.Length)
+				.OnComplete(() => { BtnNext.Show(); });
 
 			// 监听鼠标点击事件
-			Observable.EveryUpdate ()
-				.Where (_ => 
-					Input.GetMouseButtonUp (0) ||
-			Input.GetKeyUp (KeyCode.H) ||
-			Input.GetKeyUp (KeyCode.Return) ||
-			Input.GetKeyUp (KeyCode.Space))
-				.Subscribe (_ =>
-			{
-				Content.DOKill ();
-				Content.text = mData.StoryContent;
-				BtnNext.Show ();
+			var skipObservable = Observable.EveryUpdate()
+				.Where(_ =>
+					Input.anyKeyDown)
+				.Do(_ =>
+				{
+					Content.DOKill();
+					Content.text = mData.StoryContent;
+					BtnNext.Show();
+				});
 
-			}).AddTo (this);
+			var nextObservable = Observable.EveryUpdate()
+				.Where(_ => Input.GetKeyDown(KeyCode.Space))
+				.Do(_ => { GotoNextPanel(); });
+
+
+			skipObservable.SelectMany(nextObservable)
+				.Subscribe(_ => { }).AddTo(this);
 		}
 
 		void GotoNextPanel()
 		{
+			SendMsg(new AudioSoundMsg("Click"));
 			mData.OnStoryFinish.InvokeGracefully(this);
 		}
 
@@ -70,11 +72,7 @@ namespace IndieGame
 
 		protected override void RegisterUIEvent()
 		{
-			BtnNext.onClick.AddListener (() =>
-			{
-				SendMsg(new AudioSoundMsg("Click"));
-				GotoNextPanel();
-			});
+			BtnNext.onClick.AddListener (GotoNextPanel);
 		}
 
 		protected override void OnShow()

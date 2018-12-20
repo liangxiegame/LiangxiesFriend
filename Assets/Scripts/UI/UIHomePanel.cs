@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
+using UniRx;
 using UnityEngine.SceneManagement;
 
 namespace IndieGame
@@ -25,22 +26,21 @@ namespace IndieGame
 			DeathCountMin.text = string.Format ("Death Count Min : {0}", GameData.DeathCountMin == int.MaxValue ? "None":GameData.DeathCountMin.ToString());
 
 			Version.text = "v" + Application.version;
-		}
 
-		protected override void ProcessMsg (int eventId,QMsg msg)
-		{
-			throw new System.NotImplementedException ();
-		}
-
-		protected override void RegisterUIEvent()
-		{
-			BtnStartGame.onClick.AddListener (() =>
-			{
-				SendMsg(new AudioSoundMsg("Click"));
-				CloseSelf ();
-				UIMgr.OpenPanel<UIStoryPanel>(new UIStoryPanelData()
+			Observable.EveryUpdate().Where(_ => Input.GetKeyDown(KeyCode.Space))
+				.Subscribe(_ =>
 				{
-					StoryContent = @"这是一个关于友情的故事。
+					StartGame();	
+				}).AddTo(this);
+		}
+
+		private void StartGame()
+		{
+			SendMsg(new AudioSoundMsg("Click"));
+			CloseSelf ();
+			UIMgr.OpenPanel<UIStoryPanel>(new UIStoryPanelData()
+			{
+				StoryContent = @"这是一个关于友情的故事。
 
 主角有一个朋友 A，
 
@@ -54,20 +54,30 @@ namespace IndieGame
 
 踏上了上天之路。
 ",
-					OnStoryFinish = storyPanel =>
+				OnStoryFinish = storyPanel =>
+				{
+					storyPanel.DoTransition<UIGamePanel>(new FadeInOut(), uiData: new UIGamePanelData()
 					{
-						storyPanel.DoTransition<UIGamePanel>(new FadeInOut(), uiData: new UIGamePanelData()
-						{
-							InitLevelName = "Level1"
-						});
-					}
-				});
+						InitLevelName = "Level1"
+					});
+				}
 			});
+		}
+
+		protected override void ProcessMsg (int eventId,QMsg msg)
+		{
+			throw new System.NotImplementedException ();
+		}
+
+		protected override void RegisterUIEvent()
+		{
+			BtnStartGame.onClick.AddListener (StartGame);
 
 
 			BtnAbout.onClick.AddListener (() =>
 			{
 				SendMsg(new AudioSoundMsg("Click"));
+				CloseSelf();
 				UIMgr.OpenPanel<UIAboutPanel> (UILevel.PopUI);
 			});
 		}
