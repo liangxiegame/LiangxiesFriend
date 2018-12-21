@@ -19,14 +19,16 @@ namespace IndieGame
 	public class UIGamePanelData : UIPanelData
 	{
 		// TODO: Query Mgr's Data
-		public int DeathCount;
+		public int DeathCount
+		{
+			get { return GameData.CurDeathCount; }
+			set { GameData.CurDeathCount = value; }
+		}
 
-		public string InitLevelName = "Level7";
+		public string InitLevelName = "Level24";
 
 		public GameMode Mode = GameMode.Normal;
 	}
-
-
 
 	public partial class UIGamePanel : UIPanel,MMEventListener<CorgiEngineEvent>
 	{
@@ -70,12 +72,16 @@ namespace IndieGame
 			this.MMEventStartListening ();
 
 			KeyBoardHelp.Hide ();
+			
+			DeathCount.text = string.Format ("Death Count : {0}", mData.DeathCount);
 		}
 
 		void OnSceneLoaded(Scene scene,LoadSceneMode mode)
 		{			
 			if (scene.name == "GameWin")
 			{
+				SendMsg(new AudioMusicMsg("magic"));
+				
 				Debug.LogFormat ("Death Count : {0}", mData.DeathCount);
 
 				CloseSelf ();
@@ -87,10 +93,7 @@ namespace IndieGame
 实现了 A 的梦想。",
 					OnStoryFinish = storyPanel =>
 					{
-						storyPanel.DoTransition<UIGameOverPanel>(new FadeInOut(), uiData: new UIGameOverPanelData()
-						{
-							DeathCountCurrent = mData.DeathCount
-						});
+						storyPanel.DoTransition<UIGameOverPanel>(new FadeInOut(), uiData: new UIGameOverPanelData());
 					}
 				});
 			}
@@ -106,6 +109,8 @@ namespace IndieGame
 						GameData.FirstTimeEnterLevel1 = false;
 					}
 				}
+				
+				SendMsg(new AudioMusicMsg(LevelConfig.GetBgMusicNameForLevelName(scene.name)));
 			}
 			else
 			{

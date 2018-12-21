@@ -24,7 +24,7 @@
 
 * Mac/Windows(OS)
 
-* [CorgiEngine v5.1](https://assetstore.unity.com/packages/templates/systems/corgi-engine-2d-2-5d-platformer-26617)
+* [CorgiEngine v5.1(Only  Need Import Assets/CorgiEngien folder)](https://assetstore.unity.com/packages/templates/systems/corgi-engine-2d-2-5d-platformer-26617)
 
 * [QFramework (include)](https://github.com/liangxiegame/QFramework)
 
@@ -78,11 +78,7 @@ http://www.sikiedu.com/course/327
 - [x] 飞行器的按键提示。
 - [x] UHomePanel 对键盘的支持。
 - [x] Level7 下落物体触发之后需要 restart level 的 bug。
-- [ ] 每个关卡都要播放音乐。
-- [ ] LevelFinished 页面（通关的页面，训练模式下）。
-- [ ] 关卡重头开始去优化一下。
-- [ ] 镜头的优化，角色在左侧边界死亡的时候 重生 很容易片镜头。
-- [ ] 重构 UICamera 的内容，改成 UI Kit。
+- [ ] 背景音乐随机播放，播放完一个再去播放另一个随机的音乐。
 
 ## 规划 Roadmap
 
@@ -136,7 +132,7 @@ http://www.sikiedu.com/course/327
 - [x] 角色的美术统一风格。
 - [x] 增加 4 个关卡。（主要是使用冲刺） 
 
-### 第七章 （20 课时） v0.0.7
+### 第七章 （20 课时）v0.0.7
 
 - [x] Level Choose 关卡选择。
 - [x] 进度记录。
@@ -145,6 +141,15 @@ http://www.sikiedu.com/course/327
 - [x] 撰写文档，它描述了目前游戏的一些信息。
 - [x] 火箭的能量值显示。
 - [x] 成就系统，研究它的使用。
+
+### 第八章 （20 课时) v0.0.8
+
+- [x] 下的时候 狐狸出来了。
+- [x] 通关音效 较其他音效 声音很大。
+- [x] 重构 UICamera 的内容，改成 UI Kit。
+- [x] 每个关卡都要播放音乐。
+- [ ] LevelFinished 页面（通关的页面，训练模式下）。
+- [x] Death Count 要记录一下。
 
 # 3. 游戏设计
 

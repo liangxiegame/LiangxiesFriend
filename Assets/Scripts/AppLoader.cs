@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using QFramework;
@@ -56,11 +55,50 @@ namespace IndieGame
 			get { return PlayerPrefs.GetString("CUR_LEVEL_NAME", "Level1"); }
 			set { PlayerPrefs.SetString("CUR_LEVEL_NAME", value); }
 		}
+
+		public static int CurDeathCount
+		{
+			get { return PlayerPrefs.GetInt("CUR_DEATH_COUNT", 0); }
+			set { PlayerPrefs.SetInt("CUR_DEATH_COUNT", value); }
+		}
 	}
 
 
 	public class LevelConfig
 	{
+		public static string GetBgMusicNameForLevelName(string levelName)
+		{
+			return mMusicNamesForLevels[levelName];
+		}
+		
+		private static Dictionary<string, string> mMusicNamesForLevels = new Dictionary<string, string>()
+		{
+			{"Level1", "puzzle"},
+			{"Level2", "puzzle"},
+			{"Level3", "puzzle"},
+			{"Level4", "city2"},
+			{"Level5", "city2"},
+			{"Level6", "city2"},
+			{"Level7", "boss"},
+			{"Level8", "boss"},
+			{"Level9", "boss"},
+			{"Level10", "menu"},
+			{"Level11", "menu"},
+			{"Level12", "menu"},
+			{"Level13", "ghost"},
+			{"Level14", "ghost"},
+			{"Level15", "ghost"},
+			{"Level16", "puzzle"},
+			{"Level17", "puzzle"},
+			{"Level18", "puzzle"},
+			{"Level19", "city2"},
+			{"Level20", "city2"},
+			{"Level21", "city2"},
+			{"Level22", "boss"},
+			{"Level23", "boss"},
+			{"Level24", "boss"},
+		};
+		
 		static List<string> mLevelNamesOrder = new List<string>()
 		{
 			"Level1",

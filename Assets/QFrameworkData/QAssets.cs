@@ -21,6 +21,8 @@ namespace QAssetBundle
         public const string BundleName = "SOUNDS";
         public const string CLICK = "CLICK";
         public const string HIT = "HIT";
+        public const string PASS_LEVEL = "PASS_LEVEL";
+        public const string TYPING = "TYPING";
     }
     public class Spriteatlas_spriteatlas
     {
@@ -71,5 +73,10 @@ namespace QAssetBundle
     {
         public const string BundleName = "UITESTUNIRX_PREFAB";
         public const string UITESTUNIRX = "UITESTUNIRX";
+    }
+    public class Uitrainmodepanel_prefab
+    {
+        public const string BundleName = "UITRAINMODEPANEL_PREFAB";
+        public const string UITRAINMODEPANEL = "UITRAINMODEPANEL";
     }
 }

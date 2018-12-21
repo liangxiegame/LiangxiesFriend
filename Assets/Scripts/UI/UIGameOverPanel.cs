@@ -14,7 +14,11 @@ namespace IndieGame
 {
 	public class UIGameOverPanelData : UIPanelData
 	{
-		public int DeathCountCurrent = 10;
+			public int DeathCountCurrent
+		{
+			get { return GameData.CurDeathCount; }
+			set { GameData.CurDeathCount = value; }
+		}
 	}
 
 	public partial class UIGameOverPanel : UIPanel
@@ -28,6 +32,8 @@ namespace IndieGame
 
 			DeathCountCurrent.text = string.Format ("Death Count : {0}", mData.DeathCountCurrent);
 			DeathCountMin.text = string.Format ("Death Count Record : {0}", GameData.DeathCountMin);
+
+			mData.DeathCountCurrent = 0;
 		}
 
 		protected override void ProcessMsg (int eventId,QMsg msg)

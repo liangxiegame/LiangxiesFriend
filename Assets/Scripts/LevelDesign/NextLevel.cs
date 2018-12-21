@@ -35,7 +35,10 @@ namespace IndieGame
 		/// </summary>
 		public virtual void GoToNextLevel()
 		{
-			AudioManager.Instance.SendMsg(new AudioSoundMsg("pass_level"));
+			AudioManager.Instance.SendMsg(new AudioSoundMsg("pass_level")
+			{
+				Volume = 0.3f
+			});
 			GameModeLogic.LevelFinish();
 		}
 	}

@@ -34,6 +34,9 @@ namespace IndieGame
 				{
 					StartGame();	
 				}).AddTo(this);
+			
+			
+			SendMsg(new AudioMusicMsg("speed"));
 		}
 
 		private void StartGame()

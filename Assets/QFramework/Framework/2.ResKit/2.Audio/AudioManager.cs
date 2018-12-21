@@ -364,9 +364,12 @@ namespace QFramework
             {
                 AudioUnit unit = SafeObjectPool<AudioUnit>.Instance.Allocate();
 
+                
                 unit.SetOnStartListener(delegate (AudioUnit soundUnit)
                 {
                     soundMsg.onSoundBeganCallback.InvokeGracefully();
+                   
+                    unit.SetVolume(soundMsg.Volume);
 
                     unit.SetOnStartListener(null);
                 });
