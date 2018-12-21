@@ -1,3 +1,9 @@
+/****************************************************************************
+ * 2018.12 liangxie
+ * 
+ * 教程地址:http://www.sikiedu.com/course/327
+ ****************************************************************************/
+
 using UnityEngine;
 using MoreMountains.CorgiEngine;
 using MoreMountains.Tools;

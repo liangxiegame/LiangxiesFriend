@@ -1,9 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+/****************************************************************************
+ * 2018.12 liangxie
+ * 
+ * 教程地址:http://www.sikiedu.com/course/327
+ ****************************************************************************/
+
 using MoreMountains.CorgiEngine;
 using MoreMountains.Tools;
 using QFramework;
-using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

@@ -683,6 +683,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a343ffc127af4b41b1e509d55d21956, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1149332617
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4333360619745012, guid: cb42009377bfabf4e813540a0c50603b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -107.57812
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333360619745012, guid: cb42009377bfabf4e813540a0c50603b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 9.146008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333360619745012, guid: cb42009377bfabf4e813540a0c50603b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333360619745012, guid: cb42009377bfabf4e813540a0c50603b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333360619745012, guid: cb42009377bfabf4e813540a0c50603b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333360619745012, guid: cb42009377bfabf4e813540a0c50603b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333360619745012, guid: cb42009377bfabf4e813540a0c50603b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333360619745012, guid: cb42009377bfabf4e813540a0c50603b, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: cb42009377bfabf4e813540a0c50603b, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &1267461638 stripped
 Transform:
   m_PrefabParentObject: {fileID: 444820, guid: f30df32b0e5954d7fa78d0b4cdf659c3, type: 2}
