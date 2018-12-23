@@ -35,15 +35,26 @@ namespace IndieGame
 		{
 			mModeLogic.LevelFinish();
 		}
+
+		public static int DeathCount
+		{
+			get { return mModeLogic.DeathCount; }
+			set { mModeLogic.DeathCount = value; }
+		}
+
 	}
 
 	public interface IModeLogic
 	{
 		void LevelFinish();
+
+		int DeathCount { get; set; }
 	}
 
 	public class NormalModeLogic : IModeLogic
 	{
+		private int mPlayerDeath;
+
 		public void LevelFinish()
 		{
 			var nextLevelName = LevelConfig.GetNextLevelName();
@@ -57,17 +68,36 @@ namespace IndieGame
 				LoadingSceneManager.LoadScene(nextLevelName);
 			}
 		}
+
+		int IModeLogic.DeathCount
+		{
+			get { return GameData.CurDeathCount; }
+			set { GameData.CurDeathCount = value; }
+		}
 	}
 
 	public class TrainModeLogic : IModeLogic
 	{
+		private int mPlayerDeath;
+
 		public void LevelFinish()
 		{
+			var levelName = SceneManager.GetActiveScene().name;
+			
 			SceneManager.LoadScene("Empty");
 
 			UIMgr.ClosePanel<UIGamePanel>();
 
-			UIMgr.OpenPanel<UITrainOverPanel>();
+			UIMgr.OpenPanel<UITrainOverPanel>(new UITrainOverPanelData()
+			{
+				LevelName = levelName,
+			});
+		}
+
+		int IModeLogic.DeathCount
+		{
+			get { return GameData.GetCurLevelDeathCount(SceneManager.GetActiveScene().name); }
+			set { GameData.SetCurLevelDeathCount(SceneManager.GetActiveScene().name,value); }
 		}
 	}
 }

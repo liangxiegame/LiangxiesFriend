@@ -61,6 +61,27 @@ namespace IndieGame
 			get { return PlayerPrefs.GetInt("CUR_DEATH_COUNT", 0); }
 			set { PlayerPrefs.SetInt("CUR_DEATH_COUNT", value); }
 		}
+
+
+		public static void SetCurLevelDeathCount(string levelName,int deathCount)
+		{
+			PlayerPrefs.SetInt("{0}_CUR_DEATH_COUNT".FillFormat(levelName),deathCount);
+		}
+
+		public static int GetCurLevelDeathCount(string levelName)
+		{
+			return PlayerPrefs.GetInt("{0}_CUR_DEATH_COUNT".FillFormat(levelName),0);
+		}
+
+		public static void SetMinLevelDeathCount(string levelName, int deathCountMin)
+		{
+			PlayerPrefs.SetInt("{0}_MIN_DEATH_COUNT".FillFormat(levelName),deathCountMin);
+		}
+
+		public static int GetMinLevelDeathCount(string levelName)
+		{
+			return PlayerPrefs.GetInt("{0}_MIN_DEATH_COUNT".FillFormat(levelName), int.MaxValue);
+		}
 	}
 
 
@@ -88,12 +109,12 @@ namespace IndieGame
 			{"Level13", "ghost"},
 			{"Level14", "ghost"},
 			{"Level15", "ghost"},
-			{"Level16", "puzzle"},
-			{"Level17", "puzzle"},
-			{"Level18", "puzzle"},
-			{"Level19", "city2"},
-			{"Level20", "city2"},
-			{"Level21", "city2"},
+			{"Level16", "retro3"},
+			{"Level17", "retro3"},
+			{"Level18", "retro3"},
+			{"Level19", "retro4"},
+			{"Level20", "retro4"},
+			{"Level21", "retro4"},
 			{"Level22", "boss"},
 			{"Level23", "boss"},
 			{"Level24", "boss"},

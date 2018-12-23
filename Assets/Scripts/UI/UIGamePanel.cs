@@ -21,8 +21,8 @@ namespace IndieGame
 		// TODO: Query Mgr's Data
 		public int DeathCount
 		{
-			get { return GameData.CurDeathCount; }
-			set { GameData.CurDeathCount = value; }
+			get { return GameModeLogic.DeathCount; }
+			set { GameModeLogic.DeathCount = value; }
 		}
 
 		public string InitLevelName = "Level24";

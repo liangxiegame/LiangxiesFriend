@@ -148,7 +148,7 @@ http://www.sikiedu.com/course/327
 - [x] 通关音效 较其他音效 声音很大。
 - [x] 重构 UICamera 的内容，改成 UI Kit。
 - [x] 每个关卡都要播放音乐。
-- [ ] LevelFinished 页面（通关的页面，训练模式下）。
+- [x] LevelFinished 页面（通关的页面，训练模式下）。
 - [x] Death Count 要记录一下。
 
 # 3. 游戏设计

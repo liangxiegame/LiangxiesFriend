@@ -18,9 +18,18 @@ namespace IndieGame
 		{
 			get
 			{
-				return GameData.CurDeathCount;
+				return GameData.GetCurLevelDeathCount(LevelName);
 			}
+			set { GameData.SetCurLevelDeathCount(LevelName, value); }
 		}
+
+		public int DeathCountMin
+		{
+			get { return GameData.GetMinLevelDeathCount(LevelName); }
+			set { GameData.SetMinLevelDeathCount(LevelName, value); }
+		}
+
+		public string LevelName { get; set; }
 	}
 
 	public partial class UITrainOverPanel : UIPanel
@@ -30,7 +39,17 @@ namespace IndieGame
 			mData = uiData as UITrainOverPanelData ?? new UITrainOverPanelData();
 			//please add init code here
 
-			LeveDeathCountCurrent.text = "Level1 Death Count: {0}".FillFormat(mData.DeathCountCurrent);
+			SendMsg(new AudioMusicMsg("village2"));
+			
+			LeveDeathCountCurrent.text = "{0} Death Count: {1}".FillFormat(mData.LevelName, mData.DeathCountCurrent);
+
+			mData.DeathCountMin = mData.DeathCountMin > mData.DeathCountCurrent
+				? mData.DeathCountCurrent
+				: mData.DeathCountMin;
+
+			LevelDeathCountMin.text = "{0} Death Count Record: {1}".FillFormat(mData.LevelName, mData.DeathCountMin);
+			
+			mData.DeathCountCurrent = 0;
 		}
 
 		protected override void ProcessMsg (int eventId,QMsg msg)
