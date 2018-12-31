@@ -111,6 +111,20 @@ namespace IndieGame
 				}
 				
 				SendMsg(new AudioMusicMsg(LevelConfig.GetBgMusicNameForLevelName(scene.name)));
+
+				var effectSoundName = LevelConfig.GetEffectSoundNameForLevelName(scene.name);
+
+				if (effectSoundName.IsNotNullAndEmpty())
+				{
+					SendMsg(new AudioVoiceMsg(LevelConfig.GetEffectSoundNameForLevelName(scene.name))
+					{
+						loop = true
+					});
+				}
+				else
+				{
+					AudioManager.StopVoice();
+				}
 			}
 			else
 			{

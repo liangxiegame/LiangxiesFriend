@@ -1,5 +1,3 @@
-<meta charset="utf-8">
-
 ### 可执行节点系统:NodeActionSystem 
 
 **NodeSystem** 的设计初衷是为了解决异步逻辑的管理问题，异步逻辑在日常开发中往往比较难以管理，而且代码的风格差异很大。诸如 "播放一段音效并获取播放完成的事件","当 xxx 为 true 时触发"，包括我们常用的 Tween 动画都是异步逻辑，以上的异步逻辑都可以用 **ExecuteNode** 来封装他们。由此设计出了 **NodeSystem**，灵感来自于 **cocos2d** 的 **CCAction**。
@@ -10,12 +8,18 @@
 
 通过 **this**(MonoBehaviour) 触发延时回调。
 
+**快捷方式**
+
 ``` csharp
 this.Delay(1.0f, () =>
 {
 	Log.I("延时 1s");
 });
 ```
+
+
+
+**面向对象**
 
 通过申请 **DelayNode** 对象，使用 **this**(MonoBehaviour) 触发延时回调。
 
@@ -25,6 +29,8 @@ this.ExecuteNode(delay2s);
 ```
 
 使用 **Update** 驱动延时回调。
+
+**Update 方式**
 
 ``` csharp
 private DelayNode mDelay3s = DelayNode.Allocate(3.0f, () => { Log.I("延时 3s"); });

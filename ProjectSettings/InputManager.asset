@@ -601,8 +601,8 @@ InputManager:
     m_Name: Player1_Dash
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: f
+    negativeButton: f
+    positiveButton: k
     altNegativeButton: 
     altPositiveButton: joystick 1 button 3
     gravity: 1000

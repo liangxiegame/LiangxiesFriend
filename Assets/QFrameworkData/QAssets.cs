@@ -16,12 +16,30 @@ namespace QAssetBundle
         public const string BundleName = "ASSETOBJ_PREFAB";
         public const string ASSETOBJ = "ASSETOBJ";
     }
+    public class Music
+    {
+        public const string BundleName = "MUSIC";
+        public const string BOSS = "BOSS";
+        public const string CITY2 = "CITY2";
+        public const string CLINIC = "CLINIC";
+        public const string GHOST = "GHOST";
+        public const string MAGIC = "MAGIC";
+        public const string MENU = "MENU";
+        public const string PUZZLE = "PUZZLE";
+        public const string RETRO3 = "RETRO3";
+        public const string RETRO4 = "RETRO4";
+        public const string SPEED = "SPEED";
+        public const string VILLAGE = "VILLAGE";
+        public const string VILLAGE2 = "VILLAGE2";
+        public const string WATER = "WATER";
+    }
     public class Sounds
     {
         public const string BundleName = "SOUNDS";
         public const string CLICK = "CLICK";
         public const string HIT = "HIT";
         public const string PASS_LEVEL = "PASS_LEVEL";
+        public const string RAIN_HEAVY = "RAIN_HEAVY";
         public const string TYPING = "TYPING";
     }
     public class Spriteatlas_spriteatlas
@@ -78,5 +96,10 @@ namespace QAssetBundle
     {
         public const string BundleName = "UITRAINMODEPANEL_PREFAB";
         public const string UITRAINMODEPANEL = "UITRAINMODEPANEL";
+    }
+    public class Uitrainoverpanel_prefab
+    {
+        public const string BundleName = "UITRAINOVERPANEL_PREFAB";
+        public const string UITRAINOVERPANEL = "UITRAINOVERPANEL";
     }
 }

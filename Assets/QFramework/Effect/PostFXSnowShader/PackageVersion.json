@@ -1,0 +1,16 @@
+{
+  "Version": "v0.0.3",
+  "Type": 1,
+  "AccessRight": 0,
+  "DownloadUrl": null,
+  "InstallPath": "Assets/QFramework/Effect/PostFXSnowShader/",
+  "Readme": {
+    "version": "v0.0.3",
+    "content": "add material",
+    "author": "LIANGXIE",
+    "date": "2018-12-31"
+  },
+  "Name": "PostFXSnowShader",
+  "VersionNumber": 3,
+  "FileName": "PostFXSnowShader_v0.0.3.unitypackage"
+}

@@ -79,6 +79,12 @@ http://www.sikiedu.com/course/327
 - [x] UHomePanel 对键盘的支持。
 - [x] Level7 下落物体触发之后需要 restart level 的 bug。
 - [ ] 背景音乐随机播放，播放完一个再去播放另一个随机的音乐。
+- [x] F 键盘改成  K 键盘。
+- [x] 每 5 个关卡，换一次音乐，和一次背景。
+- [x] 每 5 个关卡，加上一些特效。
+- [ ] moutains 的背景太亮了 （Level 6 ~ Level 10)
+- [ ] 雪的特效应该有移动。
+- [ ] 下雨的声音要找一下。
 
 ## 规划 Roadmap
 

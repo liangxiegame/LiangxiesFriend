@@ -1,16 +1,16 @@
 {
-  "Version": "v0.0.6",
+  "Version": "v0.0.10",
   "Type": 0,
   "AccessRight": 0,
   "DownloadUrl": "http://liangxiegame.com/media/2.ResKit_v0.0.1.unitypackage",
   "InstallPath": "Assets/QFramework/Framework/2.ResKit/",
   "Readme": {
-    "version": "v0.0.6",
-    "content": "add  volume setting when play sound",
+    "version": "v0.0.10",
+    "content": "Move Exampe 2 Example Module",
     "author": "LIANGXIE",
-    "date": "2018-12-21"
+    "date": "2018-12-28"
   },
   "Name": "2.ResKit",
-  "VersionNumber": 6,
-  "FileName": "2.ResKit_v0.0.6.unitypackage"
+  "VersionNumber": 10,
+  "FileName": "2.ResKit_v0.0.10.unitypackage"
 }

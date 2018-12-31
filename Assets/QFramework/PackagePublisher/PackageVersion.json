@@ -1,16 +1,16 @@
 {
-  "Version": "v0.0.1",
+  "Version": "v0.0.2",
   "Type": 3,
   "AccessRight": 1,
   "DownloadUrl": null,
   "InstallPath": "Assets/QFramework/PackagePublisher/",
   "Readme": {
-    "version": "v0.0.1",
-    "content": "split from PackageManager",
-    "author": "DESKTOP-ALVD4JR",
-    "date": "2018-12-18"
+    "version": "v0.0.2",
+    "content": "test upade",
+    "author": "凉鞋的MacBook Pro (2)",
+    "date": "2018-12-30"
   },
   "Name": "PackagePublisher",
-  "VersionNumber": 1,
-  "FileName": "PackagePublisher_v0.0.1.unitypackage"
+  "VersionNumber": 2,
+  "FileName": "PackagePublisher_v0.0.2.unitypackage"
 }

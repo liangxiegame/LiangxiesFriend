@@ -1,0 +1,16 @@
+{
+  "Version": "v0.0.3",
+  "Type": 1,
+  "AccessRight": 0,
+  "DownloadUrl": null,
+  "InstallPath": "Assets/QFramework/Effect/PostFXFireParticleShader/",
+  "Readme": {
+    "version": "v0.0.3",
+    "content": "add material",
+    "author": "LIANGXIE",
+    "date": "2018-12-31"
+  },
+  "Name": "PostFXFireParticleShader",
+  "VersionNumber": 3,
+  "FileName": "PostFXFireParticleShader_v0.0.3.unitypackage"
+}
