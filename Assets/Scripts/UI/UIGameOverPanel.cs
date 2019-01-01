@@ -39,7 +39,8 @@ namespace IndieGame
 		{
 			mData = uiData as UIGameOverPanelData ?? new UIGameOverPanelData();
 			//please add init code here
-			SendMsg(new AudioMusicMsg("village2"));
+			
+			Playlist.PlayMusic("village2");
 
 			mData.DeathCountMin = GameData.DeathCountMin >= mData.DeathCountCurrent ? mData.DeathCountCurrent : mData.DeathCountMin;
 

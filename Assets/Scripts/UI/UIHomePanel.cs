@@ -36,9 +36,20 @@ namespace IndieGame
 				}).AddTo(this);
 			
 			
-			SendMsg(new AudioMusicMsg("speed"));
+			
+			Playlist.PlayMusic("speed");
 			
 			AudioManager.StopVoice();
+
+
+			if (GameData.CurLevelName == "Level1" && GameData.CurDeathCount == 0 && !GameData.HardModeUnlocked)
+			{
+				BtnReset.Hide();
+			}
+			else
+			{
+				BtnReset.Show();
+			}
 		}
 
 		private void StartGame()
@@ -107,26 +118,16 @@ namespace IndieGame
 					CloseSelf();
 					UIMgr.OpenPanel<UITrainModePanel>();
 				});
-		}
 
-		protected override void OnShow()
-		{
-			base.OnShow();
-		}
+			BtnReset.OnClickAsObservable()
+				.Subscribe(_ =>
+				{
+					GameData.CurLevelName = "Level1";
+					GameData.CurDeathCount = 0;
+					GameData.HardModeUnlocked = false;
 
-		protected override void OnHide()
-		{
-			base.OnHide();
-		}
-
-		protected override void OnClose()
-		{
-			base.OnClose();
-		}
-
-		void ShowLog(string content)
-		{
-			Debug.Log("[ UIHomePanel:]" + content);
+					BtnReset.Hide();
+				});
 		}
 	}
 }

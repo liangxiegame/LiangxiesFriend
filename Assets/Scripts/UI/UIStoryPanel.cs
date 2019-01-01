@@ -34,8 +34,8 @@ namespace IndieGame
 		{
 			mData = uiData as UIStoryPanelData ?? new UIStoryPanelData();
 			//please add init code here
-
-			SendMsg(new AudioMusicMsg("water"));
+			
+			Playlist.PlayMusic("water");
 			
 			BtnNext.Hide();
 

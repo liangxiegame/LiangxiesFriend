@@ -1,5 +1,5 @@
 /****************************************************************************
- * 2018.12 DESKTOP-ALVD4JR
+ * 2019.1 LIANGXIE
  ****************************************************************************/
 
 namespace IndieGame
@@ -16,6 +16,7 @@ namespace IndieGame
 		[SerializeField] public Text Version;
 		[SerializeField] public Button BtnAbout;
 		[SerializeField] public Button BtnTrainMode;
+		[SerializeField] public Button BtnReset;
 
 		protected override void ClearUIComponents()
 		{
@@ -24,6 +25,7 @@ namespace IndieGame
 			Version = null;
 			BtnAbout = null;
 			BtnTrainMode = null;
+			BtnReset = null;
 		}
 
 		private UIHomePanelData mPrivateData = null;

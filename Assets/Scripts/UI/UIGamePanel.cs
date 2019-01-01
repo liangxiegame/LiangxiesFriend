@@ -74,6 +74,8 @@ namespace IndieGame
 			KeyBoardHelp.Hide ();
 			
 			DeathCount.text = string.Format ("Death Count : {0}", mData.DeathCount);
+			
+			Playlist.PlayRandomMusic();
 		}
 
 		void OnSceneLoaded(Scene scene,LoadSceneMode mode)
@@ -109,9 +111,14 @@ namespace IndieGame
 						GameData.FirstTimeEnterLevel1 = false;
 					}
 				}
-				
-				SendMsg(new AudioMusicMsg(LevelConfig.GetBgMusicNameForLevelName(scene.name)));
 
+				var levelIndex = scene.name.Substring(5).ToInt();
+
+				if ((levelIndex - 1) % 5 == 0)
+				{
+					Playlist.PlayRandomMusic();
+				}
+				
 				var effectSoundName = LevelConfig.GetEffectSoundNameForLevelName(scene.name);
 
 				if (effectSoundName.IsNotNullAndEmpty())

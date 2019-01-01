@@ -5,43 +5,11 @@ namespace IndieGame
 {
     public class LevelConfig
     {
-        public static string GetBgMusicNameForLevelName(string levelName)
-        {
-            return mMusicNamesForLevels[levelName];
-        }
 
         public static string GetEffectSoundNameForLevelName(string levelName)
         {
             return mEffectNameForLevels[levelName];
         }
-		
-        private static Dictionary<string, string> mMusicNamesForLevels = new Dictionary<string, string>()
-        {
-            {"Level1", "puzzle"},
-            {"Level2", "puzzle"},
-            {"Level3", "puzzle"},
-            {"Level4", "puzzle"},
-            {"Level5", "puzzle"},
-            {"Level6", "boss"},
-            {"Level7", "boss"},
-            {"Level8", "boss"},
-            {"Level9", "boss"},
-            {"Level10", "boss"},
-            {"Level11", "menu"},
-            {"Level12", "menu"},
-            {"Level13", "menu"},
-            {"Level14", "menu"},
-            {"Level15", "menu"},
-            {"Level16", "retro3"},
-            {"Level17", "retro3"},
-            {"Level18", "retro3"},
-            {"Level19", "retro3"},
-            {"Level20", "retro3"},
-            {"Level21", "retro4"},
-            {"Level22", "retro4"},
-            {"Level23", "retro4"},
-            {"Level24", "retro4"},
-        };
         
         private static Dictionary<string, string> mEffectNameForLevels = new Dictionary<string, string>()
         {

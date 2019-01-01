@@ -12,6 +12,8 @@ Shader "PostFX/PostFXSnow"
 		XSPEED ("XSPEED", float) = 0.2
 		YSPEED ("YSPEED", float) = 0.5
 		LAYERS ("LAYERS", float) = 10
+		OffsetX ("OffsetX", float) = 0
+		OffsetY ("OffsetY", float) = 0
 	}
 
 	SubShader
@@ -32,13 +34,15 @@ Shader "PostFX/PostFXSnow"
 			float XSPEED;
 			float YSPEED;
 			float LAYERS;
+			float OffsetX;
+			float OffsetY;
 
 			float3 SnowSingleLayer(float2 uv,float layer)
 			{
 				fixed3 acc = fixed3(0.0,0.0,0.0);
 				uv = uv * (2.0+layer);
-			    float xOffset = uv.y * (((Hash11(layer)*2-1.)*0.5+1.)*XSPEED);
-			    float yOffset = (YSPEED*ftime);
+			    float xOffset = uv.y * (((Hash11(layer)*2-1.)*0.5+1.)*XSPEED) + OffsetX;
+			    float yOffset = (YSPEED*ftime) + OffsetY;
 				uv += fixed2(xOffset,yOffset);
 				float2 rgrid = Hash22(floor(uv)+(31.1759*layer));
 				uv = frac(uv);
