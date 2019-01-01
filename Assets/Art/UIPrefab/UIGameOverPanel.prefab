@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 224462166620278274}
   - component: {fileID: 222308051612882820}
   - component: {fileID: 114910492029497164}
+  - component: {fileID: 114328183924046008}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -185,6 +186,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114328183924046008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1251007520515378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4211833ca4e7a4984b2d973425a62933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: 
 --- !u!114 &114409057515771438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -197,6 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mSubPanelInfos: []
+  Title: {fileID: 114910492029497164}
   DeathCountCurrent: {fileID: 114526473782071768}
   DeathCountMin: {fileID: 114982677167877854}
   BtnHome: {fileID: 114201972249361914}

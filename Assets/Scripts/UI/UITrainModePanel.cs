@@ -58,6 +58,8 @@ namespace IndieGame
 					Content.GetComponent<ContentSizeFitter>().Enable();
 				}
 			});
+			
+			AudioManager.StopVoice();
 		}
 
 		protected override void ProcessMsg (int eventId,QMsg msg)

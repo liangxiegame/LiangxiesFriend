@@ -7,27 +7,16 @@ namespace IndieGame
     {
         public static int DeathCountMin
         {
-            get
-            {
-                return PlayerPrefs.GetInt ("DEATH_COUNT_MIN", int.MaxValue);
-            }
-            set
-            {
-                PlayerPrefs.SetInt ("DEATH_COUNT_MIN", value);
-            }
+            get { return PlayerPrefs.GetInt("DEATH_COUNT_MIN", int.MaxValue); }
+            set { PlayerPrefs.SetInt("DEATH_COUNT_MIN", value); }
         }
 
 
-        public static bool FirstTimeEnterLevel1 {
+        public static bool FirstTimeEnterLevel1
+        {
 
-            get
-            {
-                return PlayerPrefs.GetInt ("FIRST_TIME_ENTER_LEVEL_1", 1) == 1 ? true : false;
-            }
-            set
-            {
-                PlayerPrefs.SetInt ("FIRST_TIME_ENTER_LEVEL_1", value ? 1 : 0);
-            }
+            get { return PlayerPrefs.GetInt("FIRST_TIME_ENTER_LEVEL_1", 1) == 1 ? true : false; }
+            set { PlayerPrefs.SetInt("FIRST_TIME_ENTER_LEVEL_1", value ? 1 : 0); }
         }
 
         public static string CurLevelName
@@ -42,6 +31,11 @@ namespace IndieGame
             set { PlayerPrefs.SetInt("CUR_DEATH_COUNT", value); }
         }
 
+        public static bool HardModeUnlocked
+        {
+            get { return PlayerPrefs.GetInt("HARD_MODE_UNLOCKED", 0) == 1 ? true : false; }
+            set { PlayerPrefs.SetInt("HARD_MODE_UNLOCKED", value ? 1 : 0); }
+        }
 
         public static void SetCurLevelDeathCount(string levelName,int deathCount)
         {

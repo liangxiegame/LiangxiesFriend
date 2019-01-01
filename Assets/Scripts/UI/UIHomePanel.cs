@@ -37,6 +37,8 @@ namespace IndieGame
 			
 			
 			SendMsg(new AudioMusicMsg("speed"));
+			
+			AudioManager.StopVoice();
 		}
 
 		private void StartGame()

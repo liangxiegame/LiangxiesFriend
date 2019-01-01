@@ -5,9 +5,8 @@
  ****************************************************************************/
 
 using System.Collections;
-using System.Collections.Generic;
+using MoreMountains.CorgiEngine;
 using QFramework;
-using UniRx;
 using UnityEngine;
 
 namespace IndieGame
@@ -16,23 +15,28 @@ namespace IndieGame
 	{
 		private IEnumerator Start()
 		{
-			yield return new WaitForSeconds(0.5f);	
+			if (!GameData.HardModeUnlocked)
+			{
+				yield break;
+			}
 			
-			var cameraObj = GameObject.Find("UICamera");
+			// 隐藏掉 player 的火箭的值
+			GameObject hudObj = null;
+			
+			yield return new WaitUntil(()=> hudObj = GameObject.Find("HUD"));
 
-			Transform canvasTrans = null;
+			hudObj.Hide();
+			
+			
+			// 禁用掉 Player 的火箭
+			GameObject playerObj = null;
+			yield return new WaitUntil(() => playerObj = GameObject.Find("player"));
 
-			yield return new WaitUntil(() => canvasTrans = cameraObj.transform.Find("Canvas"));
+			var characterJetpack = playerObj.GetComponent<CharacterJetpack>();
 
-			Transform hudTrans = null;
+			characterJetpack.AbilityPermitted = false;
 
-			yield return new WaitUntil(() => hudTrans = canvasTrans.Find("HUD"));
 
-			hudTrans.Show();
-			hudTrans.Find("JetpackBar").Show();
-			hudTrans.Find("HealthBar").Hide();
-			hudTrans.Find("AvatarBackground").Hide();
-			hudTrans.Find("AvatarHead").Hide();
 		}
 	}
 }
