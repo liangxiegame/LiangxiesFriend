@@ -21,7 +21,8 @@ namespace IndieGame
 		{
 			get
 			{
-				var curLevelIndex = LevelConfig.CurrentLevelIndex(GameData.CurLevelName);
+				var curLevelIndex =
+					LevelConfig.CurrentLevelIndex(GameData.HardModeUnlocked ? "Level24" : GameData.CurLevelName);
 
 				var unlockedLevelNames = LevelConfig.LevelNamesOrder.GetRange(0, curLevelIndex + 1);
 

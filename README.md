@@ -21,11 +21,8 @@
 ## 开发环境
 
 * Unity 2017.3(GameEngine)
-
 * Mac/Windows(OS)
-
 * [CorgiEngine v5.1(Only  Need Import Assets/CorgiEngien folder)](https://assetstore.unity.com/packages/templates/systems/corgi-engine-2d-2-5d-platformer-26617)
-
 * [QFramework (include)](https://github.com/liangxiegame/QFramework)
 
 
@@ -72,6 +69,9 @@ http://www.sikiedu.com/course/327
 - [x] 每 5 个关卡，换一次音乐，和一次背景。
 - [x] 每 5 个关卡，加上一些特效。
 - [x] 下雨的声音要找一下。
+- [x] 特效位置 是不是要 放到中间？
+- [x] 旗的位置太暗了，看不清。
+- [x] 为什么 我通关了，会把记录都给删掉了。。。
 
 ## 规划 Roadmap
 
@@ -250,12 +250,18 @@ http://www.sikiedu.com/course/327
 ## Idea/想法
 
 - 时间越少越厉害
-- 第五关和第六关太难了。
 - 目的：为了让玩家看到地图全貌
   - 小地图
   - 一个快捷键可以让摄像机距离边远。
 - 角色和关卡物体都是用的插件的。
 - 学习美术插件。
+
+## 反馈/建议
+
+* 冲刺 和 火箭  可能需要在通关到指定关卡之前 功能给禁掉，如果之前 就知道了这个功能 可能会就一直用这个功能，那么前几关 就没啥意义了。
+* 这种跳台，可能需要对应 每一种场景 更换颜色 或者造型。 
+* 比如 雪场景 换成 雪梯  ，  水场景 换成木头 巴拉巴拉的
+* 像素颗粒度大小 可能需要调整一下。
 
 
 
@@ -295,6 +301,16 @@ http://www.sikiedu.com/course/327
 2. 不断玩。
 3. 玩的过程中完善。
 4. 重复 2 ~ 4。
+
+
+
+# 5. 运营/推广
+
+* QQ 群/公众号 ( 留住用户)
+* 微博/知乎 (推广宣传)
+* 托管 (百度网盘)
+* itch.io/steam 有游戏主页。
+* 摩点众筹（融资平台）。
 
 
 
