@@ -181,9 +181,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'W : UP
 
-    A :  Move Left
+    A : Move Left
 
-    S :  Down
+    S : Down
 
     D : Move Right
 
@@ -193,7 +193,7 @@ MonoBehaviour:
 
     K : Dash
 
-    Ctrl : Flight Vehicle
+    L : Jetpack
 
     ESC : Pause
 

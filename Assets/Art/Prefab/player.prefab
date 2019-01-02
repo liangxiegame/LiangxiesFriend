@@ -3916,7 +3916,7 @@ MonoBehaviour:
   AbilityInProgressSfx: {fileID: 0}
   AbilityStopSfx: {fileID: 0}
   AbilityPermitted: 1
-  InitialWeapon: {fileID: 114000010078180980, guid: c061427043f064e3e8034c5f6499c9e6,
+  InitialWeapon: {fileID: 114000010078180980, guid: ab54e075f5f15424a8ec8e707712d8a2,
     type: 2}
   WeaponAttachment: {fileID: 0}
   CanPickupWeapons: 0

@@ -10,13 +10,13 @@
 
 * https://github.com/liangxiegame/LiangxiesFriend/releases
 
+## 运行环境
 
+* Mac/Windows
 
 ## 开发教程:
 
 * http://www.sikiedu.com/course/327
-
-
 
 ## 开发环境
 
@@ -29,29 +29,19 @@
 * [QFramework (include)](https://github.com/liangxiegame/QFramework)
 
 
-
-
 ## 交流
 
 QQ 群 ：746260877
-
-
 
 ## 一个人如何做个游戏
 
 http://www.sikiedu.com/course/327
 
-
-
 ## 名字
 
 凉鞋的朋友们 1
 
-
-
 # 2. 任务
-
-
 
 ## 要做的事情
 
@@ -85,16 +75,16 @@ http://www.sikiedu.com/course/327
 
 ## 规划 Roadmap
 
-### 第一章(20 课时) v0.0.1 MVP
+### 第一章（20 课时）v0.0.1 MVP
 
 - [x] 可玩的版本 MVP(最小可验证版本)
 
-### 第二章(20 课时) v0.0.2 
+### 第二章（20 课时）v0.0.2 
 
 - [x] 做到 10 个关卡。
 - [x] 死亡次数判定。
 
-### 第三章(20 课时) v0.0.3
+### 第三章（20 课时）v0.0.3
 
 - [x] 做到 15 个关卡，做的过程中考虑新的玩家能力。
 
@@ -102,7 +92,7 @@ http://www.sikiedu.com/course/327
   - 在空中可以通过左右移动进行细微的调整。
 - [x] 完善剧情的叙事部分。
 
-### 第四章(20 课时) v0.0.4
+### 第四章（20 课时）v0.0.4
 
 - [x] [按键提示](https://www.processon.com/view/link/5c1275bce4b00a4d62364074)。
 - [x] [关于界面](https://www.processon.com/view/link/5c132ed2e4b0e651c724972c)。
@@ -123,7 +113,7 @@ http://www.sikiedu.com/course/327
 - [x] 关卡的美术没有切换完全。
 - [x] 增加 5 个关卡。
 
-### 第六章 （20 课时） v0.0.6
+### 第六章（20 课时）v0.0.6
 
 - [x] UIStory Next 要右下角对齐。
 - [x] Keyboard Help 左上角对齐。
@@ -135,7 +125,7 @@ http://www.sikiedu.com/course/327
 - [x] 角色的美术统一风格。
 - [x] 增加 4 个关卡。（主要是使用冲刺） 
 
-### 第七章 （20 课时）v0.0.7
+### 第七章（20 课时）v0.0.7
 
 - [x] Level Choose 关卡选择。
 - [x] 进度记录。
@@ -145,7 +135,7 @@ http://www.sikiedu.com/course/327
 - [x] 火箭的能量值显示。
 - [x] 成就系统，研究它的使用。
 
-### 第八章 （20 课时) v0.0.8
+### 第八章（20 课时）v0.0.8
 
 - [x] 下的时候 狐狸出来了。
 - [x] 通关音效 较其他音效 声音很大。
@@ -154,7 +144,7 @@ http://www.sikiedu.com/course/327
 - [x] LevelFinished 页面（通关的页面，训练模式下）。
 - [x] Death Count 要记录一下。
 
-### 第九章 （20 课时）v0.0.9
+### 第九章（20 课时）v0.0.9
 
 - [x] 当通关之后，Deatch Count 为 0 时触发第二种模式。
 - [x] 第二种模式，是没有飞行器的模式。
@@ -163,8 +153,8 @@ http://www.sikiedu.com/course/327
 - [x] 雪的特效应该有移动。
 - [x] 雨的声音，回到主界面应该停止播放。
 - [x] 第一关的曝光过度。
-- [ ] 如何推销自己的游戏。
-- [ ] 重置游戏进度的功能。
+- [x] 重置游戏进度的功能。
+- [x] 如何推销自己的游戏。
 
 # 3. 游戏设计
 
@@ -289,8 +279,6 @@ http://www.sikiedu.com/course/327
   * 重玩
   * 生命数量减掉 1 
 * 成就感
-
-
 
 
 ## 游戏制作流程

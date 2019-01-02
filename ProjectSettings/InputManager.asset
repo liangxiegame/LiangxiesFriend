@@ -665,7 +665,7 @@ InputManager:
     m_Name: Player1_Jetpack
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: l
     positiveButton: left ctrl
     altNegativeButton: 
     altPositiveButton: joystick 1 button 1
