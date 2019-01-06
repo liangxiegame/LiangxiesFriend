@@ -90,7 +90,7 @@ namespace Qframework
 		// window
 		[SerializeField] static PixelKit window;
 
-		[MenuItem ("QFramework/Pixel Kit")]
+		[MenuItem ("QFramework/Pixel Kit/Simple Version")]
 		static void Init () {
 			window = (PixelKit)EditorWindow.GetWindow (typeof (PixelKit));
 			window.titleContent= new GUIContent(appName);

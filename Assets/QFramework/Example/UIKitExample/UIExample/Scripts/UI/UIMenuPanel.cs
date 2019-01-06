@@ -23,6 +23,8 @@
  * THE SOFTWARE.
  ****************************************************************************/
 
+using UniRx;
+
 namespace QFramework.UIExample
 {
 	public class UIMenuPanelData : IUIData
@@ -35,6 +37,8 @@ namespace QFramework.UIExample
 		protected override void InitUI(IUIData uiData = null)
 		{
 			ImageBg.color = "#FFFFFFFF".HtmlStringToColor();
+
+			Observable.NextFrame().Subscribe(_ => { UIMgr.GetPanel<UIMenuPanel>().LogInfo(); });
 		}
 
 		protected override void ProcessMsg(int eventId, QMsg msg)
