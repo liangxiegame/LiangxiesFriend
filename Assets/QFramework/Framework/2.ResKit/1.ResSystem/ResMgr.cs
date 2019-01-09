@@ -65,7 +65,7 @@ namespace QFramework
 		public void InitResMgr()
         {   
 #if UNITY_EDITOR
-            if (AbstractRes.SimulateAssetBundleInEditor)
+            if (Res.SimulateAssetBundleInEditor)
             {
                 EditorRuntimeAssetDataCollector.BuildDataTable();
             }
@@ -102,38 +102,11 @@ namespace QFramework
             TryStartNextIEnumeratorTask();
         }
 
-        public IRes GetRes(string ownerBundleName, string assetName, bool createNew = false)
+
+        public IRes GetRes(ResSearchRule resSearchRule, bool createNew = false)
         {
             IRes res = null;
-
-            if (mResDictionary.TryGetValue((ownerBundleName + assetName).ToLower(), out res))
-            {
-                return res;
-            }
-
-            if (!createNew)
-            {
-                return null;
-            }
-
-            res = ResFactory.Create(assetName, ownerBundleName);
-
-            if (res != null)
-            {
-                mResDictionary.Add((ownerBundleName + assetName).ToLower(), res);
-                
-                if (!mResList.Contains(res))
-                {
-                    mResList.Add(res);
-                }
-            }
-            return res;
-        }
-
-        public IRes GetRes(string assetName, bool createNew = false)
-        {
-            IRes res = null;
-            if (mResDictionary.TryGetValue(assetName, out res))
+            if (mResDictionary.TryGetValue(resSearchRule.DictionaryKey, out res))
             {
                 return res;
             }
@@ -144,11 +117,11 @@ namespace QFramework
                 return null;
             }
 
-            res = ResFactory.Create(assetName);
+            res = ResFactory.Create(resSearchRule);
 
             if (res != null)
             {
-                mResDictionary.Add(assetName, res);
+                mResDictionary.Add(resSearchRule.DictionaryKey, res);
                 if (!mResList.Contains(res))
                 {
                     mResList.Add(res);
@@ -224,9 +197,7 @@ namespace QFramework
                 
                 mResList.ForEach(res =>
                 {
-                    GUILayout.Label("bundleName:{0} assetName:{1} refCount:{2}".FillFormat(res.OwnerBundleName,
-                        res.AssetName,
-                        res.RefCount));
+                    GUILayout.Label((res as Res).ToString());
                 });
                 
                 GUILayout.EndVertical();

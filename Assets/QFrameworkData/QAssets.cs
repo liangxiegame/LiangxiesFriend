@@ -47,6 +47,11 @@ namespace QAssetBundle
         public const string BundleName = "SPRITEATLAS_SPRITEATLAS";
         public const string SPRITEATLAS = "SPRITEATLAS";
     }
+    public class Testimage_png
+    {
+        public const string BundleName = "TESTIMAGE_PNG";
+        public const string TESTIMAGE = "TESTIMAGE";
+    }
     public class Uiaboutpanel_prefab
     {
         public const string BundleName = "UIABOUTPANEL_PREFAB";
