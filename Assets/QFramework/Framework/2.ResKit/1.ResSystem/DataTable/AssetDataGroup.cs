@@ -33,6 +33,19 @@ namespace QFramework
 {
     public class AssetDataGroup
     {
+        public IEnumerable<AssetData> AssetDatas
+        {
+            get { return mAssetDataMap.Values; }
+        }
+
+        public IEnumerable<ABUnit> AssetBundleDatas
+        {
+            get
+            {
+                return mABUnitArray;
+            }
+        }
+
         /// <summary>
         /// 代表依赖关系的类
         /// </summary>
@@ -116,7 +129,7 @@ namespace QFramework
         public AssetDataGroup(SerializeData data)
         {
             m_Key = data.key;
-            SetSerizlizeData(data);
+            SetSerializeData(data);
         }
 
         public void Reset()
@@ -144,7 +157,9 @@ namespace QFramework
                 mABUnitArray = new List<ABUnit>();
             }
 
-            AssetData config = GetAssetData(ResSearchRule.Allocate(name));
+            var resSearchRule = ResSearchRule.Allocate(name);
+            AssetData config = GetAssetData(resSearchRule);
+            resSearchRule.Recycle2Cache();
 
             if (config != null)
             {
@@ -185,7 +200,11 @@ namespace QFramework
 
         public ABUnit GetABUnit(string assetName)
         {
-            AssetData data = GetAssetData(ResSearchRule.Allocate(assetName));
+            var resSearchRule = ResSearchRule.Allocate(assetName);
+            
+            AssetData data = GetAssetData(resSearchRule);
+            
+            resSearchRule.Recycle2Cache();
 
             if (data == null)
             {
@@ -249,7 +268,9 @@ namespace QFramework
 
             if (mAssetDataMap.ContainsKey(key))
             {
-                var old = GetAssetData(ResSearchRule.Allocate(data.AssetName));
+                var resSearchRule = ResSearchRule.Allocate(data.AssetName);
+                var old = GetAssetData(resSearchRule);
+                resSearchRule.Recycle2Cache();
 
                 try
                 {
@@ -268,7 +289,9 @@ namespace QFramework
 
             if (mUUID4AssetData.ContainsKey(data.UUID))
             {
-                AssetData old = GetAssetData(ResSearchRule.Allocate(data.AssetName,data.OwnerBundleName));
+                var resSearchRule = ResSearchRule.Allocate(data.AssetName, data.OwnerBundleName);
+                AssetData old = GetAssetData(resSearchRule);
+                resSearchRule.Recycle2Cache();
 
                 Log.E("Already Add AssetData :{0} \n OldAB:{1}      NewAB:{2}", data.UUID,
                     mABUnitArray[old.AssetBundleIndex].abName, mABUnitArray[data.AssetBundleIndex].abName);
@@ -302,7 +325,7 @@ namespace QFramework
         }
 
 
-        private void SetSerizlizeData(SerializeData data)
+        private void SetSerializeData(SerializeData data)
         {
             if (data == null)
             {

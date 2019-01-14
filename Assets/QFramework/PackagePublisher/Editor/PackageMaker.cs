@@ -1,5 +1,5 @@
 ﻿/****************************************************************************
- * Copyright (c) 2018.8 ~ 12 liangxie
+ * Copyright (c) 2018.8 ~ 2019.1 liangxie
  * 
  * http://qframework.io
  * https://github.com/liangxiegame/QFramework
@@ -107,6 +107,8 @@ namespace QFramework
 
 			var mInstance = (PackageMaker) GetWindow(typeof(PackageMaker), true);
 
+			mInstance.titleContent = new GUIContent(selectObject[0].name);
+			
 			mInstance.position = new Rect(Screen.width / 2, Screen.height / 2, 258, 500);
 
 			mInstance.Show();
@@ -294,8 +296,8 @@ namespace QFramework
 					}
 
 					mPackageVersion.Version = mVersionText;
-					mPackageVersion.Readme = new ReleaseItem(mVersionText, mReleaseNote, SystemInfo.deviceName,
-						DateTime.Now.ToString("yyyy-MM-dd"));
+					mPackageVersion.Readme = new ReleaseItem(mVersionText, mReleaseNote, User.Username.Value,
+						DateTime.Now);
 
 					mPackageVersion.Save();
 

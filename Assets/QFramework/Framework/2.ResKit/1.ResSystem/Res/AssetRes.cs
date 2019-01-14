@@ -260,7 +260,9 @@ namespace QFramework
 		{
 			mAssetBundleArray = null;
 
-			var config = ResDatas.Instance.GetAssetData(ResSearchRule.Allocate(mAssetName, mOwnerBundleName));
+			var resSearchRule = ResSearchRule.Allocate(mAssetName, mOwnerBundleName);
+			var config = ResDatas.Instance.GetAssetData(resSearchRule);
+			resSearchRule.Recycle2Cache();
 
 			if (config == null)
 			{
@@ -273,7 +275,7 @@ namespace QFramework
 
 			if (string.IsNullOrEmpty(assetBundleName))
 			{
-				Log.E("Not Find AssetBundle In Config:" + config.AssetBundleIndex);
+				Log.E("Not Find AssetBundle In Config:" + config.AssetBundleIndex + mOwnerBundleName);
 				return;
 			}
 

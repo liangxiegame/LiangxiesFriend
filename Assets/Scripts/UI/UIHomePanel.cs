@@ -21,6 +21,8 @@ namespace IndieGame
 
 	public partial class UIHomePanel : UIPanel
 	{
+
+
 		protected override void InitUI(IUIData uiData = null)
 		{
 			mData = uiData as UIHomePanelData ?? new UIHomePanelData();
@@ -128,6 +130,11 @@ namespace IndieGame
 
 					BtnReset.Hide();
 				});
+		}
+		
+		protected override void OnClose()
+		{
+			
 		}
 	}
 }

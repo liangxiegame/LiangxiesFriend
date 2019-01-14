@@ -190,8 +190,6 @@ namespace IndieGame
 
 		protected override void OnClose()
 		{
-			base.OnClose();
-
 			this.MMEventStopListening<CorgiEngineEvent> ();
 
 			SceneManager.sceneLoaded -= OnSceneLoaded;

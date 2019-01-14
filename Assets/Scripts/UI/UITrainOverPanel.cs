@@ -79,7 +79,6 @@ namespace IndieGame
 
 		protected override void OnClose()
 		{
-			base.OnClose();
 		}
 
 		void ShowLog(string content)

@@ -1,16 +1,16 @@
 {
-  "Version": "v0.0.2",
+  "Version": "v0.0.4",
   "Type": 3,
   "AccessRight": 1,
   "DownloadUrl": null,
   "InstallPath": "Assets/QFramework/PackagePublisher/",
   "Readme": {
-    "version": "v0.0.2",
-    "content": "test upade",
-    "author": "凉鞋的MacBook Pro (2)",
-    "date": "2018-12-30"
+    "version": "v0.0.4",
+    "content": "add windows name",
+    "author": "liangxie",
+    "date": "2019 年 01 月 11 日 19:49"
   },
   "Name": "PackagePublisher",
-  "VersionNumber": 2,
-  "FileName": "PackagePublisher_v0.0.2.unitypackage"
+  "VersionNumber": 4,
+  "FileName": "PackagePublisher_v0.0.4.unitypackage"
 }

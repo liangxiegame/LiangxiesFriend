@@ -1,6 +1,5 @@
 /****************************************************************************
- * Copyright (c) 2017 xiaojun
- * Copyright (c) 2017 ~ 2018.7  liangxie
+ * Copyright (c) 2019.1 liangxie
  * 
  * http://qframework.io
  * https://github.com/liangxiegame/QFramework
@@ -24,27 +23,15 @@
  * THE SOFTWARE.
  ****************************************************************************/
 
-namespace QFramework 
+namespace QFramework
 {
-	using UnityEngine;
-
-	/// <summary>
-	/// IUIPanel.
-	/// </summary>
-	public interface IPanel
-	{
-		Transform Transform { get; }
-		
-		UIPanelInfo PanelInfo { get; set; }
-
-		void Init(IUIData uiData = null);
-
-		void Open(IUIData uiData = null);
-
-		void Show();
-
-		void Hide();
-		
-		void Close(bool destroy = true);
-	}
+    public class ResKit
+    {
+        public static void Init()
+        {
+            ResMgr.Init();
+            
+            
+        }
+    }
 }
