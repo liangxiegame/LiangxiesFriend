@@ -62,22 +62,14 @@ namespace IndieGame
 			{
 				CloseSelf ();
 
+				
+				UnityEngine.Random.InitState(DateTime.Now.Millisecond);
+				GameData.StoryIndex = UnityEngine.Random.Range(0, 100) % StoryConfig.Stories.Count;
+				
+				
 				UIMgr.OpenPanel<UIStoryPanel>(new UIStoryPanelData()
 				{
-					StoryContent = @"这是一个关于友情的故事。
-
-主角有一个朋友 A，
-
-梦想是要去天空寻找传说中的宝藏。
-
-但是朋友 A 在一次意外中去世了。
-
-在临死前主角答应 A 替 A 完成梦想，
-
-在 A 的葬礼之后，主角开始履行承诺。
-
-踏上了上天之路。
-",
+					
 					OnStoryFinish = storyPanel =>
 					{
 						storyPanel.DoTransition<UIGamePanel>(new FadeInOut(), uiData: new UIGamePanelData()

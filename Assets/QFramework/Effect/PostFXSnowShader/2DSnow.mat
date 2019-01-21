@@ -56,8 +56,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - LAYERS: 10
-    - OffsetX: 2.0207415
-    - OffsetY: 9.740509
+    - OffsetX: 1.9613752
+    - OffsetY: 9.950573
     - SIZE_RATE: 0.1
     - XSPEED: 0.2
     - YSPEED: 1

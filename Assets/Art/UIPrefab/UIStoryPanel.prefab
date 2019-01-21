@@ -100,7 +100,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: ef560eda774eb485496b02d58bc6796c, type: 3}
-    m_FontSize: 45
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -108,13 +108,13 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: "\u8FD9\u662F\u4E00\u4E2A\u5173\u4E8E\u53CB\u60C5\u7684\u6545\u4E8B\u3002\n\n\u4E3B\u89D2\u6709\u4E00\u4E2A\u670B\u53CB
-    A\uFF0C\n\n\u68A6\u60F3\u662F\u8981\u53BB\u5929\u7A7A\u5BFB\u627E\u4F20\u8BF4\u4E2D\u7684\u5B9D\u85CF\u3002\n\n\u4F46\u662F\u670B\u53CB
-    A \u5728\u4E00\u6B21\u610F\u5916\u4E2D\u53BB\u4E16\u4E86\u3002\n\n\u5728\u4E34\u6B7B\u524D\u4E3B\u89D2\u7B54\u5E94
-    A \u66FF A \u5B8C\u6210\u68A6\u60F3\uFF0C\n\n\u5728 A \u7684\u846C\u793C\u4E4B\u540E\uFF0C\u4E3B\u89D2\u5F00\u59CB\u5C65\u884C\u627F\u8BFA\u3002\n\n\u8E0F\u4E0A\u4E86\u4E0A\u5929\u4E4B\u8DEF\u3002\n"
+    m_LineSpacing: 1.5
+  m_Text: "\u8FD9\u662F\u4E00\u4E2A\u5173\u4E8E\u53CB\u60C5\u7684\u6545\u4E8B\u3002\n\u4E3B\u89D2\u6709\u4E00\u4E2A\u670B\u53CB
+    A\uFF0C\n\u68A6\u60F3\u662F\u8981\u53BB\u5929\u7A7A\u5BFB\u627E\u4F20\u8BF4\u4E2D\u7684\u5B9D\u85CF\u3002\n\u4F46\u662F\u670B\u53CB
+    A \u5728\u4E00\u6B21\u610F\u5916\u4E2D\u53BB\u4E16\u4E86\u3002\n\u5728\u4E34\u6B7B\u524D\u4E3B\u89D2\u7B54\u5E94
+    A \u66FF A \u5B8C\u6210\u68A6\u60F3\uFF0C\n\u5728 A \u7684\u846C\u793C\u4E4B\u540E\uFF0C\u4E3B\u89D2\u5F00\u59CB\u5C65\u884C\u627F\u8BFA\u3002\n\u8E0F\u4E0A\u4E86\u4E0A\u5929\u4E4B\u8DEF\u3002"
 --- !u!114 &114243635436249560
 MonoBehaviour:
   m_ObjectHideFlags: 1

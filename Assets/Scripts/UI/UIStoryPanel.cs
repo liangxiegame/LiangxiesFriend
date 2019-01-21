@@ -1,5 +1,5 @@
 /****************************************************************************
- * 2018.12 liangxie
+ * 2018.12 ~ 2019.1 liangxie
  * 
  * 教程地址:http://www.sikiedu.com/course/327
  ****************************************************************************/
@@ -7,25 +7,46 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using QFramework;
 using DG.Tweening;
 using UniRx;
+using Random = UnityEngine.Random;
 
 namespace IndieGame
 {
 	public class UIStoryPanelData : UIPanelData
 	{
-		public string StoryContent = @"主角终于找到了传说中的宝藏，
+		public bool IsEnd = false;
 
-实现了 A 的梦想。";
+		public int StoryIndex
+		{
+			get { return GameData.StoryIndex; }
+		}
 
 		public Action<UIStoryPanel> OnStoryFinish = storyPanel =>
 		{
-			storyPanel.DoTransition<UIGamePanel> (new FadeInOut (), uiData: new UIGamePanelData () {
+			storyPanel.DoTransition<UIGamePanel>(new FadeInOut(), uiData: new UIGamePanelData()
+			{
 				InitLevelName = "Level1"
 			});
 		};
+
+		public int StoryItemIndex { get; set; }
+
+		public string StoryText
+		{
+			get { return StoryItems[StoryItemIndex]; }
+		}
+
+		private List<string> StoryItems
+		{
+			get { return IsEnd ? StoryConfig.StorySummary[StoryIndex] : StoryConfig.Stories[StoryIndex]; }
+		}
+
+		public bool StoryFinished
+		{
+			get { return StoryItemIndex >= StoryItems.Count; }
+		}
 	}
 
 	public partial class UIStoryPanel : UIPanel
@@ -39,8 +60,25 @@ namespace IndieGame
 			
 			BtnNext.Hide();
 
+			PlayStoryItem();
+		}
+
+		private IDisposable mPlayStoryItemTask;
+
+		private void PlayStoryItem()
+		{
+			if (mPlayStoryItemTask != null)
+			{
+				mPlayStoryItemTask.Dispose();
+				mPlayStoryItemTask = null;
+			}
+
+			Content.DOKill();
+
 			Content.text = string.Empty;
-			Content.DOText(mData.StoryContent, 10.0f / 128 * mData.StoryContent.Length)
+			var storyItemText = mData.StoryText;
+
+			Content.DOText(storyItemText, 10.0f / 128 * storyItemText.Length)
 				.OnComplete(() => { BtnNext.Show(); });
 
 			// 监听鼠标点击事件
@@ -49,24 +87,37 @@ namespace IndieGame
 					Input.anyKeyDown)
 				.Do(_ =>
 				{
+					if (mData.StoryFinished) return;
+					
 					Content.DOKill();
-					Content.text = mData.StoryContent;
+					Content.text = mData.StoryText;
 					BtnNext.Show();
 				});
 
 			var nextObservable = Observable.EveryUpdate()
 				.Where(_ => Input.GetKeyDown(KeyCode.Space))
-				.Do(_ => { GotoNextPanel(); });
+				.Do(_ => { Next(); });
 
 
-			skipObservable.SelectMany(nextObservable)
-				.Subscribe(_ => { }).AddTo(this);
+			mPlayStoryItemTask = skipObservable.SelectMany(nextObservable)
+				.Subscribe(_ => { mPlayStoryItemTask = null; }).AddTo(this);
 		}
 
-		void GotoNextPanel()
+		void Next()
 		{
 			SendMsg(new AudioSoundMsg("Click"));
-			mData.OnStoryFinish.InvokeGracefully(this);
+
+			mData.StoryItemIndex++;
+			
+			if (mData.StoryFinished)
+			{
+				BtnNext.Hide();
+				mData.OnStoryFinish.InvokeGracefully(this);
+			}
+			else
+			{
+				PlayStoryItem();
+			}
 		}
 
 		protected override void ProcessMsg (int eventId,QMsg msg)
@@ -76,17 +127,7 @@ namespace IndieGame
 
 		protected override void RegisterUIEvent()
 		{
-			BtnNext.onClick.AddListener (GotoNextPanel);
-		}
-
-		protected override void OnShow()
-		{
-			base.OnShow();
-		}
-
-		protected override void OnHide()
-		{
-			base.OnHide();
+			BtnNext.onClick.AddListener (Next);
 		}
 
 		protected override void OnClose()

@@ -90,9 +90,8 @@ namespace IndieGame
 
 				UIMgr.OpenPanel<UIStoryPanel>(new UIStoryPanelData()
 				{
-					StoryContent = @"主角终于找到了传说中的宝藏，
-
-实现了 A 的梦想。",
+					IsEnd = true,
+					
 					OnStoryFinish = storyPanel =>
 					{
 						storyPanel.DoTransition<UIGameOverPanel>(new FadeInOut(), uiData: new UIGameOverPanelData());
